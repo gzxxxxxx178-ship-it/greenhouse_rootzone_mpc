@@ -1,0 +1,29 @@
+supervision:
+  name: trustworthy_supervision_v1
+  modes: [mpc, rule_fallback, safe_pause]
+  initial_mode: mpc
+  risk_high: 0.70
+  risk_recovery: 0.40
+  minimum_dwell_steps: 4
+  recovery_confirmation_steps: 6
+  transition_priority:
+    - critical_observation_or_execution
+    - mpc_unavailable_or_high_risk
+    - confirmed_recovery
+  threshold_status: provisional_normalized_thresholds_require_development_calibration
+
+signal_contract:
+  observation_risk:
+    range: [0.0, 1.0]
+    intended_components: [freshness, range, rate_of_change, redundancy_if_available]
+  model_risk:
+    range: [0.0, 1.0]
+    intended_components: [one_step_residual_ewma, prediction_interval_exceedance]
+  execution_risk:
+    range: [0.0, 1.0]
+    intended_components: [flow_deficit, valve_feedback_conflict, stale_acknowledgement]
+  discrete_flags:
+    - observation_valid
+    - solver_success
+    - actuator_available
+    - feedback_consistent
