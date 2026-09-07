@@ -1,0 +1,26 @@
+confirmation:
+  name: supervision_confirmation_v1
+  split: locked_evaluation
+  expected_scenario_count: 120
+  methods: [base_mpc, fixed_fallback, trustworthy_supervision]
+  event_followup_steps: 48
+  bootstrap_resamples: 20000
+  bootstrap_seed: 93019
+  tie_tolerance_event_deficit: 0.000001
+  success_gate:
+    minimum_improved_anomaly_types: 2
+    maximum_adverse_anomaly_types: 2
+    normal_non_mpc_fraction_max: 0.10
+    require_no_extra_safety_violation: true
+  evidence_boundary: model_simulation_and_software_fault_injection_only
+
+method_contract:
+  base_mpc:
+    solver_failure_behavior: hold_last_command
+    missing_observation_behavior: hold_last_observation
+  fixed_fallback:
+    fallback_inputs: [observation_valid, solver_success, feedback_consistent]
+    recovery_behavior: immediate_when_discrete_flags_clear
+  trustworthy_supervision:
+    fallback_inputs: [observation_risk, model_risk, execution_risk, discrete_flags]
+    recovery_behavior: hysteresis_dwell_and_confirmation

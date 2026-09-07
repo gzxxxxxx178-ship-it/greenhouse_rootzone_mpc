@@ -1,0 +1,175 @@
+{
+  "confirmation_name": "supervision_confirmation_v1",
+  "classification": "PARTIAL_MECHANISM_VALUE_WITH_BOUNDARIES",
+  "scenario_count": 120,
+  "method_runs": 360,
+  "overall_trustworthy_minus_base": {
+    "event_deficit_integral": {
+      "paired_median": 0.0,
+      "paired_p90": 0.21659254496385383,
+      "ci95_lower": 0.0,
+      "ci95_upper": 0.0012348595904101978,
+      "improved_ratio": 0.225,
+      "equal_ratio": 0.3,
+      "adverse_ratio": 0.475
+    },
+    "deficit_integral": {
+      "paired_median": 0.001475795378253153,
+      "paired_p90": 0.2172808167436487,
+      "ci95_lower": 0.0,
+      "ci95_upper": 0.008402634932343389,
+      "improved_ratio": 0.30833333333333335,
+      "equal_ratio": 0.15,
+      "adverse_ratio": 0.5416666666666666
+    },
+    "irrigation_command_total_mm": {
+      "paired_median": 0.0,
+      "paired_p90": 4.0,
+      "ci95_lower": 0.0,
+      "ci95_upper": 0.0,
+      "improved_ratio": 0.225,
+      "equal_ratio": 0.5833333333333334,
+      "adverse_ratio": 0.19166666666666668
+    }
+  },
+  "diagnostics": {
+    "improved_anomaly_types": 1,
+    "adverse_anomaly_types": 6,
+    "normal_non_mpc_fraction_median": 0.04464285714285715,
+    "trustworthy_safety_violation_scenarios": 0,
+    "base_mpc_safety_violation_scenarios": 1,
+    "no_extra_safety_violation": true,
+    "success_gate_passed": false
+  },
+  "operational_by_anomaly_type": [
+    {
+      "anomaly_type": "drainage_shift",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 21.5,
+      "median_recovery_delay_steps": 0.0,
+      "median_non_mpc_fraction": 0.03720238095238099,
+      "median_rule_fallback_fraction": 0.03720238095238095,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 3.0
+    },
+    {
+      "anomaly_type": "feedback_conflict",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 0.0,
+      "median_recovery_delay_steps": 16.5,
+      "median_non_mpc_fraction": 0.10119047619047616,
+      "median_rule_fallback_fraction": 0.03571428571428571,
+      "median_safe_pause_fraction": 0.05357142857142857,
+      "median_transition_count": 5.0
+    },
+    {
+      "anomaly_type": "flow_decay",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 2.5,
+      "median_recovery_delay_steps": 11.5,
+      "median_non_mpc_fraction": 0.18601190476190477,
+      "median_rule_fallback_fraction": 0.05803571428571429,
+      "median_safe_pause_fraction": 0.125,
+      "median_transition_count": 15.0
+    },
+    {
+      "anomaly_type": "forecast_underprediction",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 28.0,
+      "median_recovery_delay_steps": 0.0,
+      "median_non_mpc_fraction": 0.0625,
+      "median_rule_fallback_fraction": 0.04464285714285714,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 5.5
+    },
+    {
+      "anomaly_type": "normal",
+      "scenario_count": 10,
+      "median_detection_delay_steps": null,
+      "median_recovery_delay_steps": null,
+      "median_non_mpc_fraction": 0.04464285714285715,
+      "median_rule_fallback_fraction": 0.03571428571428571,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 4.5
+    },
+    {
+      "anomaly_type": "root_depth_shift",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 4.0,
+      "median_recovery_delay_steps": 0.0,
+      "median_non_mpc_fraction": 0.1547619047619047,
+      "median_rule_fallback_fraction": 0.14136904761904762,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 12.5
+    },
+    {
+      "anomaly_type": "sensor_bias",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 0.0,
+      "median_recovery_delay_steps": 14.0,
+      "median_non_mpc_fraction": 0.1517857142857143,
+      "median_rule_fallback_fraction": 0.1517857142857143,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 11.0
+    },
+    {
+      "anomaly_type": "sensor_drift",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 48.0,
+      "median_recovery_delay_steps": 13.5,
+      "median_non_mpc_fraction": 0.09226190476190477,
+      "median_rule_fallback_fraction": 0.09226190476190477,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 7.0
+    },
+    {
+      "anomaly_type": "sensor_missing",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 0.0,
+      "median_recovery_delay_steps": 19.5,
+      "median_non_mpc_fraction": 0.21875,
+      "median_rule_fallback_fraction": 0.09821428571428571,
+      "median_safe_pause_fraction": 0.10714285714285714,
+      "median_transition_count": 10.5
+    },
+    {
+      "anomaly_type": "sensor_spike",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 0.0,
+      "median_recovery_delay_steps": 18.5,
+      "median_non_mpc_fraction": 0.2410714285714286,
+      "median_rule_fallback_fraction": 0.23214285714285715,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 14.5
+    },
+    {
+      "anomaly_type": "solver_failure",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 0.0,
+      "median_recovery_delay_steps": 5.0,
+      "median_non_mpc_fraction": 0.12202380952380953,
+      "median_rule_fallback_fraction": 0.09523809523809523,
+      "median_safe_pause_fraction": 0.0,
+      "median_transition_count": 8.5
+    },
+    {
+      "anomaly_type": "valve_stuck",
+      "scenario_count": 10,
+      "median_detection_delay_steps": 3.0,
+      "median_recovery_delay_steps": 14.0,
+      "median_non_mpc_fraction": 0.23660714285714285,
+      "median_rule_fallback_fraction": 0.11011904761904762,
+      "median_safe_pause_fraction": 0.13541666666666669,
+      "median_transition_count": 19.0
+    }
+  ],
+  "evidence_boundary": "model_simulation_and_software_fault_injection_only",
+  "hashes": {
+    "confirmation_config": "5ad4bb84397c7595288b43c27fe9896d620728ae1a7ac79a53452e68b7e73b0b",
+    "anomaly_config": "946129af2ab4ad4042979bde2b90eaa5bb52780567373fa91285305c55738191",
+    "anomaly_manifest": "1800e7c2551d7d7e9b1f7009473cf99d688c79b2c13b94b2ce4baaddf15809d5",
+    "frozen_controller": "4b8ae34f7442c0dd250ab1670fb9b85159815cf4964829fbddd366ff6dc0421a",
+    "frozen_supervision": "0bf071c531d82b981e4f2de4ce2175696147cfbd0656c0da9b31ca6c39381b43",
+    "trustworthy_vs_base_pairs": "f16a7c9c83bcf2394c8b6a205df603aeebbae4e48bb701fb45b574eb39f7ce6a"
+  }
+}
