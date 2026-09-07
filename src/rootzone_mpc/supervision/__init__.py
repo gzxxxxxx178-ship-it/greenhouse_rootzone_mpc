@@ -5,6 +5,7 @@ from .supervisor import (
     SupervisorSignals,
     TrustworthySupervisor,
 )
+from .risk import OnlineRiskMonitor, RiskMonitorConfig, RiskScale
 
 __all__ = [
     "ControlMode",
@@ -12,4 +13,7 @@ __all__ = [
     "SupervisorDecision",
     "SupervisorSignals",
     "TrustworthySupervisor",
+    "OnlineRiskMonitor",
+    "RiskMonitorConfig",
+    "RiskScale",
 ]

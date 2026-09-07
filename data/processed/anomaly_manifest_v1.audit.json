@@ -1,0 +1,39 @@
+{
+  "row_count": 168,
+  "checks_passed": 4,
+  "split_counts": {
+    "development": 48,
+    "locked_evaluation": 120
+  },
+  "counts_by_split_and_type": {
+    "development/drainage_shift": 4,
+    "development/feedback_conflict": 4,
+    "development/flow_decay": 4,
+    "development/forecast_underprediction": 4,
+    "development/normal": 4,
+    "development/root_depth_shift": 4,
+    "development/sensor_bias": 4,
+    "development/sensor_drift": 4,
+    "development/sensor_missing": 4,
+    "development/sensor_spike": 4,
+    "development/solver_failure": 4,
+    "development/valve_stuck": 4,
+    "locked_evaluation/drainage_shift": 10,
+    "locked_evaluation/feedback_conflict": 10,
+    "locked_evaluation/flow_decay": 10,
+    "locked_evaluation/forecast_underprediction": 10,
+    "locked_evaluation/normal": 10,
+    "locked_evaluation/root_depth_shift": 10,
+    "locked_evaluation/sensor_bias": 10,
+    "locked_evaluation/sensor_drift": 10,
+    "locked_evaluation/sensor_missing": 10,
+    "locked_evaluation/sensor_spike": 10,
+    "locked_evaluation/solver_failure": 10,
+    "locked_evaluation/valve_stuck": 10
+  },
+  "design_name": "anomaly_design_v1",
+  "interpretation": "deterministic_stress_schedules_not_field_probabilities",
+  "config_sha256": "946129af2ab4ad4042979bde2b90eaa5bb52780567373fa91285305c55738191",
+  "base_manifest_sha256": "ae9618102a06dabd40e5a12f85c751c03ab0fe921f56f1fad254a85597641a20",
+  "anomaly_manifest_sha256": "1800e7c2551d7d7e9b1f7009473cf99d688c79b2c13b94b2ce4baaddf15809d5"
+}

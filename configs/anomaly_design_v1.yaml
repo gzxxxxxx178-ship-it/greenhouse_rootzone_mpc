@@ -1,0 +1,45 @@
+design:
+  name: anomaly_design_v1
+  development_assignment_seed: 51031
+  locked_assignment_seed: 91037
+  default_start_step: 120
+  default_duration_steps: 48
+  interpretation: deterministic_stress_schedules_not_field_probabilities
+
+anomaly_types:
+  - normal
+  - forecast_underprediction
+  - root_depth_shift
+  - drainage_shift
+  - sensor_bias
+  - sensor_drift
+  - sensor_missing
+  - sensor_spike
+  - flow_decay
+  - valve_stuck
+  - solver_failure
+  - feedback_conflict
+
+magnitudes:
+  forecast_underprediction_extra_bias: -0.25
+  root_depth_multiplier: 0.75
+  drainage_multiplier: 2.00
+  sensor_bias: 0.025
+  sensor_drift_final: 0.030
+  sensor_spike: 0.050
+  sensor_missing_duration_steps: 24
+  sensor_spike_duration_steps: 3
+  flow_delivery_multiplier: 0.60
+  valve_stuck_delivery_multiplier: 0.00
+  solver_failure_duration_steps: 12
+  feedback_conflict_duration_steps: 12
+
+risk_calibration:
+  source_split: development
+  source_condition: normal_operation_only
+  residual_ewma_alpha: 0.20
+  low_quantile: 0.95
+  high_quantile: 0.995
+  minimum_scale_width: 0.000001
+  simulated_flow_feedback_noise_std_fraction: 0.02
+  locked_evaluation_access_allowed: false

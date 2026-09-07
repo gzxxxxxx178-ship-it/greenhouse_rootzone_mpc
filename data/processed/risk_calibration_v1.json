@@ -1,0 +1,37 @@
+{
+  "development_scenarios_used": 48,
+  "locked_evaluation_scenarios_used": 0,
+  "normal_feature_rows": 16128,
+  "active_command_feature_rows": 1663,
+  "risk_scales": {
+    "observation_rate": {
+      "low": 0.005631037971489068,
+      "high": 0.008232584915886626,
+      "low_quantile": 0.95,
+      "high_quantile": 0.995,
+      "sample_count": 16128
+    },
+    "model_residual_ewma": {
+      "low": 0.001583516073071364,
+      "high": 0.0021342038284441448,
+      "low_quantile": 0.95,
+      "high_quantile": 0.995,
+      "sample_count": 16128
+    },
+    "execution_relative_error": {
+      "low": 0.03854941972912796,
+      "high": 0.05699094783670936,
+      "low_quantile": 0.95,
+      "high_quantile": 0.995,
+      "sample_count": 1663
+    }
+  },
+  "hashes": {
+    "anomaly_config": "18e53cf688037fc49c1c067939f2cd3b39195cf5f049c09903c2c1672eb02b49",
+    "tuning_config": "1157d4f2fbc28e559807443a49985e27a1ce2df61ad7ea644d45d921f19d237c",
+    "frozen_controller": "4b8ae34f7442c0dd250ab1670fb9b85159815cf4964829fbddd366ff6dc0421a",
+    "scenario_manifest": "ae9618102a06dabd40e5a12f85c751c03ab0fe921f56f1fad254a85597641a20",
+    "normal_features": "dfb03e5dbd8d5d93ccc535c2cfc36cd672ad427e98cebe593fb9f7dae1c0cfbc"
+  },
+  "evidence_boundary": "normal development simulations only"
+}
