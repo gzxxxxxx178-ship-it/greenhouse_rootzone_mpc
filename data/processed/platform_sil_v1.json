@@ -1,0 +1,28 @@
+{
+  "name": "platform_sil_v1",
+  "status": "passed",
+  "task_count": 3,
+  "total_steps": 1008,
+  "command_count": 1008,
+  "feedback_count": 1008,
+  "interlock_count": 154,
+  "mode_transition_count": 35,
+  "invariants": {
+    "one_command_per_step": true,
+    "one_feedback_per_command": true,
+    "no_orphan_records": true,
+    "safe_pause_commands_are_zero": true,
+    "mode_transitions_match_trace": true,
+    "versions_bound_to_every_task": true
+  },
+  "selected_anomaly_scenarios": [
+    "AE0001",
+    "AE0003",
+    "AE0002"
+  ],
+  "version_hashes": {
+    "controller": "4b8ae34f7442c0dd250ab1670fb9b85159815cf4964829fbddd366ff6dc0421a",
+    "supervision": "0bf071c531d82b981e4f2de4ce2175696147cfbd0656c0da9b31ca6c39381b43"
+  },
+  "evidence_boundary": "deterministic_software_in_the_loop_audit_only"
+}

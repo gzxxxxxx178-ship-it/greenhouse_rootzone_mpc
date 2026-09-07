@@ -1,0 +1,14 @@
+platform_sil:
+  name: platform_sil_v1
+  method: trustworthy_supervision
+  split: locked_evaluation
+  anomaly_types: [normal, solver_failure, valve_stuck]
+  scenarios_per_type: 1
+  required_invariants:
+    - one_command_per_step
+    - one_feedback_per_command
+    - no_orphan_records
+    - safe_pause_commands_are_zero
+    - mode_transitions_match_trace
+    - versions_bound_to_every_task
+  evidence_boundary: deterministic_software_in_the_loop_audit_only
