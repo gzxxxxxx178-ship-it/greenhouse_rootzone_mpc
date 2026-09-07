@@ -1,0 +1,19 @@
+platform_resilience_sil:
+  name: platform_resilience_sil_v1
+  command_timeout_ticks: 5
+  algorithm_config: configs/frozen_controller_v1.yaml
+  parameter_config: configs/frozen_supervision_v1.yaml
+  scenarios:
+    - duplicate_delivery
+    - out_of_order_delivery
+    - timeout_and_late_feedback
+    - process_crash_recovery
+  required_invariants:
+    - logical_feedback_applied_at_most_once
+    - applied_feedback_is_sequence_ordered
+    - late_feedback_never_applied
+    - timeout_gap_does_not_deadlock_later_feedback
+    - restart_preserves_pending_state
+    - every_task_has_version_hashes
+    - no_orphan_applied_feedback
+  evidence_boundary: deterministic_sqlite_message_semantics_software_in_the_loop_only

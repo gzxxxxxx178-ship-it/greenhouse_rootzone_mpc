@@ -1,0 +1,40 @@
+{
+  "name": "platform_resilience_sil_v1",
+  "status": "passed",
+  "scenario_count": 4,
+  "task_count": 4,
+  "command_count": 14,
+  "feedback_delivery_attempt_count": 16,
+  "persisted_feedback_message_count": 14,
+  "applied_feedback_count": 13,
+  "timed_out_command_count": 1,
+  "event_counts": {
+    "buffered_out_of_order": 5,
+    "command_published": 14,
+    "command_timed_out": 1,
+    "duplicate_command_publish": 1,
+    "duplicate_logical_feedback_rejected": 1,
+    "duplicate_message_rejected": 1,
+    "feedback_applied": 13,
+    "late_feedback_rejected": 1,
+    "process_recovered": 1,
+    "ready": 8,
+    "task_completed": 4,
+    "task_registered": 4,
+    "timeout_gap_advanced": 1
+  },
+  "invariants": {
+    "logical_feedback_applied_at_most_once": true,
+    "applied_feedback_is_sequence_ordered": true,
+    "late_feedback_never_applied": true,
+    "timeout_gap_does_not_deadlock_later_feedback": true,
+    "restart_preserves_pending_state": true,
+    "every_task_has_version_hashes": true,
+    "no_orphan_applied_feedback": true
+  },
+  "version_hashes": {
+    "algorithm": "4b8ae34f7442c0dd250ab1670fb9b85159815cf4964829fbddd366ff6dc0421a",
+    "parameters": "0bf071c531d82b981e4f2de4ce2175696147cfbd0656c0da9b31ca6c39381b43"
+  },
+  "evidence_boundary": "deterministic_sqlite_message_semantics_software_in_the_loop_only"
+}
