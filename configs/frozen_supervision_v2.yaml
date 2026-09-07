@@ -1,0 +1,26 @@
+freeze_name: frozen_supervision_v2
+selected_candidate_id: V2C005
+development_scenarios_used: 96
+locked_evaluation_scenarios_used: 0
+supervisor:
+  risk_high: 0.7
+  risk_recovery: 0.4
+  minimum_dwell_steps: 4
+  recovery_confirmation_steps: 6
+estimator:
+  trusted_observation_gain: 0.65
+  uncertainty_growth_per_step: 0.00025
+  uncertainty_reduction_factor: 0.25
+  maximum_uncertainty: 0.006
+  valid_theta_min: 0.08
+  valid_theta_max: 0.45
+fallback_rule:
+  start_threshold: 0.205
+  stop_threshold: 0.23
+  pulse_mm: 2.0
+  minimum_on_steps: 1
+  minimum_off_steps: 1
+hashes:
+  development_config: 91efc5da3aaa5ba960cb3d69001e88cad4e00ab28b7034b3b6de14e81905bf54
+  scenario_manifest: ff79acb851d22453bb434d6cdb0ee8bdcfd22e29aa399e2d47adcf46ff4f7654
+  anomaly_manifest: 4d932100eabda09ac8e0e160ab79c95c33934406e3b648d76e91a1b048ac0b02

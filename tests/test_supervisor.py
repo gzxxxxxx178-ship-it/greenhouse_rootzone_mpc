@@ -5,6 +5,7 @@ from rootzone_mpc.supervision import (
     SupervisorConfig,
     SupervisorSignals,
     TrustworthySupervisor,
+    TrustworthySupervisorV2,
 )
 
 
@@ -63,3 +64,16 @@ def test_critical_signal_resets_partial_pause_recovery():
 def test_threshold_hysteresis_is_validated():
     with pytest.raises(ValueError):
         SupervisorConfig(0.4, 0.7, 2, 2)
+
+
+def test_v2_routes_bad_observation_to_estimated_fallback():
+    supervisor = TrustworthySupervisorV2(config())
+    decision = supervisor.update(signals(observation_valid=False))
+    assert decision.mode == ControlMode.ESTIMATED_FALLBACK
+    assert decision.reason == "estimate_driven_fallback_required"
+
+
+def test_v2_reserves_safe_pause_for_unavailable_actuator():
+    supervisor = TrustworthySupervisorV2(config())
+    assert supervisor.update(signals(actuator_available=False)).mode == ControlMode.SAFE_PAUSE
+    assert supervisor.update(signals()).mode == ControlMode.ESTIMATED_FALLBACK

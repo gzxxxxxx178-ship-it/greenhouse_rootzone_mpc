@@ -1,0 +1,56 @@
+{
+  "design_name": "supervision_v2_design",
+  "scenario_validation": {
+    "row_count": 240,
+    "split_counts": {
+      "development": 96,
+      "locked_evaluation": 144
+    },
+    "unique_ids": 240,
+    "unique_seeds": 240,
+    "checks_passed": 7
+  },
+  "anomaly_validation": {
+    "row_count": 240,
+    "checks_passed": 4,
+    "split_counts": {
+      "development": 96,
+      "locked_evaluation": 144
+    },
+    "counts_by_split_and_type": {
+      "development/drainage_shift": 8,
+      "development/feedback_conflict": 8,
+      "development/flow_decay": 8,
+      "development/forecast_underprediction": 8,
+      "development/normal": 8,
+      "development/root_depth_shift": 8,
+      "development/sensor_bias": 8,
+      "development/sensor_drift": 8,
+      "development/sensor_missing": 8,
+      "development/sensor_spike": 8,
+      "development/solver_failure": 8,
+      "development/valve_stuck": 8,
+      "locked_evaluation/drainage_shift": 12,
+      "locked_evaluation/feedback_conflict": 12,
+      "locked_evaluation/flow_decay": 12,
+      "locked_evaluation/forecast_underprediction": 12,
+      "locked_evaluation/normal": 12,
+      "locked_evaluation/root_depth_shift": 12,
+      "locked_evaluation/sensor_bias": 12,
+      "locked_evaluation/sensor_drift": 12,
+      "locked_evaluation/sensor_missing": 12,
+      "locked_evaluation/sensor_spike": 12,
+      "locked_evaluation/solver_failure": 12,
+      "locked_evaluation/valve_stuck": 12
+    }
+  },
+  "locked_evaluation_scenarios_used": 0,
+  "tuning_rule": "locked_evaluation_split_must_not_be_simulated_before_v2_freeze",
+  "hashes": {
+    "design_config": "b1bcc46bd1402e817eeb724b46821d7d74470e350f3e0c605f5177eb491d0d5d",
+    "base_envelope_config": "684f545b5fcfef29266e5b98af1bf57a16ca8d51217fc023bb681109f8feaa31",
+    "anomaly_magnitude_config": "946129af2ab4ad4042979bde2b90eaa5bb52780567373fa91285305c55738191",
+    "scenario_manifest": "ff79acb851d22453bb434d6cdb0ee8bdcfd22e29aa399e2d47adcf46ff4f7654",
+    "anomaly_manifest": "4d932100eabda09ac8e0e160ab79c95c33934406e3b648d76e91a1b048ac0b02"
+  }
+}

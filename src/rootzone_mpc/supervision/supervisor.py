@@ -7,6 +7,7 @@ from enum import StrEnum
 class ControlMode(StrEnum):
     MPC = "mpc"
     RULE_FALLBACK = "rule_fallback"
+    ESTIMATED_FALLBACK = "estimated_fallback"
     SAFE_PAUSE = "safe_pause"
 
 
@@ -120,4 +121,45 @@ class TrustworthySupervisor:
                 return self._transition(ControlMode.MPC, "mpc_recovery_confirmed")
             return self._transition(ControlMode.RULE_FALLBACK, "fallback_recovery_pending")
 
+        return self._transition(ControlMode.MPC, "mpc_conditions_acceptable")
+
+
+class TrustworthySupervisorV2(TrustworthySupervisor):
+    """Route uncertain observations or execution to an estimate-driven fallback."""
+
+    def update(self, signals: SupervisorSignals) -> SupervisorDecision:
+        self.steps_in_mode += 1
+        if not signals.actuator_available:
+            self.recovery_count = 0
+            return self._transition(ControlMode.SAFE_PAUSE, "actuator_unavailable")
+
+        fallback_required = (
+            not signals.observation_valid
+            or not signals.feedback_consistent
+            or not signals.solver_success
+            or signals.observation_risk >= self.config.risk_high
+            or signals.model_risk >= self.config.risk_high
+            or signals.execution_risk >= self.config.risk_high
+        )
+        if fallback_required:
+            self.recovery_count = 0
+            return self._transition(
+                ControlMode.ESTIMATED_FALLBACK, "estimate_driven_fallback_required"
+            )
+
+        recovery_ready = (
+            signals.observation_risk <= self.config.risk_recovery
+            and signals.model_risk <= self.config.risk_recovery
+            and signals.execution_risk <= self.config.risk_recovery
+        )
+        self.recovery_count = self.recovery_count + 1 if recovery_ready else 0
+        if self.mode != ControlMode.MPC:
+            if (
+                self.steps_in_mode >= self.config.minimum_dwell_steps
+                and self.recovery_count >= self.config.recovery_confirmation_steps
+            ):
+                return self._transition(ControlMode.MPC, "mpc_recovery_confirmed")
+            return self._transition(
+                ControlMode.ESTIMATED_FALLBACK, "fallback_recovery_pending"
+            )
         return self._transition(ControlMode.MPC, "mpc_conditions_acceptable")

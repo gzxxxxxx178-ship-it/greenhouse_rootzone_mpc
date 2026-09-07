@@ -1,0 +1,29 @@
+{
+  "development_name": "supervision_v2_development",
+  "selected_candidate": {
+    "candidate_id": "V2C005",
+    "trusted_observation_gain": 0.65,
+    "uncertainty_growth_per_step": 0.00025,
+    "maximum_uncertainty": 0.006,
+    "start_threshold": 0.205,
+    "infeasible": 0,
+    "improved_prior_adverse_types_vs_v1": 6,
+    "adverse_types_vs_base": 1,
+    "normal_non_mpc_fraction_median": 0.0892857143,
+    "safety_violation_scenarios": 0,
+    "v1_safety_violation_scenarios": 0,
+    "median_event_deficit": 0.0,
+    "p90_event_deficit": 0.1495898483,
+    "median_irrigation_mm": 78.0
+  },
+  "candidate_count": 8,
+  "scenario_count": 96,
+  "method_runs": 960,
+  "locked_evaluation_scenarios_used": 0,
+  "interpretation": "development_selection_not_confirmatory_evidence",
+  "hashes": {
+    "metrics": "02654a25a4fa29e3d3a0556cf7643d943a40ed32d8f1a5afc82cbc5295aa6f2b",
+    "candidate_summary": "9895d1ad7671aeacd9fc3ac756f349998c98fc71ac8aed45db8d689e0a6ccc5b",
+    "frozen_supervision_v2": "394b14789adafc8ce202773733c42cd6a207514570e8be6efddf42ce10a12f34"
+  }
+}

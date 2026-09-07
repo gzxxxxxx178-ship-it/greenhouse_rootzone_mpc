@@ -1,0 +1,49 @@
+development:
+  name: supervision_v2_development
+  split: development
+  expected_scenario_count: 96
+  reference_methods: [base_mpc, trustworthy_supervision]
+  target_prior_adverse_types:
+    - feedback_conflict
+    - flow_decay
+    - sensor_bias
+    - sensor_drift
+    - sensor_missing
+    - valve_stuck
+  tie_tolerance_event_deficit: 0.000001
+  feasibility:
+    maximum_normal_non_mpc_fraction: 0.12
+    require_no_more_safety_violations_than_v1: true
+  selection_order:
+    - infeasible
+    - adverse_types_vs_base
+    - negative_improved_types_vs_v1
+    - median_event_deficit
+    - median_irrigation_mm
+  locked_evaluation_access_allowed: false
+
+fixed:
+  supervisor:
+    risk_high: 0.7
+    risk_recovery: 0.4
+    minimum_dwell_steps: 4
+    recovery_confirmation_steps: 6
+  fallback_rule:
+    stop_threshold: 0.230
+    pulse_mm: 2.0
+    minimum_on_steps: 1
+    minimum_off_steps: 1
+  estimator:
+    uncertainty_reduction_factor: 0.25
+    valid_theta_min: 0.08
+    valid_theta_max: 0.45
+
+candidates:
+  - {candidate_id: V2C001, trusted_observation_gain: 0.35, uncertainty_growth_per_step: 0.00025, maximum_uncertainty: 0.006, start_threshold: 0.205}
+  - {candidate_id: V2C002, trusted_observation_gain: 0.35, uncertainty_growth_per_step: 0.00050, maximum_uncertainty: 0.010, start_threshold: 0.205}
+  - {candidate_id: V2C003, trusted_observation_gain: 0.35, uncertainty_growth_per_step: 0.00050, maximum_uncertainty: 0.010, start_threshold: 0.215}
+  - {candidate_id: V2C004, trusted_observation_gain: 0.35, uncertainty_growth_per_step: 0.00100, maximum_uncertainty: 0.015, start_threshold: 0.215}
+  - {candidate_id: V2C005, trusted_observation_gain: 0.65, uncertainty_growth_per_step: 0.00025, maximum_uncertainty: 0.006, start_threshold: 0.205}
+  - {candidate_id: V2C006, trusted_observation_gain: 0.65, uncertainty_growth_per_step: 0.00050, maximum_uncertainty: 0.010, start_threshold: 0.205}
+  - {candidate_id: V2C007, trusted_observation_gain: 0.65, uncertainty_growth_per_step: 0.00050, maximum_uncertainty: 0.010, start_threshold: 0.215}
+  - {candidate_id: V2C008, trusted_observation_gain: 0.65, uncertainty_growth_per_step: 0.00100, maximum_uncertainty: 0.015, start_threshold: 0.215}

@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from rootzone_mpc.controllers import InternalModel
+from rootzone_mpc.controllers import InternalModel, RuleController, RuleParameters
 from rootzone_mpc.experiments.confirmation import _bootstrap_median_interval
 from rootzone_mpc.experiments.development import (
     _controller,
@@ -22,7 +22,10 @@ from rootzone_mpc.supervision import (
     RiskMonitorConfig,
     RiskScale,
     SupervisorConfig,
+    GuardedStateEstimator,
+    StateEstimatorConfig,
     TrustworthySupervisor,
+    TrustworthySupervisorV2,
 )
 
 
@@ -102,6 +105,7 @@ def _run_method(
     frozen_supervision: dict,
     anomaly_cfg: dict,
     confirm_cfg: dict,
+    v2_config: dict | None = None,
 ) -> tuple[dict, pd.DataFrame]:
     plant = _plant_from_row(scenario)
     mpc = _controller("mpc", frozen_controller["mpc"]["parameters"], tuning)
@@ -109,6 +113,20 @@ def _run_method(
     internal = InternalModel(**frozen_controller["internal_model"])
     monitor = _risk_monitor(frozen_supervision)
     supervisor = _supervisor(frozen_supervision)
+    estimator = None
+    estimated_rule = None
+    if method == "trustworthy_supervision_v2":
+        if v2_config is None:
+            raise ValueError("V2 supervision method requires v2_config")
+        supervisor = TrustworthySupervisorV2(
+            SupervisorConfig(**v2_config["supervisor"])
+        )
+        estimator = GuardedStateEstimator(
+            internal,
+            StateEstimatorConfig(**v2_config["estimator"]),
+            float(scenario["initial_theta"]),
+        )
+        estimated_rule = RuleController(RuleParameters(**v2_config["fallback_rule"]))
     nominal_plant_parameters = plant.p
     hours = int(scenario["horizon_hours"])
     horizon = int(frozen_controller["mpc"]["parameters"]["prediction_horizon"])
@@ -183,6 +201,15 @@ def _run_method(
         )
 
         effective_observation = last_valid_observation if observation is None else float(observation)
+        if method == "trustworthy_supervision_v2":
+            trusted_observation = (
+                signals.observation_valid
+                and feedback_consistent
+                and signals.observation_risk < float(v2_config["supervisor"]["risk_high"])
+                and signals.model_risk < float(v2_config["supervisor"]["risk_high"])
+            )
+            estimator.assimilate(observation, trusted_observation)
+            effective_observation = estimator.conservative_theta
         if method == "base_mpc":
             mode = ControlMode.MPC
             reason = "base_mpc"
@@ -203,6 +230,11 @@ def _run_method(
             mode = decision.mode
             reason = decision.reason
             transitioned = decision.transitioned
+        elif method == "trustworthy_supervision_v2":
+            decision = supervisor.update(signals)
+            mode = decision.mode
+            reason = decision.reason
+            transitioned = decision.transitioned
         else:
             raise ValueError(f"Unknown method: {method}")
 
@@ -219,6 +251,8 @@ def _run_method(
             command = mpc_candidate
         elif mode == ControlMode.RULE_FALLBACK:
             command = rule.act(effective_observation)
+        elif mode == ControlMode.ESTIMATED_FALLBACK:
+            command = estimated_rule.act(effective_observation)
         else:
             command = 0.0
 
@@ -238,6 +272,9 @@ def _run_method(
         predicted_next = internal.predict_step(effective_observation, command, float(forecast[0]))
         next_raw = result.theta_measured
         next_observation = _observed_value(next_raw, step + 1, anomaly, magnitudes)
+        if estimator is not None:
+            estimator_delivery = delivered_feedback if feedback_consistent else 0.0
+            estimator.advance(estimator_delivery, float(forecast[0]))
         if next_observation is None:
             observation_age += 1
         else:
@@ -306,6 +343,9 @@ def _run_method(
         "mpc_fraction": float(mode_fraction.get(ControlMode.MPC.value, 0.0)),
         "rule_fallback_fraction": float(
             mode_fraction.get(ControlMode.RULE_FALLBACK.value, 0.0)
+        ),
+        "estimated_fallback_fraction": float(
+            mode_fraction.get(ControlMode.ESTIMATED_FALLBACK.value, 0.0)
         ),
         "safe_pause_fraction": float(mode_fraction.get(ControlMode.SAFE_PAUSE.value, 0.0)),
         "non_mpc_fraction": float(1.0 - mode_fraction.get(ControlMode.MPC.value, 0.0)),

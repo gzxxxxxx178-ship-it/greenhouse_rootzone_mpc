@@ -14,4 +14,5 @@ T012,platform,接入管控平台软件在环,completed,medium,2026-09-07,2026-09
 T013,supervision,构建异常场景并标定风险尺度,completed,high,2026-09-07,2026-09-07,configs/frozen_supervision_v1.yaml,12类异常平衡分配且风险尺度仅使用48个开发场景正常轨迹
 T014,validation,运行可信监督锁定确认性评价,completed,high,2026-09-07,2026-09-07,data/processed/supervision_confirmation_v1.json,360次闭环运行未通过预注册门槛且冻结为部分机制价值有边界
 T015,foundation,配置GitHub唯一远端并完成首次推送,completed,high,2026-09-07,2026-09-07,origin/codex/bootstrap-rootzone-mpc,后续Git提交同步到指定仓库
-T016,supervision,开发观测无关的保守回退与状态估计,pending,high,2026-09-07,,,必须使用新开发异常集并建立新的独立锁定集
+T016,supervision,开发观测无关的保守回退与状态估计,completed,high,2026-09-07,2026-09-07,data/processed/supervision_v2_development_v1.json,新开发集冻结V2C005且锁定场景使用数为0
+T017,validation,运行监督V2独立锁定确认性评价,pending,high,2026-09-07,,,先冻结成功门再首次运行144个新锁定场景
