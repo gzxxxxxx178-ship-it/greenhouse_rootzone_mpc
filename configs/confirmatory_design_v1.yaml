@@ -1,0 +1,12 @@
+confirmation:
+  name: baseline_confirmation_v1
+  split: locked_evaluation
+  expected_scenario_count: 120
+  bootstrap_resamples: 20000
+  bootstrap_seed: 92017
+  tie_tolerance:
+    deficit_integral: 0.000001
+    irrigation_command_total_mm: 0.1
+  joint_nonworse_ratio_min: 0.60
+  any_endpoint_adverse_ratio_max: 0.25
+  evidence_boundary: model_simulation_only

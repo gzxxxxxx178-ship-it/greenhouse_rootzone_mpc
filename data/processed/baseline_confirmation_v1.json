@@ -1,0 +1,44 @@
+{
+  "confirmation_name": "baseline_confirmation_v1",
+  "classification": "WATER_SAVING_WITH_DEFICIT_TRADEOFF",
+  "scenario_count": 120,
+  "method_runs": 240,
+  "aggregate": {
+    "deficit_integral": {
+      "paired_median": 0.0006802876846316586,
+      "paired_p10": -0.03930911844290904,
+      "paired_p90": 0.0062886771265198765,
+      "ci95_lower": 2.147888832570999e-06,
+      "ci95_upper": 0.0016839077403077163,
+      "improved_ratio": 0.26666666666666666,
+      "equal_ratio": 0.14166666666666666,
+      "adverse_ratio": 0.5916666666666667
+    },
+    "irrigation_command_total_mm": {
+      "paired_median": -6.0,
+      "paired_p10": -12.0,
+      "paired_p90": -2.0,
+      "ci95_lower": -8.0,
+      "ci95_upper": -4.0,
+      "improved_ratio": 0.975,
+      "equal_ratio": 0.025,
+      "adverse_ratio": 0.0
+    }
+  },
+  "diagnostics": {
+    "joint_nonworse_ratio": 0.4083333333333333,
+    "any_endpoint_adverse_ratio": 0.5916666666666667,
+    "rule_safety_violation_scenarios": 0,
+    "mpc_safety_violation_scenarios": 0,
+    "no_extra_safety_violation": true
+  },
+  "max_abs_balance_residual_mm": 1.5709655798445965e-14,
+  "bootstrap_resamples": 20000,
+  "evidence_boundary": "model_simulation_only",
+  "hashes": {
+    "confirmation_config": "d7a0675ff8f814a0416f444d30200b6ba92e161f818dcf71d87ba439a0d78b8e",
+    "frozen_controller": "4b8ae34f7442c0dd250ab1670fb9b85159815cf4964829fbddd366ff6dc0421a",
+    "scenario_manifest": "ae9618102a06dabd40e5a12f85c751c03ab0fe921f56f1fad254a85597641a20",
+    "paired_results": "0e71546759b6efbc98b88a7af10dfaa78cab2e417140d0d468860b336f0b4843"
+  }
+}

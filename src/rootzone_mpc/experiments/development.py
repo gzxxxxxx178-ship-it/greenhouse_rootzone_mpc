@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import itertools
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -63,11 +64,15 @@ def _controller(kind: str, parameters: dict, cfg: dict):
     return ZoneMPC(internal_model, ZoneMPCParameters(**parameters))
 
 
-def run_development_scenario(
-    row: pd.Series, kind: str, parameters: dict, cfg: dict
+def run_scenario(
+    row: pd.Series,
+    kind: str,
+    parameters: dict,
+    cfg: dict,
+    allowed_split: str,
 ) -> dict:
-    if row["split"] != cfg["tuning"]["development_split"]:
-        raise ValueError("Tuning may only use development scenarios")
+    if row["split"] != allowed_split:
+        raise ValueError(f"Expected {allowed_split} scenario, received {row['split']}")
     plant = _plant_from_row(row)
     controller = _controller(kind, parameters, cfg)
     hours = int(row["horizon_hours"])
@@ -81,6 +86,8 @@ def run_development_scenario(
     theta = []
     actions = []
     drainage = []
+    compute_ms = []
+    balance_residual = []
     for step in range(hours):
         forecast = actual_et[step : step + horizon]
         forecast = np.maximum(
@@ -89,12 +96,15 @@ def run_development_scenario(
             * (1.0 + forecast_noise[step]),
             0.0,
         )
+        started = time.perf_counter()
         action = controller.act(measured, forecast.tolist())
+        compute_ms.append((time.perf_counter() - started) * 1000.0)
         result = plant.step(action, float(actual_et[step]))
         measured = result.theta_measured
         theta.append(result.theta_true)
         actions.append(action)
         drainage.append(result.drainage_mm)
+        balance_residual.append(result.water_balance_residual_mm)
 
     theta_array = np.asarray(theta)
     action_array = np.asarray(actions)
@@ -114,7 +124,23 @@ def run_development_scenario(
         "drainage_total_mm": float(np.sum(drainage)),
         "action_change_count": int(np.count_nonzero(np.diff(action_array) != 0.0)),
         "safety_violation": bool(np.any(safety)),
+        "safety_violation_steps": int(np.count_nonzero(safety)),
+        "compute_ms_p90": float(np.quantile(compute_ms, 0.90)),
+        "compute_ms_p99": float(np.quantile(compute_ms, 0.99)),
+        "max_abs_balance_residual_mm": float(np.max(np.abs(balance_residual))),
     }
+
+
+def run_development_scenario(
+    row: pd.Series, kind: str, parameters: dict, cfg: dict
+) -> dict:
+    return run_scenario(
+        row,
+        kind,
+        parameters,
+        cfg,
+        allowed_split=cfg["tuning"]["development_split"],
+    )
 
 
 def _candidate_parameters(kind: str, cfg: dict) -> list[tuple[str, dict]]:
