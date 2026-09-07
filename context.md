@@ -8,6 +8,8 @@
 
 ## 当前状态
 
+- GitHub唯一远端为 `https://github.com/gzxxxxxx178-ship-it/greenhouse_rootzone_mpc.git`，本地 `origin` 已配置并使用HTTPS认证。
+- 当前开发分支为 `codex/bootstrap-rootzone-mpc`，已建立远端跟踪关系。
 - 已建立分类目录、Python 项目和独立虚拟环境。
 - 已实现非线性根区水量平衡虚拟对象，包含灌溉效率、蒸散胁迫响应和田间持水量以上的非线性排水。
 - 已实现带最小开关保持逻辑的阈值脉冲规则基线。

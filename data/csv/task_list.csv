@@ -11,3 +11,4 @@ T009,design,标定强规则与基础MPC并冻结参数,pending,high,2026-09-07,,
 T010,validation,运行基础MPC确认性对照,pending,high,2026-09-07,,,报告配对差不利尾部与场景边界
 T011,supervision,设计可信回退与恢复机制,pending,medium,2026-09-07,,,仅在基础MPC价值成立后启动
 T012,platform,接入管控平台软件在环,pending,medium,2026-09-07,,,记录任务命令联锁反馈和版本
+T013,foundation,配置GitHub唯一远端并完成首次推送,completed,high,2026-09-07,2026-09-07,origin/codex/bootstrap-rootzone-mpc,后续Git提交同步到指定仓库
