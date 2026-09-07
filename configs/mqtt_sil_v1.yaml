@@ -1,0 +1,19 @@
+mqtt_sil:
+  name: mqtt_sil_v1
+  protocol: MQTT_3_1_1
+  qos: 1
+  topic: greenhouse/rootzone/feedback
+  online_message_count: 20
+  end_to_end_deadline_ms: 1000
+  max_abs_clock_skew_seconds: 5
+  client_timeout_seconds: 8
+  required_invariants:
+    - all_online_messages_received
+    - qos1_observed_end_to_end
+    - application_duplicate_suppressed
+    - persistent_session_replays_offline_message
+    - broker_restart_reconnects_and_resubscribes
+    - stale_and_future_timestamps_rejected
+    - online_messages_meet_deadline
+    - mqtt_feedback_matches_audit_store
+  evidence_boundary: local_embedded_amqtt_broker_and_paho_clients_only

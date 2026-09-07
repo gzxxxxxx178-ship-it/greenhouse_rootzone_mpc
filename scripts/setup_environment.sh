@@ -6,4 +6,4 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 "$PYTHON_BIN" -m venv "$PROJECT_ROOT/.venv"
 "$PROJECT_ROOT/.venv/bin/python" -m pip install --upgrade pip
-"$PROJECT_ROOT/.venv/bin/python" -m pip install -e "$PROJECT_ROOT[dev]"
+"$PROJECT_ROOT/.venv/bin/python" -m pip install -e "$PROJECT_ROOT[dev,mqtt]"

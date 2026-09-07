@@ -6,8 +6,9 @@ R004,control,强规则基线与基础MPC独立对照,completed,data/processed/ba
 R005,supervision,V1可信监督独立确认,failed,data/processed/supervision_confirmation_v1.json,作为异常检测不等于有效回退的失效证据
 R006,supervision,V2估计回退独立确认,failed,data/processed/supervision_v2_confirmation_v1.json,改善缺水但出现3个过湿安全失败
 R007,supervision,V3恢复与安全约束开发晋级,stopped,data/processed/supervision_v3_development_v1.json,无候选优于V2且不运行锁定集
-R008,platform,消息乱序重复超时与崩溃恢复,missing,none,后续软件在环扩展
+R008,platform,消息乱序重复超时与崩溃恢复,completed,data/processed/platform_resilience_sil_v1.json,仅支持本地SQLite可靠消息语义
 R009,validation,真实传感器与灌水反馈数据回放,missing,none,毕业设计工程可信度的优先补口
 R010,validation,实体对照与作物产量品质测定,missing,none,缺失时不报告真实节水增产或肥效
 R011,thesis,平台主体加MPC适用性与失效边界,ready,docs/thesis_feasibility_decision.md,推荐毕业设计主线
 R012,implementation,Python正式算法流水线,completed,src/rootzone_mpc and scripts,Matlab仅作为可选交叉核验
+R013,platform,真实MQTT QoS持久会话与断连重连,completed,data/processed/mqtt_sil_v1.json,仅支持单机代理和客户端软件在环

@@ -15,6 +15,7 @@
 - 水量平衡与控制约束测试。
 - 可信监督锁定异常评价；
 - 任务、命令、反馈、联锁、模式和版本的软件在环审计。
+- 本地MQTT 3.1.1代理下的QoS 1、持久会话、断连重连和SQLite审计核对。
 
 锁定评价显示基础MPC相对规则形成“仿真灌水减少但轻微亏缺增加”的权衡。当前可信监督未通过预注册机制价值门，主要问题是受污染观测下的回退控制律；该否定性结果已冻结，不构成算法优势证据。
 
@@ -44,6 +45,7 @@ tests/                 关键计算测试
 ```bash
 source .venv/bin/activate
 python scripts/run_smoke_validation.py
+python scripts/run_mqtt_sil.py
 pytest -q
 ```
 

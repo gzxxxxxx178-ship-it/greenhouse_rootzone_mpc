@@ -16,6 +16,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<9"]
+mqtt = [
+  "amqtt>=0.12,<0.13",
+  "paho-mqtt>=2.1,<3",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
