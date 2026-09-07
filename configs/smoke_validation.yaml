@@ -1,0 +1,65 @@
+experiment:
+  name: smoke_validation_v1
+  seed: 20260907
+  hours: 168
+  dt_hours: 1.0
+  initial_theta: 0.185
+
+zone:
+  lower: 0.200
+  upper: 0.260
+  safety_lower: 0.140
+  safety_upper: 0.320
+
+plant_nominal:
+  root_depth_mm: 300.0
+  field_capacity: 0.280
+  wilting_point: 0.120
+  saturation: 0.400
+  irrigation_efficiency: 0.90
+  drainage_coefficient: 18.0
+  et_stress_start: 0.180
+  process_noise_std: 0.00015
+  sensor_noise_std: 0.0005
+
+internal_model:
+  root_depth_mm: 300.0
+  irrigation_efficiency: 0.86
+  drainage_coefficient: 8.0
+  field_capacity: 0.275
+
+rule:
+  start_threshold: 0.205
+  stop_threshold: 0.235
+  pulse_mm: 4.0
+  minimum_on_steps: 2
+  minimum_off_steps: 2
+
+mpc:
+  prediction_horizon: 12
+  control_horizon: 3
+  irrigation_candidates_mm: [0.0, 2.0, 4.0, 6.0]
+  max_step_irrigation_mm: 6.0
+  dry_weight: 8000.0
+  wet_weight: 2500.0
+  water_weight: 0.08
+  movement_weight: 0.25
+  terminal_weight: 2.0
+
+scenarios:
+  - name: nominal
+    et_multiplier: 1.0
+    irrigation_efficiency_multiplier: 1.0
+    drainage_multiplier: 1.0
+  - name: high_et
+    et_multiplier: 1.35
+    irrigation_efficiency_multiplier: 1.0
+    drainage_multiplier: 1.0
+  - name: low_irrigation_efficiency
+    et_multiplier: 1.0
+    irrigation_efficiency_multiplier: 0.72
+    drainage_multiplier: 1.0
+  - name: strong_drainage
+    et_multiplier: 1.0
+    irrigation_efficiency_multiplier: 1.0
+    drainage_multiplier: 1.8
