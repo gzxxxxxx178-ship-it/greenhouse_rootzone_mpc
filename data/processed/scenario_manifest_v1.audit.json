@@ -1,0 +1,16 @@
+{
+  "row_count": 168,
+  "split_counts": {
+    "development": 48,
+    "locked_evaluation": 120
+  },
+  "unique_ids": 168,
+  "unique_seeds": 168,
+  "checks_passed": 7,
+  "design_name": "scenario_design_v1",
+  "config": "configs/scenario_design_v1.yaml",
+  "config_sha256": "741b5ab1198c1978d0785bef555683ef3894caa72015dbcb247c41213e545b13",
+  "manifest_sha256": "ae9618102a06dabd40e5a12f85c751c03ab0fe921f56f1fad254a85597641a20",
+  "parameter_interpretation": "sensitivity_envelope_not_empirical_distribution",
+  "locked_evaluation_policy": "locked_evaluation_split_must_not_be_used_for_parameter_selection"
+}

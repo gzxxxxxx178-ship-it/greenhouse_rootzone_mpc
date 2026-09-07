@@ -1,0 +1,31 @@
+design:
+  name: scenario_design_v1
+  development_count: 48
+  locked_evaluation_count: 120
+  development_master_seed: 41027
+  locked_evaluation_master_seed: 81043
+  horizon_hours: 336
+
+parameter_envelope:
+  root_depth_mm: [240.0, 360.0]
+  field_capacity: [0.250, 0.310]
+  wilting_point: [0.100, 0.150]
+  saturation_margin_above_fc: [0.080, 0.130]
+  initial_available_water_fraction: [0.30, 0.85]
+  irrigation_efficiency: [0.72, 0.95]
+  drainage_coefficient: [10.0, 28.0]
+  et_stress_fraction_between_wp_fc: [0.35, 0.60]
+  et_multiplier: [0.75, 1.35]
+  forecast_bias_fraction: [-0.20, 0.20]
+  forecast_noise_std_fraction: [0.00, 0.15]
+  process_noise_std: [0.00005, 0.00030]
+  sensor_noise_std: [0.00030, 0.00120]
+
+categorical_profiles:
+  et_profile: [typical, hot_spell, variable_cloud]
+
+design_notes:
+  parameter_interpretation: sensitivity_envelope_not_empirical_distribution
+  greenhouse_rainfall: zero
+  split_rule: separate_latin_hypercube_designs_and_disjoint_scenario_seeds
+  tuning_rule: locked_evaluation_split_must_not_be_used_for_parameter_selection
