@@ -1,0 +1,76 @@
+{
+  "confirmation_name": "supervision_v2_confirmation",
+  "classification": "V2_VALUE_NOT_SUPPORTED",
+  "scenario_count": 144,
+  "method_runs": 432,
+  "diagnostics": {
+    "improved_target_types_vs_v1": 5,
+    "adverse_anomaly_types_vs_base": 2,
+    "normal_non_mpc_fraction_median": 0.0714285714285714,
+    "median_relative_irrigation_increase_vs_base": 0.0,
+    "safety_violation_scenarios": {
+      "v2": 3,
+      "v1": 0,
+      "base": 1
+    },
+    "no_extra_safety_violations": false,
+    "success_gate_passed": false
+  },
+  "overall": {
+    "v2_minus_base": {
+      "event_deficit_integral": {
+        "paired_median": 0.0,
+        "ci95_lower": -2.8824646703853873e-05,
+        "ci95_upper": 0.0,
+        "improved_ratio": 0.4236111111111111,
+        "adverse_ratio": 0.25
+      },
+      "deficit_integral": {
+        "paired_median": -0.00030377524448266247,
+        "ci95_lower": -0.0008920170382377413,
+        "ci95_upper": 0.0,
+        "improved_ratio": 0.5416666666666666,
+        "adverse_ratio": 0.3611111111111111
+      },
+      "irrigation_command_total_mm": {
+        "paired_median": 0.0,
+        "ci95_lower": 0.0,
+        "ci95_upper": 2.0,
+        "improved_ratio": 0.1527777777777778,
+        "adverse_ratio": 0.4444444444444444
+      }
+    },
+    "v2_minus_v1": {
+      "event_deficit_integral": {
+        "paired_median": 0.0,
+        "ci95_lower": -0.0006479970233873476,
+        "ci95_upper": 0.0,
+        "improved_ratio": 0.4583333333333333,
+        "adverse_ratio": 0.1875
+      },
+      "deficit_integral": {
+        "paired_median": -0.0026758349348448562,
+        "ci95_lower": -0.0075353832875607735,
+        "ci95_upper": -0.0010975251064816033,
+        "improved_ratio": 0.6388888888888888,
+        "adverse_ratio": 0.2638888888888889
+      },
+      "irrigation_command_total_mm": {
+        "paired_median": 2.0,
+        "ci95_lower": 0.0,
+        "ci95_upper": 4.0,
+        "improved_ratio": 0.13194444444444445,
+        "adverse_ratio": 0.5277777777777778
+      }
+    }
+  },
+  "evidence_boundary": "independent_model_simulation_and_software_fault_injection_only",
+  "hashes": {
+    "confirmation_config": "6cd20dccbfaefb1aeb6a9a143007bc4797a61cecfca1df683ab1c5ff628931a2",
+    "frozen_supervision_v2": "394b14789adafc8ce202773733c42cd6a207514570e8be6efddf42ce10a12f34",
+    "scenario_manifest": "ff79acb851d22453bb434d6cdb0ee8bdcfd22e29aa399e2d47adcf46ff4f7654",
+    "anomaly_manifest": "4d932100eabda09ac8e0e160ab79c95c33934406e3b648d76e91a1b048ac0b02",
+    "v2_vs_base_pairs": "905c3f5c237fd5d6be7c3575e5702f44fd8912b95db6d1f2c282902e5746edba",
+    "v2_vs_v1_pairs": "e5de9192ac52f9903771b4dd3989452054de55249e1aecfe5b8a172b47a1800a"
+  }
+}

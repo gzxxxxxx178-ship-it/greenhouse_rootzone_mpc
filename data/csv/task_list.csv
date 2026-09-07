@@ -15,4 +15,5 @@ T013,supervision,构建异常场景并标定风险尺度,completed,high,2026-09-
 T014,validation,运行可信监督锁定确认性评价,completed,high,2026-09-07,2026-09-07,data/processed/supervision_confirmation_v1.json,360次闭环运行未通过预注册门槛且冻结为部分机制价值有边界
 T015,foundation,配置GitHub唯一远端并完成首次推送,completed,high,2026-09-07,2026-09-07,origin/codex/bootstrap-rootzone-mpc,后续Git提交同步到指定仓库
 T016,supervision,开发观测无关的保守回退与状态估计,completed,high,2026-09-07,2026-09-07,data/processed/supervision_v2_development_v1.json,新开发集冻结V2C005且锁定场景使用数为0
-T017,validation,运行监督V2独立锁定确认性评价,in_progress,high,2026-09-07,,,成功门与运行代码先于首次锁定运行提交
+T017,validation,运行监督V2独立锁定确认性评价,completed,high,2026-09-07,2026-09-07,data/processed/supervision_v2_confirmation_v1.json,四项门槛达到但3个过湿安全失败使独立确认不支持
+T018,supervision,开发带恢复探测与硬过湿约束的监督V3,pending,high,2026-09-07,,,必须使用全新开发与独立锁定场景
