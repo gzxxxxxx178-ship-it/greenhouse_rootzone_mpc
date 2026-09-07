@@ -1,0 +1,23 @@
+confirmation:
+  name: supervision_v2_confirmation
+  split: locked_evaluation
+  expected_scenario_count: 144
+  methods: [base_mpc, trustworthy_supervision, trustworthy_supervision_v2]
+  target_v1_failure_types:
+    - feedback_conflict
+    - flow_decay
+    - sensor_bias
+    - sensor_drift
+    - sensor_missing
+    - valve_stuck
+  event_followup_steps: 48
+  bootstrap_resamples: 20000
+  bootstrap_seed: 94031
+  tie_tolerance_event_deficit: 0.000001
+  success_gate:
+    minimum_improved_target_types_vs_v1: 4
+    maximum_adverse_anomaly_types_vs_base: 2
+    normal_non_mpc_fraction_max: 0.12
+    median_relative_irrigation_increase_vs_base_max: 0.15
+    require_no_extra_safety_violations: true
+  evidence_boundary: independent_model_simulation_and_software_fault_injection_only
