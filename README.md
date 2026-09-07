@@ -26,6 +26,8 @@
 ```text
 configs/               冻结实验配置
 data/csv/              任务台账和结构化数据
+data/templates/        现场数据空模板
+data/examples/         不进入结论的合成接入示例
 data/raw/              原始或外部数据
 data/interim/          中间数据
 data/processed/        可用于正式分析的数据
@@ -46,6 +48,7 @@ tests/                 关键计算测试
 source .venv/bin/activate
 python scripts/run_smoke_validation.py
 python scripts/run_mqtt_sil.py
+python scripts/validate_field_data.py data/examples/synthetic_field_observations_v1.csv
 pytest -q
 ```
 

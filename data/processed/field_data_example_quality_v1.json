@@ -1,0 +1,178 @@
+{
+  "status": "passed",
+  "row_count": 240,
+  "cycle_counts": {
+    "identification": 3,
+    "validation": 2
+  },
+  "missing_fractions": {
+    "theta_10cm_m3_m3": 0.0,
+    "theta_25cm_m3_m3": 0.0,
+    "flow_l_min": 0.0,
+    "air_temperature_c": 0.0,
+    "relative_humidity_pct": 0.0,
+    "solar_radiation_w_m2": 0.0
+  },
+  "checks": {
+    "required_columns_present": true,
+    "timestamps_parse_and_include_timezone": true,
+    "observation_keys_unique": true,
+    "identifiers_nonempty": true,
+    "dataset_roles_valid": true,
+    "cycles_do_not_cross_roles": true,
+    "minimum_identification_cycles": true,
+    "minimum_validation_cycles": true,
+    "core_sensor_coverage": true,
+    "irrigation_accounting_complete": true,
+    "sample_interval_within_limit": true,
+    "soil_moisture_within_physical_bounds": true,
+    "reference_moisture_within_physical_bounds": true,
+    "environment_and_irrigation_ranges_valid": true,
+    "sampling_gaps_within_limit": true,
+    "complete_wetting_drydown_cycles": true,
+    "reference_samples_sufficient": true,
+    "flow_matches_delivered_water": true,
+    "cumulative_meter_monotonic_within_cycle": true,
+    "sensor_status_accepted": true
+  },
+  "errors": [],
+  "cycle_summary": [
+    {
+      "site_id": "SYNTHETIC_SITE",
+      "zone_id": "ZONE_01",
+      "cycle_id": "C01",
+      "dataset_role": "identification",
+      "row_count": 48,
+      "depth_dynamics": {
+        "theta_10cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.03,
+          "drydown_fall_m3_m3": 0.026695999999999998
+        },
+        "theta_25cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.012499999999999983,
+          "drydown_fall_m3_m3": 0.01194099999999998
+        }
+      },
+      "reference_samples_per_depth": {
+        "reference_theta_10cm_m3_m3": 3,
+        "reference_theta_25cm_m3_m3": 3
+      },
+      "delivered_volume_l": 20.0,
+      "flow_integrated_volume_l": 19.999995000000002,
+      "cumulative_meter_increment_l": 20.0,
+      "relative_water_error": 2.4999999990171775e-07,
+      "relative_meter_error": 0.0,
+      "gap_check_passed": true
+    },
+    {
+      "site_id": "SYNTHETIC_SITE",
+      "zone_id": "ZONE_01",
+      "cycle_id": "C02",
+      "dataset_role": "identification",
+      "row_count": 48,
+      "depth_dynamics": {
+        "theta_10cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.028999999999999998,
+          "drydown_fall_m3_m3": 0.026695999999999998
+        },
+        "theta_25cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.011999999999999983,
+          "drydown_fall_m3_m3": 0.01194099999999998
+        }
+      },
+      "reference_samples_per_depth": {
+        "reference_theta_10cm_m3_m3": 3,
+        "reference_theta_25cm_m3_m3": 3
+      },
+      "delivered_volume_l": 20.0,
+      "flow_integrated_volume_l": 19.999995000000002,
+      "cumulative_meter_increment_l": 20.0,
+      "relative_water_error": 2.4999999990171775e-07,
+      "relative_meter_error": 0.0,
+      "gap_check_passed": true
+    },
+    {
+      "site_id": "SYNTHETIC_SITE",
+      "zone_id": "ZONE_01",
+      "cycle_id": "C03",
+      "dataset_role": "identification",
+      "row_count": 48,
+      "depth_dynamics": {
+        "theta_10cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.027999999999999997,
+          "drydown_fall_m3_m3": 0.026695999999999998
+        },
+        "theta_25cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.011499999999999982,
+          "drydown_fall_m3_m3": 0.01194099999999998
+        }
+      },
+      "reference_samples_per_depth": {
+        "reference_theta_10cm_m3_m3": 3,
+        "reference_theta_25cm_m3_m3": 3
+      },
+      "delivered_volume_l": 20.0,
+      "flow_integrated_volume_l": 19.999995000000002,
+      "cumulative_meter_increment_l": 20.0,
+      "relative_water_error": 2.4999999990171775e-07,
+      "relative_meter_error": 0.0,
+      "gap_check_passed": true
+    },
+    {
+      "site_id": "SYNTHETIC_SITE",
+      "zone_id": "ZONE_01",
+      "cycle_id": "C04",
+      "dataset_role": "validation",
+      "row_count": 48,
+      "depth_dynamics": {
+        "theta_10cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.026999999999999996,
+          "drydown_fall_m3_m3": 0.026695999999999998
+        },
+        "theta_25cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.010999999999999982,
+          "drydown_fall_m3_m3": 0.01194099999999998
+        }
+      },
+      "reference_samples_per_depth": {
+        "reference_theta_10cm_m3_m3": 3,
+        "reference_theta_25cm_m3_m3": 3
+      },
+      "delivered_volume_l": 20.0,
+      "flow_integrated_volume_l": 19.999995000000002,
+      "cumulative_meter_increment_l": 20.0,
+      "relative_water_error": 2.4999999990171775e-07,
+      "relative_meter_error": 0.0,
+      "gap_check_passed": true
+    },
+    {
+      "site_id": "SYNTHETIC_SITE",
+      "zone_id": "ZONE_01",
+      "cycle_id": "C05",
+      "dataset_role": "validation",
+      "row_count": 48,
+      "depth_dynamics": {
+        "theta_10cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.025999999999999995,
+          "drydown_fall_m3_m3": 0.026695999999999998
+        },
+        "theta_25cm_m3_m3": {
+          "wetting_rise_m3_m3": 0.010499999999999982,
+          "drydown_fall_m3_m3": 0.01194099999999998
+        }
+      },
+      "reference_samples_per_depth": {
+        "reference_theta_10cm_m3_m3": 3,
+        "reference_theta_25cm_m3_m3": 3
+      },
+      "delivered_volume_l": 20.0,
+      "flow_integrated_volume_l": 19.999995000000002,
+      "cumulative_meter_increment_l": 20.0,
+      "relative_water_error": 2.4999999990171775e-07,
+      "relative_meter_error": 0.0,
+      "gap_check_passed": true
+    }
+  ],
+  "input_path": "data/examples/synthetic_field_observations_v1.csv",
+  "schema_version": "rootzone_field_observation_v1"
+}

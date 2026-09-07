@@ -1,0 +1,36 @@
+field_data_quality:
+  schema_version: rootzone_field_observation_v1
+  minimum_identification_cycles: 3
+  minimum_validation_cycles: 2
+  maximum_missing_fraction: 0.05
+  maximum_gap_factor: 2.5
+  maximum_sample_interval_minutes: 15
+  theta_min_m3_m3: 0.02
+  theta_max_m3_m3: 0.65
+  minimum_wetting_rise_m3_m3: 0.01
+  minimum_drydown_fall_m3_m3: 0.008
+  minimum_reference_samples_per_depth_per_cycle: 2
+  water_balance_relative_tolerance: 0.20
+  required_columns:
+    - timestamp_utc
+    - site_id
+    - zone_id
+    - cycle_id
+    - dataset_role
+    - sample_interval_minutes
+    - zone_area_m2
+    - theta_10cm_m3_m3
+    - theta_25cm_m3_m3
+    - irrigation_command_mm
+    - irrigation_delivered_mm
+    - flow_l_min
+    - cumulative_water_l
+    - air_temperature_c
+    - relative_humidity_pct
+    - solar_radiation_w_m2
+    - reference_theta_10cm_m3_m3
+    - reference_theta_25cm_m3_m3
+    - root_depth_m
+    - crop_stage
+    - sensor_status
+    - notes

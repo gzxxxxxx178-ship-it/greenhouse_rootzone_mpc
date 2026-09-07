@@ -21,3 +21,4 @@ T019,decision,形成毕业设计可行性判定与最低数据条件,completed,h
 T020,writing,按实际Python路线修订开题报告研究内容与技术路线,completed,high,2026-09-07,2026-09-07,outputs/documents/开题报告_智慧管控平台与根区MPC适用性_Python路线审阅版.docx,平台主体加MPC适用性边界且正文图表进度提纲均切换为Python正式路线
 T021,platform,验证消息乱序重复超时与崩溃恢复,completed,high,2026-09-07,2026-09-07,data/processed/platform_resilience_sil_v1.json,4场景14命令且7项幂等顺序超时恢复约束全部通过
 T022,platform,接入本地MQTT代理并验证QoS与断连重连,completed,high,2026-09-07,2026-09-07,data/processed/mqtt_sil_v1.json,26次接收23条有效反馈且8项MQTT与审计约束全部通过
+T023,data,建立现场最低数据模板与质量闸门,completed,high,2026-09-07,2026-09-07,data/processed/field_data_example_quality_v1.json,240行合成接入样例通过20项数据质量检查且不作为红壤证据
