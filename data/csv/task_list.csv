@@ -7,7 +7,7 @@ T005,controller,实现基础区间MPC,completed,high,2026-09-07,2026-09-07,src/r
 T006,validation,完成第一阶段烟雾验证,completed,high,2026-09-07,2026-09-07,outputs/tables/smoke_summary.csv,四种对象条件成对运行并发现节水与轻微亏缺权衡
 T007,validation,建立关键计算测试,completed,medium,2026-09-07,2026-09-07,tests/,覆盖水量变化边界与控制输出约束
 T008,design,设计开发集和锁定评价集,completed,high,2026-09-07,2026-09-07,data/processed/scenario_manifest_v1.csv,48个开发场景与120个锁定评价场景且种子隔离
-T009,design,标定强规则与基础MPC并冻结参数,pending,high,2026-09-07,,,只允许使用开发集
+T009,design,标定强规则与基础MPC并冻结参数,completed,high,2026-09-07,2026-09-07,configs/frozen_controller_v1.yaml,开发集选择RULE010与MPC007且锁定评价使用数为0
 T010,validation,运行基础MPC确认性对照,pending,high,2026-09-07,,,报告配对差不利尾部与场景边界
 T011,supervision,设计可信回退与恢复机制,pending,medium,2026-09-07,,,仅在基础MPC价值成立后启动
 T012,platform,接入管控平台软件在环,pending,medium,2026-09-07,,,记录任务命令联锁反馈和版本

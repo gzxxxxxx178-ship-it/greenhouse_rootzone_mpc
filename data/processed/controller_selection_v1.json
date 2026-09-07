@@ -1,0 +1,66 @@
+{
+  "tuning_name": "controller_tuning_v1",
+  "development_scenarios_used": 48,
+  "locked_evaluation_scenarios_used": 0,
+  "rule_candidate_count": 27,
+  "mpc_candidate_count": 12,
+  "selected": {
+    "rule": {
+      "candidate_id": "RULE010",
+      "parameters": {
+        "minimum_on_steps": 2,
+        "minimum_off_steps": 2,
+        "start_threshold": 0.205,
+        "stop_threshold": 0.225,
+        "pulse_mm": 2.0
+      },
+      "development_metrics": {
+        "candidate_id": "RULE010",
+        "feasible": true,
+        "median_below_zone_fraction": 0.0,
+        "p90_below_zone_fraction": 0.011904761904761904,
+        "median_deficit_integral": 0.0,
+        "p90_deficit_integral": 0.04851935553104383,
+        "median_irrigation_command_total_mm": 75.0,
+        "median_action_change_count": 14.0,
+        "safety_violation_scenarios": 0
+      }
+    },
+    "mpc": {
+      "candidate_id": "MPC007",
+      "parameters": {
+        "prediction_horizon": 12,
+        "control_horizon": 3,
+        "irrigation_candidates_mm": [
+          0.0,
+          2.0,
+          4.0,
+          6.0
+        ],
+        "max_step_irrigation_mm": 6.0,
+        "wet_weight": 2500.0,
+        "terminal_weight": 2.0,
+        "lower": 0.2,
+        "upper": 0.26,
+        "safety_lower": 0.14,
+        "safety_upper": 0.32,
+        "dry_weight": 32000.0,
+        "water_weight": 0.04,
+        "movement_weight": 0.05
+      },
+      "development_metrics": {
+        "candidate_id": "MPC007",
+        "feasible": true,
+        "median_below_zone_fraction": 0.01488095238095238,
+        "p90_below_zone_fraction": 0.04940476190476193,
+        "median_deficit_integral": 0.0029784462911335297,
+        "p90_deficit_integral": 0.009196091565955748,
+        "median_irrigation_command_total_mm": 70.0,
+        "median_action_change_count": 40.0,
+        "safety_violation_scenarios": 0
+      }
+    }
+  },
+  "tuning_config_sha256": "4c961feea4b1d81c4605ad07ec205dc826cc4d29552711e5f826e2906ba6d02a",
+  "scenario_manifest_sha256": "ae9618102a06dabd40e5a12f85c751c03ab0fe921f56f1fad254a85597641a20"
+}

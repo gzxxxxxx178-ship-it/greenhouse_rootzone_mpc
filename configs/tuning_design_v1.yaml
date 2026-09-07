@@ -1,0 +1,45 @@
+tuning:
+  name: controller_tuning_v1
+  development_split: development
+  zone:
+    lower: 0.200
+    upper: 0.260
+    safety_lower: 0.140
+    safety_upper: 0.320
+  selection_constraints:
+    median_below_zone_fraction_max: 0.05
+    p90_below_zone_fraction_max: 0.10
+    safety_violation_scenarios_max: 0
+  selection_order:
+    - feasible_constraints
+    - median_irrigation_command_total_mm
+    - median_deficit_integral
+    - median_action_change_count
+
+internal_model:
+  root_depth_mm: 300.0
+  irrigation_efficiency: 0.84
+  drainage_coefficient: 8.0
+  field_capacity: 0.275
+
+rule_fixed:
+  minimum_on_steps: 2
+  minimum_off_steps: 2
+
+rule_grid:
+  start_threshold: [0.200, 0.205, 0.210]
+  stop_threshold: [0.225, 0.235, 0.245]
+  pulse_mm: [2.0, 4.0, 6.0]
+
+mpc_fixed:
+  prediction_horizon: 12
+  control_horizon: 3
+  irrigation_candidates_mm: [0.0, 2.0, 4.0, 6.0]
+  max_step_irrigation_mm: 6.0
+  wet_weight: 2500.0
+  terminal_weight: 2.0
+
+mpc_grid:
+  dry_weight: [16000.0, 32000.0, 64000.0]
+  water_weight: [0.01, 0.04]
+  movement_weight: [0.05, 0.20]

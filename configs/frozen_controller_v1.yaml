@@ -1,0 +1,61 @@
+freeze_name: frozen_controller_v1
+selected_on_split: development
+locked_evaluation_accessed: false
+zone:
+  lower: 0.2
+  upper: 0.26
+  safety_lower: 0.14
+  safety_upper: 0.32
+internal_model:
+  root_depth_mm: 300.0
+  irrigation_efficiency: 0.84
+  drainage_coefficient: 8.0
+  field_capacity: 0.275
+rule:
+  candidate_id: RULE010
+  parameters:
+    minimum_on_steps: 2
+    minimum_off_steps: 2
+    start_threshold: 0.205
+    stop_threshold: 0.225
+    pulse_mm: 2.0
+  development_metrics:
+    candidate_id: RULE010
+    feasible: true
+    median_below_zone_fraction: 0.0
+    p90_below_zone_fraction: 0.011904761904761904
+    median_deficit_integral: 0.0
+    p90_deficit_integral: 0.04851935553104383
+    median_irrigation_command_total_mm: 75.0
+    median_action_change_count: 14.0
+    safety_violation_scenarios: 0
+mpc:
+  candidate_id: MPC007
+  parameters:
+    prediction_horizon: 12
+    control_horizon: 3
+    irrigation_candidates_mm:
+    - 0.0
+    - 2.0
+    - 4.0
+    - 6.0
+    max_step_irrigation_mm: 6.0
+    wet_weight: 2500.0
+    terminal_weight: 2.0
+    lower: 0.2
+    upper: 0.26
+    safety_lower: 0.14
+    safety_upper: 0.32
+    dry_weight: 32000.0
+    water_weight: 0.04
+    movement_weight: 0.05
+  development_metrics:
+    candidate_id: MPC007
+    feasible: true
+    median_below_zone_fraction: 0.01488095238095238
+    p90_below_zone_fraction: 0.04940476190476193
+    median_deficit_integral: 0.0029784462911335297
+    p90_deficit_integral: 0.009196091565955748
+    median_irrigation_command_total_mm: 70.0
+    median_action_change_count: 40.0
+    safety_violation_scenarios: 0
