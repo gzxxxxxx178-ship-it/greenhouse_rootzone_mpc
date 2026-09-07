@@ -17,4 +17,5 @@ T015,foundation,配置GitHub唯一远端并完成首次推送,completed,high,202
 T016,supervision,开发观测无关的保守回退与状态估计,completed,high,2026-09-07,2026-09-07,data/processed/supervision_v2_development_v1.json,新开发集冻结V2C005且锁定场景使用数为0
 T017,validation,运行监督V2独立锁定确认性评价,completed,high,2026-09-07,2026-09-07,data/processed/supervision_v2_confirmation_v1.json,四项门槛达到但3个过湿安全失败使独立确认不支持
 T018,supervision,开发带恢复探测与硬过湿约束的监督V3,completed,high,2026-09-07,2026-09-07,data/processed/supervision_v3_development_v1.json,无候选优于V2因此不进入锁定确认
-T019,decision,形成毕业设计可行性判定与最低数据条件,pending,high,2026-09-07,,,基于已冻结的正负结果确定论文主线和停止边界
+T019,decision,形成毕业设计可行性判定与最低数据条件,completed,high,2026-09-07,2026-09-07,docs/thesis_feasibility_decision.md,推荐平台主体加MPC适用性与失效边界并明确最低数据门槛
+T020,writing,按实际Python路线修订开题报告研究内容与技术路线,pending,high,2026-09-07,,,保留原文档并生成可审阅修订版
