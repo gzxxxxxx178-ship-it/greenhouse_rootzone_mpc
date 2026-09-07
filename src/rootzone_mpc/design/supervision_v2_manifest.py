@@ -11,8 +11,10 @@ from rootzone_mpc.design.anomaly_manifest import _assign_split, validate_anomaly
 from rootzone_mpc.design.scenario_manifest import _build_split, validate_scenario_manifest
 
 
-def build_supervision_v2_manifests(project_root: Path) -> tuple[Path, Path, Path]:
-    design_path = project_root / "configs/supervision_v2_design.yaml"
+def _build_manifests(
+    project_root: Path, design_filename: str, output_prefix: str
+) -> tuple[Path, Path, Path]:
+    design_path = project_root / "configs" / design_filename
     cfg = yaml.safe_load(design_path.read_text(encoding="utf-8"))
     design = cfg["design"]
     base_path = project_root / design["base_envelope_config"]
@@ -21,8 +23,8 @@ def build_supervision_v2_manifests(project_root: Path) -> tuple[Path, Path, Path
     anomaly_cfg = yaml.safe_load(anomaly_path.read_text(encoding="utf-8"))
     pieces = []
     for split, prefix, count_key, seed_key in (
-        ("development", "V2D", "development_count", "development_master_seed"),
-        ("locked_evaluation", "V2E", "locked_evaluation_count", "locked_evaluation_master_seed"),
+        ("development", design.get("development_prefix", "V2D"), "development_count", "development_master_seed"),
+        ("locked_evaluation", design.get("locked_evaluation_prefix", "V2E"), "locked_evaluation_count", "locked_evaluation_master_seed"),
     ):
         pieces.append(
             _build_split(
@@ -54,9 +56,9 @@ def build_supervision_v2_manifests(project_root: Path) -> tuple[Path, Path, Path
     anomalies = pd.concat(anomaly_pieces, ignore_index=True)
     anomaly_audit = validate_anomaly_manifest(anomalies, anomaly_cfg["anomaly_types"])
     out = project_root / "data/processed"
-    scenario_out = out / "supervision_v2_scenario_manifest.csv"
-    anomaly_out = out / "supervision_v2_anomaly_manifest.csv"
-    audit_out = out / "supervision_v2_manifest.audit.json"
+    scenario_out = out / f"{output_prefix}_scenario_manifest.csv"
+    anomaly_out = out / f"{output_prefix}_anomaly_manifest.csv"
+    audit_out = out / f"{output_prefix}_manifest.audit.json"
     scenarios.to_csv(scenario_out, index=False, float_format="%.8f")
     anomalies.to_csv(anomaly_out, index=False)
     audit = {
@@ -73,3 +75,11 @@ def build_supervision_v2_manifests(project_root: Path) -> tuple[Path, Path, Path
     }
     audit_out.write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
     return scenario_out, anomaly_out, audit_out
+
+
+def build_supervision_v2_manifests(project_root: Path) -> tuple[Path, Path, Path]:
+    return _build_manifests(project_root, "supervision_v2_design.yaml", "supervision_v2")
+
+
+def build_supervision_v3_manifests(project_root: Path) -> tuple[Path, Path, Path]:
+    return _build_manifests(project_root, "supervision_v3_design.yaml", "supervision_v3")

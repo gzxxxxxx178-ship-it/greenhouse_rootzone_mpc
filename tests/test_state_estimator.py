@@ -22,3 +22,9 @@ def test_conservative_state_drops_as_open_loop_uncertainty_grows():
     previous_uncertainty = state.uncertainty
     state.assimilate(0.20, trusted=True)
     assert state.uncertainty < previous_uncertainty
+
+
+def test_recovery_assimilation_clips_large_innovation():
+    state = estimator()
+    state.assimilate_recovery(0.40, eligible=True)
+    assert state.theta == 0.202

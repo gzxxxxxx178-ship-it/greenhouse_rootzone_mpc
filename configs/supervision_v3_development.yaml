@@ -1,0 +1,29 @@
+development:
+  name: supervision_v3_development
+  split: development
+  expected_scenario_count: 96
+  reference_methods: [base_mpc, trustworthy_supervision, trustworthy_supervision_v2]
+  tie_tolerance_event_deficit: 0.000001
+  feasibility:
+    maximum_normal_non_mpc_fraction: 0.12
+    median_relative_irrigation_increase_vs_base_max: 0.15
+    require_no_extra_safety_violations: true
+  advancement:
+    minimum_improved_types_vs_v2: 1
+    maximum_adverse_types_vs_base: 2
+  locked_evaluation_access_allowed: false
+
+fixed:
+  recovery_observation_gain: 0.20
+  recovery_maximum_innovation: 0.010
+  rolling_window_steps: 24
+
+candidates:
+  - {candidate_id: V3C001, acceptance_band: 0.010, confirmation_steps: 3, wet_guard_threshold: 0.300, rolling_budget_mm: 12.0}
+  - {candidate_id: V3C002, acceptance_band: 0.010, confirmation_steps: 6, wet_guard_threshold: 0.300, rolling_budget_mm: 12.0}
+  - {candidate_id: V3C003, acceptance_band: 0.015, confirmation_steps: 3, wet_guard_threshold: 0.300, rolling_budget_mm: 12.0}
+  - {candidate_id: V3C004, acceptance_band: 0.015, confirmation_steps: 6, wet_guard_threshold: 0.300, rolling_budget_mm: 12.0}
+  - {candidate_id: V3C005, acceptance_band: 0.010, confirmation_steps: 3, wet_guard_threshold: 0.310, rolling_budget_mm: 16.0}
+  - {candidate_id: V3C006, acceptance_band: 0.010, confirmation_steps: 6, wet_guard_threshold: 0.310, rolling_budget_mm: 16.0}
+  - {candidate_id: V3C007, acceptance_band: 0.015, confirmation_steps: 3, wet_guard_threshold: 0.310, rolling_budget_mm: 16.0}
+  - {candidate_id: V3C008, acceptance_band: 0.015, confirmation_steps: 6, wet_guard_threshold: 0.310, rolling_budget_mm: 16.0}

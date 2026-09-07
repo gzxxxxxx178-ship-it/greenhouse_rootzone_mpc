@@ -1,0 +1,17 @@
+design:
+  name: supervision_v3_design
+  development_count: 96
+  locked_evaluation_count: 144
+  development_master_seed: 72019
+  locked_evaluation_master_seed: 102043
+  development_assignment_seed: 73037
+  locked_assignment_seed: 103049
+  development_prefix: V3D
+  locked_evaluation_prefix: V3E
+  horizon_hours: 336
+  default_start_step: 120
+  default_duration_steps: 48
+  base_envelope_config: configs/scenario_design_v1.yaml
+  anomaly_magnitude_config: configs/anomaly_design_v1.yaml
+  interpretation: independent_sensitivity_scenarios_not_field_probabilities
+  tuning_rule: locked_evaluation_split_must_not_be_simulated_before_v3_freeze

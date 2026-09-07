@@ -1,0 +1,31 @@
+{
+  "development_name": "supervision_v3_development",
+  "classification": "NO_V3_CANDIDATE_ADVANCES",
+  "selected_candidate": {
+    "candidate_id": "V3C006",
+    "acceptance_band": 0.01,
+    "confirmation_steps": 6,
+    "wet_guard_threshold": 0.31,
+    "rolling_budget_mm": 16.0,
+    "infeasible": 0,
+    "safety_violation_scenarios": 0,
+    "reference_min_safety_violation_scenarios": 0,
+    "adverse_types_vs_base": 2,
+    "improved_types_vs_v2": 0,
+    "normal_non_mpc_fraction_median": 0.0342261905,
+    "median_relative_irrigation_increase_vs_base": 0.0,
+    "median_event_deficit": 0.0,
+    "p90_event_deficit": 0.4417140911
+  },
+  "advance_to_confirmation": false,
+  "scenario_count": 96,
+  "candidate_count": 8,
+  "method_runs": 1056,
+  "locked_evaluation_scenarios_used": 0,
+  "interpretation": "development_selection_not_confirmatory_evidence",
+  "hashes": {
+    "metrics": "33d9990b5b4f6d36601e092e2e045aed3d85cd7f17e3f8175a27480d1fcc7f9e",
+    "candidate_summary": "028601fd6e94fb7afb12c022d1ff181b911bb40e21715926d1397321e95412c9",
+    "development_candidate_supervision_v3": "73cef26dc8e5993d06efc276adfa8818d8d984c7b7862dd4299f5bb6125c7d6f"
+  }
+}

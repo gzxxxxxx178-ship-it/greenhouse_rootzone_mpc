@@ -23,6 +23,8 @@ from rootzone_mpc.supervision import (
     RiskScale,
     SupervisorConfig,
     GuardedStateEstimator,
+    IrrigationSafetyFilter,
+    IrrigationSafetyFilterConfig,
     StateEstimatorConfig,
     TrustworthySupervisor,
     TrustworthySupervisorV2,
@@ -115,7 +117,9 @@ def _run_method(
     supervisor = _supervisor(frozen_supervision)
     estimator = None
     estimated_rule = None
-    if method == "trustworthy_supervision_v2":
+    safety_filter = None
+    recovery_probe_count = 0
+    if method in {"trustworthy_supervision_v2", "trustworthy_supervision_v3"}:
         if v2_config is None:
             raise ValueError("V2 supervision method requires v2_config")
         supervisor = TrustworthySupervisorV2(
@@ -127,6 +131,10 @@ def _run_method(
             float(scenario["initial_theta"]),
         )
         estimated_rule = RuleController(RuleParameters(**v2_config["fallback_rule"]))
+        if method == "trustworthy_supervision_v3":
+            safety_filter = IrrigationSafetyFilter(
+                IrrigationSafetyFilterConfig(**v2_config["safety_filter"])
+            )
     nominal_plant_parameters = plant.p
     hours = int(scenario["horizon_hours"])
     horizon = int(frozen_controller["mpc"]["parameters"]["prediction_horizon"])
@@ -201,7 +209,9 @@ def _run_method(
         )
 
         effective_observation = last_valid_observation if observation is None else float(observation)
-        if method == "trustworthy_supervision_v2":
+        trusted_observation = False
+        recovery_observation_used = False
+        if method in {"trustworthy_supervision_v2", "trustworthy_supervision_v3"}:
             trusted_observation = (
                 signals.observation_valid
                 and feedback_consistent
@@ -209,6 +219,24 @@ def _run_method(
                 and signals.model_risk < float(v2_config["supervisor"]["risk_high"])
             )
             estimator.assimilate(observation, trusted_observation)
+            if method == "trustworthy_supervision_v3" and not trusted_observation:
+                acceptance_band = float(v2_config["recovery_probe"]["acceptance_band"])
+                recovery_candidate = (
+                    observation is not None
+                    and signals.observation_valid
+                    and feedback_consistent
+                    and signals.observation_risk
+                    <= float(v2_config["supervisor"]["risk_recovery"])
+                    and signals.execution_risk
+                    <= float(v2_config["supervisor"]["risk_recovery"])
+                    and abs(float(observation) - estimator.theta) <= acceptance_band
+                )
+                recovery_probe_count = recovery_probe_count + 1 if recovery_candidate else 0
+                if recovery_probe_count >= int(v2_config["recovery_probe"]["confirmation_steps"]):
+                    estimator.assimilate_recovery(observation, eligible=True)
+                    recovery_observation_used = True
+            elif trusted_observation:
+                recovery_probe_count = 0
             effective_observation = estimator.conservative_theta
         if method == "base_mpc":
             mode = ControlMode.MPC
@@ -230,7 +258,7 @@ def _run_method(
             mode = decision.mode
             reason = decision.reason
             transitioned = decision.transitioned
-        elif method == "trustworthy_supervision_v2":
+        elif method in {"trustworthy_supervision_v2", "trustworthy_supervision_v3"}:
             decision = supervisor.update(signals)
             mode = decision.mode
             reason = decision.reason
@@ -255,6 +283,13 @@ def _run_method(
             command = estimated_rule.act(effective_observation)
         else:
             command = 0.0
+
+        filter_reason = "not_applied"
+        if safety_filter is not None:
+            wetness_indicator = estimator.theta + estimator.uncertainty
+            if trusted_observation or recovery_observation_used:
+                wetness_indicator = max(wetness_indicator, float(observation))
+            command, filter_reason = safety_filter.apply(command, wetness_indicator)
 
         if transitioned:
             transition_count += 1
@@ -300,6 +335,10 @@ def _run_method(
                 "solver_success": solver_success,
                 "feedback_consistent": feedback_consistent,
                 "anomaly_active": active,
+                "estimator_theta": np.nan if estimator is None else estimator.theta,
+                "estimator_uncertainty": np.nan if estimator is None else estimator.uncertainty,
+                "recovery_observation_used": recovery_observation_used,
+                "command_filter_reason": filter_reason,
             }
         )
         observation = next_observation

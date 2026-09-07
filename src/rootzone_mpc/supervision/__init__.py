@@ -8,6 +8,7 @@ from .supervisor import (
 )
 from .risk import OnlineRiskMonitor, RiskMonitorConfig, RiskScale
 from .state_estimator import GuardedStateEstimator, StateEstimatorConfig
+from .safety_filter import IrrigationSafetyFilter, IrrigationSafetyFilterConfig
 
 __all__ = [
     "ControlMode",
@@ -21,4 +22,6 @@ __all__ = [
     "RiskScale",
     "GuardedStateEstimator",
     "StateEstimatorConfig",
+    "IrrigationSafetyFilter",
+    "IrrigationSafetyFilterConfig",
 ]
