@@ -44,6 +44,9 @@ thesis_evidence_audit:
     - artifact: data/processed/field_calibration_example_v1.json
       selector: status
       expected: passed
+    - artifact: data/processed/dynamic_noise_example_v1.json
+      selector: decision
+      expected: not_estimable_measurement_floor_exceeds_dynamic_residual
   config_bindings:
     - artifact: data/processed/two_layer_identification_smoke_v1.json
       config: configs/two_layer_identification_v1.yaml
@@ -55,6 +58,8 @@ thesis_evidence_audit:
       config: configs/field_model_admission_v1.yaml
     - artifact: data/processed/field_calibration_example_v1.json
       config: configs/field_calibration_quality_v1.yaml
+    - artifact: data/processed/dynamic_noise_example_v1.json
+      config: configs/dynamic_noise_decomposition_v1.yaml
   key_metrics:
     - metric_id: baseline_scenario_count
       artifact: data/processed/baseline_confirmation_v1.json
@@ -106,6 +111,16 @@ thesis_evidence_audit:
       selector: model_admission_handoff.flow_corrected_maximum_absolute_relative_error
       expected: 0.009895073473683347
       tolerance: 1.0e-15
+    - metric_id: t032_shallow_known_error_ratio
+      artifact: data/processed/dynamic_noise_example_v1.json
+      selector: layers.shallow.known_error_to_residual_variance_ratio
+      expected: 96.2513012779489
+      tolerance: 1.0e-12
+    - metric_id: t032_deep_known_error_ratio
+      artifact: data/processed/dynamic_noise_example_v1.json
+      selector: layers.deep.known_error_to_residual_variance_ratio
+      expected: 360.5300645213902
+      tolerance: 1.0e-12
   claims:
     supported:
       - claim_id: C001

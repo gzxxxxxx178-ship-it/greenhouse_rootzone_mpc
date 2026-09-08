@@ -20,3 +20,4 @@ R018,thesis,当前证据总结与条件触发式毕业设计路线,completed,doc
 R019,thesis,任务结果配置数字与主张边界自动审计,completed,data/processed/thesis_evidence_audit_v1.json,18项仓库一致性检查通过且缺失失败停止证据均被保留
 R020,implementation,水分传感器与流量计标定数据入口,completed,data/processed/field_calibration_example_v1.json,合成样例验证计算流程且真实标定与过程噪声仍未取得
 R021,implementation,现场观测输入区间与状态转移时间对齐,completed,docs/t031_input_alignment_correction.md,准入辨识与后续残差分解统一使用区间结束时间语义
+R022,implementation,独立验证残差与测量及流量输入误差分解,completed,data/processed/dynamic_noise_example_v1.json,合成样例正确拒绝不相容噪声尺度且未生成伪过程噪声参数

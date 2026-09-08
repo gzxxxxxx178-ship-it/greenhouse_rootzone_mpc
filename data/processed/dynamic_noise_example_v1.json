@@ -1,0 +1,75 @@
+{
+  "decision": "not_estimable_measurement_floor_exceeds_dynamic_residual",
+  "validation_cycle_count": 2,
+  "validation_transition_count": 94,
+  "measurement_noise_sd_m3_m3": {
+    "shallow": 0.0025512417463750057,
+    "deep": 0.002735193758840354
+  },
+  "flow_relative_rmse": 0.0053895243014968775,
+  "layers": {
+    "shallow": {
+      "transition_count": 94,
+      "residual_mean_m3_m3": -5.009654063891609e-05,
+      "residual_sd_m3_m3": 0.00034854222292430865,
+      "residual_variance": 1.2148168116101846e-07,
+      "measurement_error_variance": 1.169225593777657e-05,
+      "input_error_variance_mean": 5.139554043471509e-10,
+      "known_error_variance": 1.1692769893180916e-05,
+      "known_error_to_residual_variance_ratio": 96.2513012779489,
+      "unexplained_variance_raw": -1.1571288212019898e-05,
+      "unexplained_dynamic_sd_candidate_m3_m3": null,
+      "unexplained_variance_positive": false
+    },
+    "deep": {
+      "transition_count": 94,
+      "residual_mean_m3_m3": -2.6595744680851677e-05,
+      "residual_sd_m3_m3": 0.00020372001528018506,
+      "residual_variance": 4.150184462575883e-08,
+      "measurement_error_variance": 1.496256979679845e-05,
+      "input_error_variance_mean": 9.29238830927555e-11,
+      "known_error_variance": 1.4962662720681543e-05,
+      "known_error_to_residual_variance_ratio": 360.5300645213902,
+      "unexplained_variance_raw": -1.4921160876055785e-05,
+      "unexplained_dynamic_sd_candidate_m3_m3": null,
+      "unexplained_variance_positive": false
+    }
+  },
+  "process_noise_sd_m3_m3": null,
+  "screening_checks": {
+    "model_result_passed": true,
+    "calibration_result_passed": true,
+    "dynamic_input_matches_model_result": true,
+    "minimum_validation_cycles_met": true,
+    "minimum_validation_transitions_met": true,
+    "identification_cycles_excluded": true,
+    "measurement_noise_available_each_depth": true,
+    "flow_uncertainty_available": true,
+    "input_interval_alignment_is_interval_end": true
+  },
+  "name": "dynamic_noise_decomposition_example_v1",
+  "status": "passed",
+  "workflow_checks": {
+    "model_result_passed": true,
+    "calibration_result_passed": true,
+    "dynamic_input_matches_model_result": true,
+    "minimum_validation_cycles_met": true,
+    "minimum_validation_transitions_met": true,
+    "identification_cycles_excluded": true,
+    "measurement_noise_available_each_depth": true,
+    "flow_uncertainty_available": true,
+    "input_interval_alignment_is_interval_end": true,
+    "expected_decision_met": true,
+    "expected_process_noise_candidate_met": true,
+    "process_noise_not_invented_below_known_error_floor": true
+  },
+  "code_commit": "bb1b6af55ad9a6e1fa3f187faf2190139f466dd6",
+  "config_sha256": "5d0ed8cfeb7c94f9e2c27cc75a524f500cbfffe94a65d4e33c18a967cd6288b4",
+  "dynamic_input_sha256": "56c2e857ee03c6ff7f33e9119d283a2d29720f66e5c48cd7be535c17f3d1ee51",
+  "model_result_sha256": "47d04d2ea08768f1d4f51c3aaa0ac1580a6ec301bf27b8fb826fcdf12b83f87f",
+  "calibration_result_sha256": "fd64d4105f4b2106c2f3e0f25965cb8ad44bc41994aff0d1ada8ee009aa3807e",
+  "residual_source": "independent_validation_cycles_only",
+  "input_interval_alignment": "row_ending_at_next_state_timestamp",
+  "interpretation": "Any positive remainder is an unexplained dynamic residual screening candidate that still includes model-structure and parameter uncertainty; it is not pure process noise.",
+  "evidence_boundary": "synthetic_independent_validation_residual_decomposition_only"
+}

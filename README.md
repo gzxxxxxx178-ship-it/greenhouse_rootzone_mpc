@@ -53,6 +53,7 @@ python scripts/run_mqtt_sil.py
 python scripts/validate_field_data.py data/examples/synthetic_field_observations_v1.csv
 python scripts/assess_field_model_admission.py data/examples/synthetic_field_observations_v1.csv
 python scripts/assess_field_calibration.py data/examples/synthetic_moisture_calibration_v1.csv data/examples/synthetic_flow_calibration_v1.csv
+python scripts/assess_dynamic_noise.py --output data/processed/dynamic_noise_example_v1.json
 python scripts/audit_thesis_evidence.py
 python scripts/run_two_layer_identification.py
 python scripts/plot_two_layer_validation.py
