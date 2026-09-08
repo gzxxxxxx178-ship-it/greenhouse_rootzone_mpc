@@ -1,15 +1,15 @@
 {
   "name": "thesis_evidence_audit_v1",
   "status": "passed",
-  "code_commit": "f4a53fe16c5ba508c03ec51b15a6443126db7b3d",
-  "config_sha256": "d75c8d44279d696e3feacea7285572db93e8570a64b548900786dd3789a2f07d",
+  "code_commit": "0ef2a1ec4b19a7607e28fdf9f1fefd467319f75c",
+  "config_sha256": "57b3b777b5187b0227379031c1948f1fb3eeacc78a597b0dd8b5087b6c4fbdfc",
   "counts": {
-    "tasks": 29,
-    "requirements": 19,
+    "tasks": 31,
+    "requirements": 21,
     "roadmap_items": 11,
-    "result_expectations": 11,
-    "config_bindings": 4,
-    "key_metrics": 8,
+    "result_expectations": 12,
+    "config_bindings": 5,
+    "key_metrics": 10,
     "supported_claims": 4,
     "conditional_claims": 3,
     "prohibited_claims": 4
@@ -114,6 +114,13 @@
       "expected": "passed",
       "actual": "passed",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/field_calibration_example_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
     }
   ],
   "config_bindings": [
@@ -144,6 +151,13 @@
       "recorded_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "current_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/field_calibration_example_v1.json",
+      "config": "configs/field_calibration_quality_v1.yaml",
+      "recorded_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
+      "current_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
+      "matched": true
     }
   ],
   "code_commits": [
@@ -164,7 +178,12 @@
     },
     {
       "artifact": "data/processed/field_model_admission_example_v1.json",
-      "code_commit": "03f304f62afaf2fc9ffc3495155537b50f69dd8f",
+      "code_commit": "f08d0f53c4699aeec4976a7c4147532b05e46a0d",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/field_calibration_example_v1.json",
+      "code_commit": "4a7b1ba35d6e1345da489e9eb13ce764c288e58d",
       "commit_exists": true
     }
   ],
@@ -236,9 +255,27 @@
       "metric_id": "t027_minimum_information",
       "artifact": "data/processed/field_model_admission_example_v1.json",
       "selector": "information_assessment.minimum_information_singular_value_snr",
-      "expected": 20.011545218321846,
+      "expected": 20.23424891533147,
       "tolerance": 1e-12,
-      "actual": 20.011545218321846,
+      "actual": 20.23424891533147,
+      "matched": true
+    },
+    {
+      "metric_id": "t030_measurement_noise_candidate",
+      "artifact": "data/processed/field_calibration_example_v1.json",
+      "selector": "model_admission_handoff.measurement_noise_sd_m3_m3",
+      "expected": 0.002735193758840354,
+      "tolerance": 1e-15,
+      "actual": 0.002735193758840354,
+      "matched": true
+    },
+    {
+      "metric_id": "t030_flow_maximum_relative_error",
+      "artifact": "data/processed/field_calibration_example_v1.json",
+      "selector": "model_admission_handoff.flow_corrected_maximum_absolute_relative_error",
+      "expected": 0.009895073473683347,
+      "tolerance": 1e-15,
+      "actual": 0.009895073473683347,
       "matched": true
     }
   ],
