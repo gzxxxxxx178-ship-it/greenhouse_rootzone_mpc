@@ -1,0 +1,93 @@
+{
+  "name": "excitation_identifiability_v1",
+  "status": "failed",
+  "code_commit": "b5c5bfb26746f3ab70aa789a3e719564e6adaa32",
+  "config_sha256": "6d6af001d92e23579e53ffd190b600dab5b3da8427b652f0ee9811f4ee55e503",
+  "repetitions": 30,
+  "fit_cycles_per_condition_per_repetition": 3,
+  "common_probe_cycles": 3,
+  "aggregate": {
+    "weak": {
+      "condition_number": {
+        "median": 1.9560828835933233,
+        "q25": 1.932773157185788,
+        "q75": 1.9854133001779277
+      },
+      "normalized_parameter_rmse": {
+        "median": 0.02834594282552906,
+        "q25": 0.021390713737829678,
+        "q75": 0.03284984753065481
+      },
+      "active_bound_count": {
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0
+      },
+      "probe_rmse_shallow": {
+        "median": 0.0009163282125921178,
+        "q25": 0.0007379982019780476,
+        "q75": 0.0012095297759613813
+      },
+      "probe_rmse_deep": {
+        "median": 0.0008995951317808182,
+        "q25": 0.0006261351291984205,
+        "q75": 0.0014186835706778938
+      },
+      "probe_rmse_mean": {
+        "median": 0.0008527073726927507,
+        "q25": 0.0006407018241410482,
+        "q75": 0.001288485550821234
+      }
+    },
+    "rich": {
+      "condition_number": {
+        "median": 2.0721779931030087,
+        "q25": 2.0613117420837495,
+        "q75": 2.079225247331455
+      },
+      "normalized_parameter_rmse": {
+        "median": 0.007115042645034408,
+        "q25": 0.006530380657643999,
+        "q75": 0.00878663874312584
+      },
+      "active_bound_count": {
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0
+      },
+      "probe_rmse_shallow": {
+        "median": 0.0004651230924541485,
+        "q25": 0.0003493528619144716,
+        "q75": 0.0006244570240252733
+      },
+      "probe_rmse_deep": {
+        "median": 0.00045489099179594854,
+        "q25": 0.00033367290295379336,
+        "q75": 0.0006359552825282297
+      },
+      "probe_rmse_mean": {
+        "median": 0.00047615866085540465,
+        "q25": 0.0003426977066057158,
+        "q75": 0.0006064945519084316
+      }
+    }
+  },
+  "rich_to_weak_median_ratios": {
+    "condition_number": 1.0593508130373386,
+    "normalized_parameter_rmse": 0.2510074435988216,
+    "probe_rmse_mean": 0.5584080495888655
+  },
+  "paired_parameter_improvement_ratio": 1.0,
+  "paired_probe_improvement_ratio": 0.8666666666666667,
+  "invariants": {
+    "true_parameters_strictly_inside_bounds": true,
+    "all_solvers_converged": true,
+    "rich_condition_number_reduced": false,
+    "rich_parameter_error_reduced": true,
+    "paired_parameter_improvement_ratio_met": true,
+    "rich_probe_rmse_reduced": true,
+    "paired_probe_improvement_ratio_met": true,
+    "rich_active_bounds_limit_met": true
+  },
+  "evidence_boundary": "known_parameter_synthetic_identifiability_study_only"
+}
