@@ -1,16 +1,16 @@
 {
   "name": "thesis_evidence_audit_v1",
   "status": "passed",
-  "code_commit": "0ef2a1ec4b19a7607e28fdf9f1fefd467319f75c",
-  "config_sha256": "57b3b777b5187b0227379031c1948f1fb3eeacc78a597b0dd8b5087b6c4fbdfc",
+  "code_commit": "bf4ca5602ccb1dd0a440c23f39506b9353c93ed1",
+  "config_sha256": "b2d8b2cb487ebcaa317f9fff50be40f66e130fe8c3bc4a5dbaaecea144bfbd7a",
   "counts": {
-    "tasks": 31,
-    "requirements": 21,
-    "roadmap_items": 11,
-    "result_expectations": 12,
-    "config_bindings": 5,
-    "key_metrics": 10,
-    "supported_claims": 4,
+    "tasks": 33,
+    "requirements": 23,
+    "roadmap_items": 12,
+    "result_expectations": 13,
+    "config_bindings": 6,
+    "key_metrics": 12,
+    "supported_claims": 5,
     "conditional_claims": 3,
     "prohibited_claims": 4
   },
@@ -121,6 +121,13 @@
       "expected": "passed",
       "actual": "passed",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/dynamic_noise_example_v1.json",
+      "selector": "decision",
+      "expected": "not_estimable_measurement_floor_exceeds_dynamic_residual",
+      "actual": "not_estimable_measurement_floor_exceeds_dynamic_residual",
+      "matched": true
     }
   ],
   "config_bindings": [
@@ -158,6 +165,13 @@
       "recorded_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
       "current_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/dynamic_noise_example_v1.json",
+      "config": "configs/dynamic_noise_decomposition_v1.yaml",
+      "recorded_sha256": "5d0ed8cfeb7c94f9e2c27cc75a524f500cbfffe94a65d4e33c18a967cd6288b4",
+      "current_sha256": "5d0ed8cfeb7c94f9e2c27cc75a524f500cbfffe94a65d4e33c18a967cd6288b4",
+      "matched": true
     }
   ],
   "code_commits": [
@@ -184,6 +198,11 @@
     {
       "artifact": "data/processed/field_calibration_example_v1.json",
       "code_commit": "4a7b1ba35d6e1345da489e9eb13ce764c288e58d",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/dynamic_noise_example_v1.json",
+      "code_commit": "bb1b6af55ad9a6e1fa3f187faf2190139f466dd6",
       "commit_exists": true
     }
   ],
@@ -277,6 +296,24 @@
       "tolerance": 1e-15,
       "actual": 0.009895073473683347,
       "matched": true
+    },
+    {
+      "metric_id": "t032_shallow_known_error_ratio",
+      "artifact": "data/processed/dynamic_noise_example_v1.json",
+      "selector": "layers.shallow.known_error_to_residual_variance_ratio",
+      "expected": 96.2513012779489,
+      "tolerance": 1e-12,
+      "actual": 96.2513012779489,
+      "matched": true
+    },
+    {
+      "metric_id": "t032_deep_known_error_ratio",
+      "artifact": "data/processed/dynamic_noise_example_v1.json",
+      "selector": "layers.deep.known_error_to_residual_variance_ratio",
+      "expected": 360.5300645213902,
+      "tolerance": 1e-12,
+      "actual": 360.5300645213902,
+      "matched": true
     }
   ],
   "claim_register": {
@@ -324,6 +361,18 @@
         "accepted_statuses": [
           "failed",
           "stopped"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C005",
+        "statement": "动态误差分解入口可在已知误差地板高于验证残差时拒绝输出伪过程噪声参数",
+        "requirements": [
+          "R014",
+          "R020",
+          "R021",
+          "R022"
         ],
         "audit_status": "supported",
         "unavailable_requirements": []
