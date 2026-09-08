@@ -14,3 +14,4 @@ R012,implementation,Python正式算法流水线,completed,src/rootzone_mpc and s
 R013,platform,真实MQTT QoS持久会话与断连重连,completed,data/processed/mqtt_sil_v1.json,仅支持单机代理和客户端软件在环
 R014,implementation,双层根区灰箱模型辨识与冻结验证入口,completed,data/processed/two_layer_identification_smoke_v1.json,合成数据只证明流程可执行且不改变R003缺失状态
 R015,validation,充分激励通过双层模型完整可辨识性判据,failed,data/processed/excitation_identifiability_v1.json,参数恢复改善但标准化条件数预设门失败
+R016,validation,幅值敏感信息量预警合成参数恢复风险,completed,data/processed/information_identifiability_v1.json,三档激励下信息量与参数误差方向一致但不证明现场循环数量充分

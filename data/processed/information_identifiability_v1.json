@@ -1,0 +1,130 @@
+{
+  "name": "information_identifiability_v1",
+  "status": "passed",
+  "code_commit": "c5a1d9f80e58fd184b95e9698c32fa3578949bbf",
+  "config_sha256": "3e534ca50b8debf9edc8b96344c48cb66fca28fc256ff081114759beac88e4d2",
+  "repetitions": 30,
+  "conditions": [
+    "weak",
+    "moderate",
+    "rich"
+  ],
+  "fit_cycles_per_condition_per_repetition": 3,
+  "common_probe_cycles": 3,
+  "assumed_delta_observation_noise_sd_m3_m3": 0.000714142842854285,
+  "aggregate": {
+    "weak": {
+      "information_min_singular_snr": {
+        "median": 21.275340821454808,
+        "q25": 20.883035499056987,
+        "q75": 21.611174643433664
+      },
+      "predicted_normalized_se_rms": {
+        "median": 0.022776405616057573,
+        "q25": 0.02247616605516623,
+        "q75": 0.023142996403374562
+      },
+      "normalized_parameter_rmse": {
+        "median": 0.028392228166895687,
+        "q25": 0.025455723981865075,
+        "q75": 0.03305142298487962
+      },
+      "probe_rmse_mean": {
+        "median": 0.0009941800561329983,
+        "q25": 0.0007537011643502357,
+        "q75": 0.0012544939510801781
+      },
+      "active_bound_count": {
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0
+      }
+    },
+    "moderate": {
+      "information_min_singular_snr": {
+        "median": 28.439167126618,
+        "q25": 28.133124204358204,
+        "q75": 28.811539219294108
+      },
+      "predicted_normalized_se_rms": {
+        "median": 0.017688095349501068,
+        "q25": 0.017523102380650787,
+        "q75": 0.017844087501627852
+      },
+      "normalized_parameter_rmse": {
+        "median": 0.016027621548770018,
+        "q25": 0.014922299174487496,
+        "q75": 0.020487484954165643
+      },
+      "probe_rmse_mean": {
+        "median": 0.0006071715388455834,
+        "q25": 0.00045785046881063125,
+        "q75": 0.0008048658116269755
+      },
+      "active_bound_count": {
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0
+      }
+    },
+    "rich": {
+      "information_min_singular_snr": {
+        "median": 45.80420670913491,
+        "q25": 45.546806924625244,
+        "q75": 46.42055388390719
+      },
+      "predicted_normalized_se_rms": {
+        "median": 0.011718902000590736,
+        "q25": 0.011610415352699152,
+        "q75": 0.011763989524972337
+      },
+      "normalized_parameter_rmse": {
+        "median": 0.007144702553079281,
+        "q25": 0.005540672498907802,
+        "q75": 0.008927326472646812
+      },
+      "probe_rmse_mean": {
+        "median": 0.00043531867028113753,
+        "q25": 0.000334052765812585,
+        "q75": 0.0006271195588332798
+      },
+      "active_bound_count": {
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0
+      }
+    }
+  },
+  "empirical_normalized_parameter_variability": {
+    "weak": 0.014938522392501178,
+    "moderate": 0.00924050599916449,
+    "rich": 0.005720562917703488
+  },
+  "rich_to_weak_median_ratios": {
+    "information_min_singular_snr": 2.1529246978240804,
+    "predicted_normalized_se_rms": 0.5145193758021592,
+    "normalized_parameter_rmse": 0.2516428971717601,
+    "empirical_normalized_parameter_variability": 0.38294034492829687,
+    "probe_rmse_mean": 0.4378670318275847
+  },
+  "strict_ordering_ratios": {
+    "information": 1.0,
+    "predicted_uncertainty": 1.0,
+    "actual_parameter_error": 0.9
+  },
+  "pooled_predicted_uncertainty_actual_error_spearman": 0.8258385808947606,
+  "invariants": {
+    "true_parameters_strictly_inside_bounds": true,
+    "all_solvers_converged": true,
+    "information_gain_met": true,
+    "predicted_uncertainty_reduction_met": true,
+    "information_ordering_met": true,
+    "predicted_uncertainty_ordering_met": true,
+    "uncertainty_tracks_actual_error": true,
+    "actual_parameter_error_reduction_met": true,
+    "actual_error_ordering_met": true,
+    "empirical_variability_reduction_met": true,
+    "probe_rmse_reduction_met": true
+  },
+  "evidence_boundary": "known_structure_known_noise_synthetic_information_metric_only"
+}

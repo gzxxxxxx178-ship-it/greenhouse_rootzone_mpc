@@ -53,6 +53,8 @@ python scripts/run_two_layer_identification.py
 python scripts/plot_two_layer_validation.py
 python scripts/run_excitation_identifiability.py
 python scripts/plot_excitation_identifiability.py
+python scripts/run_information_identifiability.py
+python scripts/plot_information_identifiability.py
 pytest -q
 ```
 
