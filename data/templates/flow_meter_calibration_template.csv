@@ -1,0 +1,1 @@
+timestamp_utc,calibration_batch_id,device_id,operating_point_id,replicate_id,duration_s,initial_container_mass_kg,final_container_mass_kg,water_density_kg_l,device_reported_volume_l,reference_method,operator_id,notes

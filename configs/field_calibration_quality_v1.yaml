@@ -1,0 +1,59 @@
+field_calibration_quality:
+  name: field_calibration_quality_v1
+  moisture:
+    minimum_sensor_depth_combinations: 2
+    minimum_moisture_levels_per_sensor: 5
+    minimum_replicates_per_level: 3
+    minimum_reference_span_m3_m3: 0.12
+    reference_theta_min_m3_m3: 0.02
+    reference_theta_max_m3_m3: 0.65
+    minimum_calibration_slope: 0.50
+    maximum_calibration_slope: 1.50
+    maximum_leave_one_level_out_rmse_m3_m3: 0.012
+    maximum_corrected_rmse_m3_m3: 0.008
+    required_columns:
+      - timestamp_utc
+      - calibration_batch_id
+      - soil_source_id
+      - sensor_id
+      - depth_label
+      - moisture_level_id
+      - replicate_id
+      - sensor_theta_m3_m3
+      - wet_soil_mass_g
+      - dry_soil_mass_g
+      - sample_volume_cm3
+      - water_density_g_cm3
+      - reference_method
+      - operator_id
+      - notes
+  flow:
+    minimum_devices: 1
+    minimum_operating_points_per_device: 3
+    minimum_replicates_per_point: 3
+    minimum_reference_volume_span_l: 15.0
+    minimum_calibration_slope: 0.80
+    maximum_calibration_slope: 1.20
+    maximum_leave_one_point_out_relative_rmse: 0.05
+    maximum_corrected_relative_rmse: 0.03
+    maximum_corrected_absolute_relative_error: 0.06
+    required_columns:
+      - timestamp_utc
+      - calibration_batch_id
+      - device_id
+      - operating_point_id
+      - replicate_id
+      - duration_s
+      - initial_container_mass_kg
+      - final_container_mass_kg
+      - water_density_kg_l
+      - device_reported_volume_l
+      - reference_method
+      - operator_id
+      - notes
+  frozen_example_expectation:
+    moisture_input: data/examples/synthetic_moisture_calibration_v1.csv
+    flow_input: data/examples/synthetic_flow_calibration_v1.csv
+    expected_status: passed
+    expected_information_gate_status: measurement_noise_ready_process_noise_pending
+  evidence_boundary: synthetic_calibration_pipeline_only_thresholds_require_field_freeze

@@ -1,0 +1,10 @@
+timestamp_utc,calibration_batch_id,device_id,operating_point_id,replicate_id,duration_s,initial_container_mass_kg,final_container_mass_kg,water_density_kg_l,device_reported_volume_l,reference_method,operator_id,notes
+2026-03-11T01:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q01,R01,600.0,5.0,14.98,0.998,10.053061,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-11T02:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q01,R02,600.0,5.0,14.98,0.998,10.153061,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-11T03:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q01,R03,600.0,5.0,14.98,0.998,10.253061,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-12T01:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q02,R01,600.0,5.0,24.96,0.998,20.257143,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-12T02:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q02,R02,600.0,5.0,24.96,0.998,20.357143,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-12T03:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q02,R03,600.0,5.0,24.96,0.998,20.457143,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-13T01:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q03,R01,600.0,5.0,34.94,0.998,30.461224,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-13T02:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q03,R02,600.0,5.0,34.94,0.998,30.561224,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only
+2026-03-13T03:00:00Z,SYNTHETIC_FLOW_V1,FLOW_01,Q03,R03,600.0,5.0,34.94,0.998,30.661224,synthetic_gravimetric_equivalent,SYNTHETIC,pipeline_example_only

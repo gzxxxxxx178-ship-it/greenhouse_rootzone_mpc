@@ -28,3 +28,4 @@ T026,model,验证幅值敏感信息量与参数不确定性指标,completed,high
 T027,data,将信息量检查接入现场模型准入闸门,completed,high,2026-09-08,2026-09-08,data/processed/field_model_admission_example_v1.json,质量合格但弱激励样例被正确判定为补采后再辨识
 T028,thesis,生成当前项目总结与后续研究路线,completed,high,2026-09-08,2026-09-08,docs/current_project_summary_and_research_roadmap.md,收束平台主体与MPC适用性主线并形成数据条件触发式执行路线
 T029,thesis,建立一键毕业设计证据审计,completed,high,2026-09-08,2026-09-08,data/processed/thesis_evidence_audit_v1.json,18项一致性检查通过并输出支持条件与禁止主张清单
+T030,data,建立现场水分与流量标定入口,in_progress,high,2026-09-08,,,创建原始记录模板质量门和测量噪声交接但不替代过程噪声估计

@@ -1,0 +1,1 @@
+timestamp_utc,calibration_batch_id,soil_source_id,sensor_id,depth_label,moisture_level_id,replicate_id,sensor_theta_m3_m3,wet_soil_mass_g,dry_soil_mass_g,sample_volume_cm3,water_density_g_cm3,reference_method,operator_id,notes
