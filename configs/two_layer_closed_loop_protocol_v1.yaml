@@ -32,6 +32,9 @@ two_layer_closed_loop:
     exchange_gradient_mm_per_step: 7.0
     shallow_excess_drainage_mm_per_step: 180.0
     deep_drainage_mm_per_step: 120.0
+    et_intercept_mm_per_step: 0.003
+    et_solar_coefficient_mm_per_w_m2_step: 0.00020
+    et_vpd_coefficient_mm_per_kpa_step: 0.030
   plant_parameter_envelope_fraction:
     shallow_depth_mm: 0.15
     deep_depth_mm: 0.15

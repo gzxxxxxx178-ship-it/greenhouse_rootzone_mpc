@@ -36,3 +36,4 @@ T034,thesis,起草第3章数据准入与双层根区模型,completed,high,2026-0
 T035,thesis,起草第4章强规则与区间MPC冻结对照,completed,high,2026-09-08,2026-09-08,docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md,形成对象控制器冻结统计结果适用性判定正文且绑定8处核心数字
 T036,model,审计双层辨识模型与MPC控制接口一致性,completed,high,2026-09-08,2026-09-08,docs/t036_model_control_interface_audit.md,识别状态维数时间步输入语义与准入状态等接口断点并冻结补建顺序
 T037,design,冻结双层模型驱动MPC端到端验证协议,completed,high,2026-09-08,2026-09-08,docs/t037_two_layer_closed_loop_contract.md,固定独立对象数据准入命令反馈双层代价开发锁定隔离和结果分类
+T038,model,实现独立双层非线性对象与辨识数据生成器,in_progress,high,2026-09-08,,,先验证分层水量守恒确定性复现现场字段质量和信息准入
