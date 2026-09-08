@@ -24,3 +24,4 @@ T022,platform,接入本地MQTT代理并验证QoS与断连重连,completed,high,2
 T023,data,建立现场最低数据模板与质量闸门,completed,high,2026-09-07,2026-09-07,data/processed/field_data_example_quality_v1.json,240行合成接入样例通过20项数据质量检查且不作为红壤证据
 T024,model,建立双层根区灰箱模型辨识与独立验证入口,completed,high,2026-09-08,2026-09-08,data/processed/two_layer_identification_smoke_v1.json,3个辨识与2个验证合成循环通过8项冻结约束且不改变R003缺失状态
 T025,model,比较弱激励与充分激励下的参数可辨识性,completed,high,2026-09-08,2026-09-08,data/processed/excitation_identifiability_v1.json,参数与探针预测改善但标准化条件数门失败故冻结为未通过
+T026,model,验证幅值敏感信息量与参数不确定性指标,in_progress,high,2026-09-08,,,使用弱中强三档激励和新配对种子检验信息指标与真实恢复误差一致性
