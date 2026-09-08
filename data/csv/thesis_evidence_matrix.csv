@@ -21,3 +21,4 @@ R019,thesis,任务结果配置数字与主张边界自动审计,completed,data/p
 R020,implementation,水分传感器与流量计标定数据入口,completed,data/processed/field_calibration_example_v1.json,合成样例验证计算流程且真实标定与过程噪声仍未取得
 R021,implementation,现场观测输入区间与状态转移时间对齐,completed,docs/t031_input_alignment_correction.md,准入辨识与后续残差分解统一使用区间结束时间语义
 R022,implementation,独立验证残差与测量及流量输入误差分解,completed,data/processed/dynamic_noise_example_v1.json,合成样例正确拒绝不相容噪声尺度且未生成伪过程噪声参数
+R023,thesis,毕业论文章节主张与冻结证据映射,completed,docs/thesis_chapter_evidence_plan.md,八章结构已绑定研究问题主张产物和适用范围

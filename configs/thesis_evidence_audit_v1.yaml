@@ -163,7 +163,7 @@ thesis_evidence_audit:
         statement: 三个湿干循环普遍足以辨识红壤根区模型
         reason: R015失败且R016与R017只提供合成设计等级证据
   readiness_rules:
-    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022]
+    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022, R023]
     red_soil_model_requirements: [R003, R009]
     entity_effect_requirements: [R003, R009, R010]
   evidence_boundary: internal_repository_consistency_and_claim_traceability_only
