@@ -21,6 +21,8 @@
 
 `data/csv/task_list.csv` 是任务状态的唯一事实来源，`context.md` 记录当前结论、边界和下一步。
 
+当前项目结论与毕业设计实施路线见`docs/current_project_summary_and_research_roadmap.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。
+
 ## 目录
 
 ```text
