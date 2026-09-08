@@ -30,3 +30,4 @@ T028,thesis,生成当前项目总结与后续研究路线,completed,high,2026-09
 T029,thesis,建立一键毕业设计证据审计,completed,high,2026-09-08,2026-09-08,data/processed/thesis_evidence_audit_v1.json,18项一致性检查通过并输出支持条件与禁止主张清单
 T030,data,建立现场水分与流量标定入口,completed,high,2026-09-08,2026-09-08,data/processed/field_calibration_example_v1.json,合成接入验证通过且只交接测量噪声并保留过程噪声缺口
 T031,data,统一现场数据输入区间时间对齐,completed,high,2026-09-08,2026-09-08,docs/t031_input_alignment_correction.md,准入与辨识统一使用以当前时间戳结束的区间输入且重新生成T027结果
+T032,model,建立动态残差与测量输入误差分解入口,in_progress,high,2026-09-08,,,仅用独立验证循环验证分解和拒绝逻辑且不把未解释残差等同真实过程噪声

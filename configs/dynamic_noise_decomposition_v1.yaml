@@ -1,0 +1,17 @@
+dynamic_noise_decomposition:
+  name: dynamic_noise_decomposition_example_v1
+  dynamic_input: data/examples/synthetic_field_observations_v1.csv
+  model_result: data/processed/two_layer_identification_smoke_v1.json
+  calibration_result: data/processed/field_calibration_example_v1.json
+  validation_role: validation
+  depth_mapping:
+    shallow: 10cm
+    deep: 25cm
+  minimum_validation_cycles: 2
+  minimum_validation_transitions: 60
+  flow_uncertainty_statistic: corrected_relative_rmse
+  variance_tolerance: 1.0e-15
+  frozen_example_expectation:
+    expected_decision: not_estimable_measurement_floor_exceeds_dynamic_residual
+    expected_process_noise_candidate: null
+  evidence_boundary: synthetic_independent_validation_residual_decomposition_only
