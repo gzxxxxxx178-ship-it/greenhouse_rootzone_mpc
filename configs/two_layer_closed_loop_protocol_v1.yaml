@@ -1,0 +1,96 @@
+two_layer_closed_loop:
+  name: two_layer_closed_loop_v1
+  evidence_boundary: independent_synthetic_two_layer_plant_and_software_closed_loop_only
+  time:
+    step_minutes: 15
+    identification_steps_per_cycle: 96
+    control_horizon_steps: 3
+    prediction_horizon_steps: 16
+    evaluation_steps: 672
+  data_design:
+    identification_cycles: 6
+    validation_cycles: 3
+    identification_seed: 37001
+    validation_seed: 37101
+    role_assignment_frozen_before_fit: true
+    minimum_admission_decision: provisional_ready_for_identification
+  synthetic_noise_reference:
+    measurement_noise_sd_m3_m3: 0.0005
+    process_noise_sd_m3_m3: 0.0001
+    command_to_delivered_relative_sd: 0.01
+  plant_nominal:
+    shallow_depth_mm: 120.0
+    deep_depth_mm: 180.0
+    shallow_field_capacity: 0.275
+    deep_field_capacity: 0.285
+    shallow_wilting_point: 0.120
+    deep_wilting_point: 0.130
+    saturation: 0.410
+    irrigation_efficiency: 0.86
+    bypass_fraction: 0.08
+    shallow_et_fraction: 0.70
+    exchange_gradient_mm_per_step: 7.0
+    shallow_excess_drainage_mm_per_step: 180.0
+    deep_drainage_mm_per_step: 120.0
+  plant_parameter_envelope_fraction:
+    shallow_depth_mm: 0.15
+    deep_depth_mm: 0.15
+    irrigation_efficiency: 0.10
+    bypass_fraction: 0.50
+    shallow_et_fraction: 0.15
+    exchange_gradient_mm_per_step: 0.25
+    shallow_excess_drainage_mm_per_step: 0.30
+    deep_drainage_mm_per_step: 0.30
+  controller_interface:
+    state_names: [theta_10cm_m3_m3, theta_25cm_m3_m3]
+    forecast_names: [solar_radiation_w_m2, vpd_kpa]
+    command_name: irrigation_command_mm
+    delivered_feedback_name: irrigation_delivered_mm
+    nominal_command_to_delivered_efficiency: 0.86
+    action_candidates_mm: [0.0, 0.5, 1.0]
+    maximum_step_command_mm: 1.0
+    target_lower_m3_m3: [0.20, 0.21]
+    target_upper_m3_m3: [0.26, 0.27]
+    safety_lower_m3_m3: [0.14, 0.15]
+    safety_upper_m3_m3: [0.32, 0.33]
+    deficit_weights: [0.60, 0.40]
+    excess_weights: [0.50, 0.50]
+    hard_safety_penalty: 1.0e8
+  development_design:
+    scenario_count: 36
+    master_seed: 37201
+    rule_candidate_limit: 12
+    mpc_candidate_limit: 8
+    locked_scenarios_accessed: false
+  locked_design:
+    scenario_count: 90
+    master_seed: 37901
+    bootstrap_resamples: 10000
+    bootstrap_seed: 37991
+  evaluation:
+    primary_endpoints: [weighted_deficit_integral, irrigation_command_total_mm]
+    mandatory_layer_endpoints: [shallow_deficit_integral, deep_deficit_integral]
+    secondary_endpoints:
+      - weighted_excess_integral
+      - irrigation_delivered_total_mm
+      - deep_drainage_total_mm
+      - action_change_count
+      - safety_violation_steps
+    joint_nonworse_ratio_min: 0.60
+    any_primary_adverse_ratio_max: 0.25
+    classification_labels:
+      - JOINT_VALUE_SUPPORTED
+      - WATER_SAVING_WITH_DEFICIT_TRADEOFF
+      - DEFICIT_REDUCTION_WITH_WATER_COST
+      - OVERALL_VALUE_NOT_SUPPORTED
+  invariants:
+    - nonlinear_plant_does_not_import_fitted_model_parameters
+    - identification_and_validation_cycles_are_disjoint
+    - locked_scenarios_are_not_used_for_controller_selection
+    - model_admission_precedes_parameter_freeze
+    - command_and_delivered_irrigation_are_recorded_separately
+    - both_layer_states_enter_rule_and_mpc_decisions
+    - paired_controllers_share_plant_noise_and_weather
+    - safety_is_reported_for_each_layer
+    - formal_results_record_config_data_model_controller_and_code_hashes
+    - no_result_figure_is_generated_by_default
