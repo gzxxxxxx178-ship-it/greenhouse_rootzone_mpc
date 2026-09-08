@@ -25,3 +25,4 @@ T023,data,建立现场最低数据模板与质量闸门,completed,high,2026-09-0
 T024,model,建立双层根区灰箱模型辨识与独立验证入口,completed,high,2026-09-08,2026-09-08,data/processed/two_layer_identification_smoke_v1.json,3个辨识与2个验证合成循环通过8项冻结约束且不改变R003缺失状态
 T025,model,比较弱激励与充分激励下的参数可辨识性,completed,high,2026-09-08,2026-09-08,data/processed/excitation_identifiability_v1.json,参数与探针预测改善但标准化条件数门失败故冻结为未通过
 T026,model,验证幅值敏感信息量与参数不确定性指标,completed,high,2026-09-08,2026-09-08,data/processed/information_identifiability_v1.json,11项冻结约束通过且信息量与真实参数恢复误差方向一致
+T027,data,将信息量检查接入现场模型准入闸门,in_progress,high,2026-09-08,,,保留T023质量结果并新增结构质量与激励信息两级判定

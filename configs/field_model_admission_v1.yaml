@@ -1,0 +1,27 @@
+field_model_admission:
+  name: field_model_admission_v1
+  quality_config: configs/field_data_quality_v1.yaml
+  input_schema_version: rootzone_field_observation_v1
+  model_structure: two_layer_greybox_v1
+  minimum_usable_identification_transitions: 120
+  minimum_usable_transition_fraction: 0.95
+  required_design_rank: 5
+  information_reference:
+    source: information_identifiability_v1_moderate_excitation
+    minimum_information_singular_value_snr: 28.0
+    maximum_predicted_normalized_se_rms: 0.018
+    measurement_noise_sd_m3_m3: 0.0005
+    process_noise_sd_m3_m3: 0.0001
+    calibration_status: provisional_synthetic_reference
+  parameter_bounds:
+    shallow_delta:
+      lower: [-0.50, 0.00, -0.05, -0.03, -0.01]
+      upper: [0.00, 0.05, 0.00, 0.00, 0.01]
+    deep_delta:
+      lower: [0.00, 0.00, -0.03, -0.02, -0.01]
+      upper: [0.50, 0.03, 0.00, 0.00, 0.01]
+  frozen_example_expectation:
+    input: data/examples/synthetic_field_observations_v1.csv
+    expected_quality_status: passed
+    expected_model_admission_decision: collect_more_excitation
+  evidence_boundary: software_gate_with_provisional_synthetic_information_thresholds
