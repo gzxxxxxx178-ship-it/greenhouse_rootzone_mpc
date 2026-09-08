@@ -14,20 +14,21 @@
       "vpd_kpa",
       "intercept"
     ],
+    "input_interval_alignment": "row_ending_at_next_state_timestamp",
     "design_rank": 5,
     "assumed_delta_observation_noise_sd_m3_m3": 0.000714142842854285,
     "layer_information": {
       "shallow_delta": {
-        "minimum_singular_value_snr": 20.285832571153282,
-        "predicted_normalized_se_rms": 0.022909734210401253
+        "minimum_singular_value_snr": 20.597314230184995,
+        "predicted_normalized_se_rms": 0.022598492345112065
       },
       "deep_delta": {
-        "minimum_singular_value_snr": 20.011545218321846,
-        "predicted_normalized_se_rms": 0.023898250146793826
+        "minimum_singular_value_snr": 20.23424891533147,
+        "predicted_normalized_se_rms": 0.023679716344497885
       }
     },
-    "minimum_information_singular_value_snr": 20.011545218321846,
-    "combined_predicted_normalized_se_rms": 0.023409210598287596,
+    "minimum_information_singular_value_snr": 20.23424891533147,
+    "combined_predicted_normalized_se_rms": 0.02314541879538982,
     "reference_calibration_status": "provisional_synthetic_reference"
   },
   "admission_checks": {
@@ -47,7 +48,7 @@
   "input_path": "data/examples/synthetic_field_observations_v1.csv",
   "input_schema_version": "rootzone_field_observation_v1",
   "model_structure": "two_layer_greybox_v1",
-  "code_commit": "03f304f62afaf2fc9ffc3495155537b50f69dd8f",
+  "code_commit": "f08d0f53c4699aeec4976a7c4147532b05e46a0d",
   "config_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
   "evidence_boundary": "software_gate_with_provisional_synthetic_information_thresholds"
 }

@@ -29,4 +29,4 @@ T027,data,将信息量检查接入现场模型准入闸门,completed,high,2026-0
 T028,thesis,生成当前项目总结与后续研究路线,completed,high,2026-09-08,2026-09-08,docs/current_project_summary_and_research_roadmap.md,收束平台主体与MPC适用性主线并形成数据条件触发式执行路线
 T029,thesis,建立一键毕业设计证据审计,completed,high,2026-09-08,2026-09-08,data/processed/thesis_evidence_audit_v1.json,18项一致性检查通过并输出支持条件与禁止主张清单
 T030,data,建立现场水分与流量标定入口,completed,high,2026-09-08,2026-09-08,data/processed/field_calibration_example_v1.json,合成接入验证通过且只交接测量噪声并保留过程噪声缺口
-T031,data,统一现场数据输入区间时间对齐,in_progress,high,2026-09-08,,,修复模型准入与辨识矩阵对灌水气象区间使用不一致
+T031,data,统一现场数据输入区间时间对齐,completed,high,2026-09-08,2026-09-08,docs/t031_input_alignment_correction.md,准入与辨识统一使用以当前时间戳结束的区间输入且重新生成T027结果

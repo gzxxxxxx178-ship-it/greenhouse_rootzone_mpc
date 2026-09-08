@@ -41,6 +41,9 @@ thesis_evidence_audit:
     - artifact: data/processed/mqtt_sil_v1.json
       selector: status
       expected: passed
+    - artifact: data/processed/field_calibration_example_v1.json
+      selector: status
+      expected: passed
   config_bindings:
     - artifact: data/processed/two_layer_identification_smoke_v1.json
       config: configs/two_layer_identification_v1.yaml
@@ -50,6 +53,8 @@ thesis_evidence_audit:
       config: configs/information_identifiability_v1.yaml
     - artifact: data/processed/field_model_admission_example_v1.json
       config: configs/field_model_admission_v1.yaml
+    - artifact: data/processed/field_calibration_example_v1.json
+      config: configs/field_calibration_quality_v1.yaml
   key_metrics:
     - metric_id: baseline_scenario_count
       artifact: data/processed/baseline_confirmation_v1.json
@@ -89,8 +94,18 @@ thesis_evidence_audit:
     - metric_id: t027_minimum_information
       artifact: data/processed/field_model_admission_example_v1.json
       selector: information_assessment.minimum_information_singular_value_snr
-      expected: 20.011545218321846
+      expected: 20.23424891533147
       tolerance: 1.0e-12
+    - metric_id: t030_measurement_noise_candidate
+      artifact: data/processed/field_calibration_example_v1.json
+      selector: model_admission_handoff.measurement_noise_sd_m3_m3
+      expected: 0.002735193758840354
+      tolerance: 1.0e-15
+    - metric_id: t030_flow_maximum_relative_error
+      artifact: data/processed/field_calibration_example_v1.json
+      selector: model_admission_handoff.flow_corrected_maximum_absolute_relative_error
+      expected: 0.009895073473683347
+      tolerance: 1.0e-15
   claims:
     supported:
       - claim_id: C001
