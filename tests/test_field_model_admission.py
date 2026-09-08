@@ -49,6 +49,18 @@ def test_example_has_three_cycles_and_141_usable_transitions():
     assert design.shape == (141, 5)
     assert diagnostics["identification_cycle_count"] == 3
     assert diagnostics["design_rank"] == 5
+    assert diagnostics["input_interval_alignment"] == "row_ending_at_next_state_timestamp"
+
+
+def test_transition_uses_input_reported_at_following_state_timestamp():
+    frame = example_frame()
+    mask = frame["dataset_role"] == "identification"
+    frame.loc[mask, "irrigation_delivered_mm"] = 0.0
+    first_cycle = frame.index[mask & frame["cycle_id"].eq("C01")]
+    frame.loc[first_cycle[1], "irrigation_delivered_mm"] = 3.25
+    design, _ = field_identification_design(frame)
+    assert design[0, 1] == 3.25
+    assert design[1, 1] == 0.0
 
 
 def test_failed_base_quality_blocks_information_assessment():

@@ -64,8 +64,8 @@ def field_identification_design(frame: pd.DataFrame) -> tuple[np.ndarray, dict]:
             values = np.asarray([
                 current["theta_10cm_m3_m3"], current["theta_25cm_m3_m3"],
                 following["theta_10cm_m3_m3"], following["theta_25cm_m3_m3"],
-                current["irrigation_delivered_mm"], current["solar_radiation_w_m2"],
-                vpd[step],
+                following["irrigation_delivered_mm"], following["solar_radiation_w_m2"],
+                vpd[step + 1],
             ], dtype=float)
             if not np.isfinite(values).all():
                 continue
@@ -85,6 +85,7 @@ def field_identification_design(frame: pd.DataFrame) -> tuple[np.ndarray, dict]:
             len(design) / possible_transitions if possible_transitions else 0.0
         ),
         "design_columns": DESIGN_COLUMNS,
+        "input_interval_alignment": "row_ending_at_next_state_timestamp",
         "design_rank": int(np.linalg.matrix_rank(design)) if len(design) else 0,
     }
     return design, diagnostics
