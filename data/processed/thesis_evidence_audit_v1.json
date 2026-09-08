@@ -1,0 +1,385 @@
+{
+  "name": "thesis_evidence_audit_v1",
+  "status": "passed",
+  "code_commit": "f4a53fe16c5ba508c03ec51b15a6443126db7b3d",
+  "config_sha256": "d75c8d44279d696e3feacea7285572db93e8570a64b548900786dd3789a2f07d",
+  "counts": {
+    "tasks": 29,
+    "requirements": 19,
+    "roadmap_items": 11,
+    "result_expectations": 11,
+    "config_bindings": 4,
+    "key_metrics": 8,
+    "supported_claims": 4,
+    "conditional_claims": 3,
+    "prohibited_claims": 4
+  },
+  "checks": {
+    "task_ids_unique": true,
+    "task_ids_contiguous": true,
+    "task_statuses_valid": true,
+    "completed_tasks_have_date_and_evidence": true,
+    "task_evidence_resolves": true,
+    "requirement_ids_unique": true,
+    "requirement_statuses_valid": true,
+    "requirement_evidence_resolves": true,
+    "expected_missing_requirements_preserved": true,
+    "expected_failed_or_stopped_requirements_preserved": true,
+    "result_statuses_match_frozen_expectations": true,
+    "frozen_config_hashes_match": true,
+    "recorded_code_commits_exist": true,
+    "key_metrics_match_frozen_sources": true,
+    "core_json_artifacts_load": true,
+    "supported_claims_have_positive_evidence": true,
+    "conditional_claims_remain_conditional": true,
+    "roadmap_is_nonempty": true
+  },
+  "task_evidence_missing": [],
+  "requirement_evidence_missing": [],
+  "artifact_load_errors": {},
+  "result_expectations": [
+    {
+      "artifact": "data/processed/baseline_confirmation_v1.json",
+      "selector": "classification",
+      "expected": "WATER_SAVING_WITH_DEFICIT_TRADEOFF",
+      "actual": "WATER_SAVING_WITH_DEFICIT_TRADEOFF",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/supervision_confirmation_v1.json",
+      "selector": "classification",
+      "expected": "PARTIAL_MECHANISM_VALUE_WITH_BOUNDARIES",
+      "actual": "PARTIAL_MECHANISM_VALUE_WITH_BOUNDARIES",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/supervision_v2_confirmation_v1.json",
+      "selector": "classification",
+      "expected": "V2_VALUE_NOT_SUPPORTED",
+      "actual": "V2_VALUE_NOT_SUPPORTED",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/supervision_v3_development_v1.json",
+      "selector": "classification",
+      "expected": "NO_V3_CANDIDATE_ADVANCES",
+      "actual": "NO_V3_CANDIDATE_ADVANCES",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_identification_smoke_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/excitation_identifiability_v1.json",
+      "selector": "status",
+      "expected": "failed",
+      "actual": "failed",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/information_identifiability_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/field_model_admission_example_v1.json",
+      "selector": "model_admission_decision",
+      "expected": "collect_more_excitation",
+      "actual": "collect_more_excitation",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/platform_sil_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/platform_resilience_sil_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/mqtt_sil_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
+    }
+  ],
+  "config_bindings": [
+    {
+      "artifact": "data/processed/two_layer_identification_smoke_v1.json",
+      "config": "configs/two_layer_identification_v1.yaml",
+      "recorded_sha256": "1bdc1afa1c3b8b4565ccee80d629480514094561e960342f9a7969e73de8b0af",
+      "current_sha256": "1bdc1afa1c3b8b4565ccee80d629480514094561e960342f9a7969e73de8b0af",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/excitation_identifiability_v1.json",
+      "config": "configs/excitation_identifiability_v1.yaml",
+      "recorded_sha256": "6d6af001d92e23579e53ffd190b600dab5b3da8427b652f0ee9811f4ee55e503",
+      "current_sha256": "6d6af001d92e23579e53ffd190b600dab5b3da8427b652f0ee9811f4ee55e503",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/information_identifiability_v1.json",
+      "config": "configs/information_identifiability_v1.yaml",
+      "recorded_sha256": "3e534ca50b8debf9edc8b96344c48cb66fca28fc256ff081114759beac88e4d2",
+      "current_sha256": "3e534ca50b8debf9edc8b96344c48cb66fca28fc256ff081114759beac88e4d2",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/field_model_admission_example_v1.json",
+      "config": "configs/field_model_admission_v1.yaml",
+      "recorded_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
+      "current_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
+      "matched": true
+    }
+  ],
+  "code_commits": [
+    {
+      "artifact": "data/processed/two_layer_identification_smoke_v1.json",
+      "code_commit": "6a02582e2f151c07b602e60787be7f0c5b4613c7",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/excitation_identifiability_v1.json",
+      "code_commit": "b5c5bfb26746f3ab70aa789a3e719564e6adaa32",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/information_identifiability_v1.json",
+      "code_commit": "c5a1d9f80e58fd184b95e9698c32fa3578949bbf",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/field_model_admission_example_v1.json",
+      "code_commit": "03f304f62afaf2fc9ffc3495155537b50f69dd8f",
+      "commit_exists": true
+    }
+  ],
+  "key_metrics": [
+    {
+      "metric_id": "baseline_scenario_count",
+      "artifact": "data/processed/baseline_confirmation_v1.json",
+      "selector": "scenario_count",
+      "expected": 120,
+      "tolerance": 0,
+      "actual": 120,
+      "matched": true
+    },
+    {
+      "metric_id": "mpc_irrigation_median_difference_mm",
+      "artifact": "data/processed/baseline_confirmation_v1.json",
+      "selector": "aggregate.irrigation_command_total_mm.paired_median",
+      "expected": -6.0,
+      "tolerance": 1e-12,
+      "actual": -6.0,
+      "matched": true
+    },
+    {
+      "metric_id": "mpc_deficit_median_difference",
+      "artifact": "data/processed/baseline_confirmation_v1.json",
+      "selector": "aggregate.deficit_integral.paired_median",
+      "expected": 0.0006802876846316586,
+      "tolerance": 1e-15,
+      "actual": 0.0006802876846316586,
+      "matched": true
+    },
+    {
+      "metric_id": "joint_nonworse_ratio",
+      "artifact": "data/processed/baseline_confirmation_v1.json",
+      "selector": "diagnostics.joint_nonworse_ratio",
+      "expected": 0.4083333333333333,
+      "tolerance": 1e-15,
+      "actual": 0.4083333333333333,
+      "matched": true
+    },
+    {
+      "metric_id": "v2_safety_violation_scenarios",
+      "artifact": "data/processed/supervision_v2_confirmation_v1.json",
+      "selector": "diagnostics.safety_violation_scenarios.v2",
+      "expected": 3,
+      "tolerance": 0,
+      "actual": 3,
+      "matched": true
+    },
+    {
+      "metric_id": "t026_information_ratio",
+      "artifact": "data/processed/information_identifiability_v1.json",
+      "selector": "rich_to_weak_median_ratios.information_min_singular_snr",
+      "expected": 2.1529246978240804,
+      "tolerance": 1e-12,
+      "actual": 2.1529246978240804,
+      "matched": true
+    },
+    {
+      "metric_id": "t026_parameter_error_ratio",
+      "artifact": "data/processed/information_identifiability_v1.json",
+      "selector": "rich_to_weak_median_ratios.normalized_parameter_rmse",
+      "expected": 0.2516428971717601,
+      "tolerance": 1e-12,
+      "actual": 0.2516428971717601,
+      "matched": true
+    },
+    {
+      "metric_id": "t027_minimum_information",
+      "artifact": "data/processed/field_model_admission_example_v1.json",
+      "selector": "information_assessment.minimum_information_singular_value_snr",
+      "expected": 20.011545218321846,
+      "tolerance": 1e-12,
+      "actual": 20.011545218321846,
+      "matched": true
+    }
+  ],
+  "claim_register": {
+    "supported": [
+      {
+        "claim_id": "C001",
+        "statement": "已实现任务命令反馈联锁与版本追溯的软件在环原型",
+        "requirements": [
+          "R001",
+          "R008",
+          "R013"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C002",
+        "statement": "基础MPC在冻结仿真中形成少灌水伴轻微亏缺增加的权衡",
+        "requirements": [
+          "R002",
+          "R004"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C003",
+        "statement": "幅值敏感信息量可在已知结构合成条件下区分采样设计等级",
+        "requirements": [
+          "R014",
+          "R016",
+          "R017"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C004",
+        "statement": "可信监督存在恢复死锁和安全预算冲突等可复核失效边界",
+        "requirements": [
+          "R005",
+          "R006",
+          "R007"
+        ],
+        "accepted_statuses": [
+          "failed",
+          "stopped"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      }
+    ],
+    "conditional": [
+      {
+        "claim_id": "C101",
+        "statement": "已获得适用于红壤根区的实测模型参数",
+        "requirements": [
+          "R003"
+        ],
+        "audit_status": "conditional",
+        "unavailable_requirements": [
+          "R003"
+        ]
+      },
+      {
+        "claim_id": "C102",
+        "statement": "MPC已在真实传感器与灌水反馈数据上完成回放验证",
+        "requirements": [
+          "R003",
+          "R009"
+        ],
+        "audit_status": "conditional",
+        "unavailable_requirements": [
+          "R003",
+          "R009"
+        ]
+      },
+      {
+        "claim_id": "C103",
+        "statement": "已验证真实节水率或作物产量品质效果",
+        "requirements": [
+          "R003",
+          "R009",
+          "R010"
+        ],
+        "audit_status": "conditional",
+        "unavailable_requirements": [
+          "R003",
+          "R009",
+          "R010"
+        ]
+      }
+    ],
+    "prohibited": [
+      {
+        "claim_id": "C201",
+        "statement": "MPC在所有条件下全面优于强规则控制",
+        "reason": "R004记录明确的节水与亏缺权衡",
+        "audit_status": "prohibited"
+      },
+      {
+        "claim_id": "C202",
+        "statement": "当前可信监督已经保证根区控制安全并优于基础MPC",
+        "reason": "R005与R006失败且R007停止晋级",
+        "audit_status": "prohibited"
+      },
+      {
+        "claim_id": "C203",
+        "statement": "本机MQTT结果证明现场网络和泵阀满足实时可靠性",
+        "reason": "R013仅覆盖本机代理与客户端软件在环",
+        "audit_status": "prohibited"
+      },
+      {
+        "claim_id": "C204",
+        "statement": "三个湿干循环普遍足以辨识红壤根区模型",
+        "reason": "R015失败且R016与R017只提供合成设计等级证据",
+        "audit_status": "prohibited"
+      }
+    ]
+  },
+  "readiness": {
+    "simulation_software_thesis_requirements": {
+      "status": "ready",
+      "unavailable_requirements": []
+    },
+    "red_soil_model_requirements": {
+      "status": "blocked",
+      "unavailable_requirements": [
+        "R003",
+        "R009"
+      ]
+    },
+    "entity_effect_requirements": {
+      "status": "blocked",
+      "unavailable_requirements": [
+        "R003",
+        "R009",
+        "R010"
+      ]
+    }
+  },
+  "evidence_boundary": "internal_repository_consistency_and_claim_traceability_only"
+}

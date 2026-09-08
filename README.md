@@ -52,6 +52,7 @@ python scripts/run_smoke_validation.py
 python scripts/run_mqtt_sil.py
 python scripts/validate_field_data.py data/examples/synthetic_field_observations_v1.csv
 python scripts/assess_field_model_admission.py data/examples/synthetic_field_observations_v1.csv
+python scripts/audit_thesis_evidence.py
 python scripts/run_two_layer_identification.py
 python scripts/plot_two_layer_validation.py
 python scripts/run_excitation_identifiability.py
