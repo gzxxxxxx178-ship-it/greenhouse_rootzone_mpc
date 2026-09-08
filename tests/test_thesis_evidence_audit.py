@@ -64,3 +64,16 @@ def test_missing_core_json_is_reported_without_crashing(tmp_path):
     result = audit_repository(ROOT, temporary_config)
     assert result["status"] == "failed"
     assert "data/processed/does_not_exist.json" in result["artifact_load_errors"]
+
+
+def test_missing_manuscript_numeric_text_fails_audit(tmp_path):
+    config = load_audit_config(CONFIG_PATH)
+    config["manuscript_numeric_bindings"][0]["required_text"] = "不存在的论文数值文本"
+    temporary_config = tmp_path / "audit.yaml"
+    temporary_config.write_text(
+        yaml.safe_dump({"thesis_evidence_audit": config}, allow_unicode=True), encoding="utf-8"
+    )
+    result = audit_repository(ROOT, temporary_config)
+    assert result["status"] == "failed"
+    assert result["checks"]["manuscript_numbers_match_frozen_sources"] is False
+    assert result["manuscript_numeric_bindings"][0]["text_present"] is False

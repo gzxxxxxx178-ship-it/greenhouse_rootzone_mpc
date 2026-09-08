@@ -215,6 +215,31 @@ def audit_repository(project_root: Path, config_path: Path) -> dict:
         )
         key_metrics.append({**metric, "actual": actual, "matched": bool(matched)})
 
+    manuscript_numeric_bindings = []
+    for binding in config.get("manuscript_numeric_bindings", []):
+        try:
+            actual = resolve_selector(document(binding["artifact"]), binding["selector"])
+        except (KeyError, IndexError, TypeError, ValueError):
+            actual = None
+        expected = binding["expected"]
+        tolerance = float(binding["tolerance"])
+        source_matched = actual is not None and (
+            abs(float(actual) - float(expected)) <= tolerance
+            if isinstance(expected, (int, float)) else actual == expected
+        )
+        try:
+            manuscript_text = (project_root / binding["document"]).read_text(encoding="utf-8")
+            text_present = binding["required_text"] in manuscript_text
+        except OSError:
+            text_present = False
+        manuscript_numeric_bindings.append({
+            **binding,
+            "actual": actual,
+            "source_matched": bool(source_matched),
+            "text_present": bool(text_present),
+            "matched": bool(source_matched and text_present),
+        })
+
     claims = _claim_register(config, requirement_status)
     supported_claims_valid = all(
         item["audit_status"] == "supported" for item in claims["supported"]
@@ -242,6 +267,9 @@ def audit_repository(project_root: Path, config_path: Path) -> dict:
         "frozen_config_hashes_match": all(item["matched"] for item in config_bindings),
         "recorded_code_commits_exist": all(item["commit_exists"] for item in code_commits),
         "key_metrics_match_frozen_sources": all(item["matched"] for item in key_metrics),
+        "manuscript_numbers_match_frozen_sources": all(
+            item["matched"] for item in manuscript_numeric_bindings
+        ),
         "core_json_artifacts_load": not artifact_load_errors,
         "supported_claims_have_positive_evidence": supported_claims_valid,
         "conditional_claims_remain_conditional": conditional_claims_preserved,
@@ -259,6 +287,7 @@ def audit_repository(project_root: Path, config_path: Path) -> dict:
             "result_expectations": len(result_expectations),
             "config_bindings": len(config_bindings),
             "key_metrics": len(key_metrics),
+            "manuscript_numeric_bindings": len(manuscript_numeric_bindings),
             "supported_claims": len(claims["supported"]),
             "conditional_claims": len(claims["conditional"]),
             "prohibited_claims": len(claims["prohibited"]),
@@ -271,6 +300,7 @@ def audit_repository(project_root: Path, config_path: Path) -> dict:
         "config_bindings": config_bindings,
         "code_commits": code_commits,
         "key_metrics": key_metrics,
+        "manuscript_numeric_bindings": manuscript_numeric_bindings,
         "claim_register": claims,
         "readiness": readiness,
         "evidence_boundary": config["evidence_boundary"],
