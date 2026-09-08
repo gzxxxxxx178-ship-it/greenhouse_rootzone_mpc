@@ -53,6 +53,10 @@ def _identifiers_nonempty(frame: pd.DataFrame, columns: list[str]) -> bool:
     ).all().all())
 
 
+def _finite_or_none(value: float) -> float | None:
+    return float(value) if np.isfinite(value) else None
+
+
 def evaluate_moisture_calibration(frame: pd.DataFrame, config: dict) -> dict:
     required_ok, missing = _required_columns(frame, config["required_columns"])
     if not required_ok:
@@ -108,20 +112,20 @@ def evaluate_moisture_calibration(frame: pd.DataFrame, config: dict) -> dict:
             if train.sum() >= 2 and np.ptp(x[train]) > 1e-12:
                 fold_slope, fold_intercept = _linear_fit(x[train], y[train])
                 cross_validated[test] = fold_slope * x[test] + fold_intercept
+        corrected_rmse = float(np.sqrt(np.mean(np.square(residual))))
+        residual_sd = float(np.std(residual, ddof=2)) if len(residual) > 2 else float("nan")
+        cross_rmse = float(np.sqrt(np.mean(np.square(cross_validated - y))))
         sensor_rows.append({
             "calibration_batch_id": str(batch), "sensor_id": str(sensor),
             "depth_label": str(depth), "row_count": int(len(group)),
             "moisture_level_count": int(len(level_counts)),
             "minimum_replicates_per_level": int(level_counts.min()),
             "reference_span_m3_m3": float(np.ptp(y)),
-            "slope": slope, "intercept_m3_m3": intercept,
-            "corrected_rmse_m3_m3": float(np.sqrt(np.mean(np.square(residual))))
-            if np.isfinite(residual).all() else float("inf"),
-            "corrected_residual_sd_m3_m3": float(np.std(residual, ddof=2))
-            if len(residual) > 2 and np.isfinite(residual).all() else float("inf"),
-            "leave_one_level_out_rmse_m3_m3": float(
-                np.sqrt(np.mean(np.square(cross_validated - y)))
-            ) if np.isfinite(cross_validated).all() else float("inf"),
+            "slope": _finite_or_none(slope),
+            "intercept_m3_m3": _finite_or_none(intercept),
+            "corrected_rmse_m3_m3": _finite_or_none(corrected_rmse),
+            "corrected_residual_sd_m3_m3": _finite_or_none(residual_sd),
+            "leave_one_level_out_rmse_m3_m3": _finite_or_none(cross_rmse),
         })
     checks["minimum_sensor_depth_combinations_met"] = len(sensor_rows) >= int(
         config["minimum_sensor_depth_combinations"]
@@ -139,16 +143,20 @@ def evaluate_moisture_calibration(frame: pd.DataFrame, config: dict) -> dict:
         for row in sensor_rows
     )
     checks["calibration_slope_plausible"] = bool(sensor_rows) and all(
-        float(config["minimum_calibration_slope"]) <= row["slope"]
+        row["slope"] is not None
+        and float(config["minimum_calibration_slope"]) <= row["slope"]
         <= float(config["maximum_calibration_slope"]) for row in sensor_rows
     )
     checks["leave_one_level_out_error_within_limit"] = bool(sensor_rows) and all(
-        row["leave_one_level_out_rmse_m3_m3"]
+        row["leave_one_level_out_rmse_m3_m3"] is not None
+        and row["leave_one_level_out_rmse_m3_m3"]
         <= float(config["maximum_leave_one_level_out_rmse_m3_m3"])
         for row in sensor_rows
     )
     checks["corrected_error_within_limit"] = bool(sensor_rows) and all(
-        row["corrected_rmse_m3_m3"] <= float(config["maximum_corrected_rmse_m3_m3"])
+        row["corrected_rmse_m3_m3"] is not None
+        and row["corrected_rmse_m3_m3"]
+        <= float(config["maximum_corrected_rmse_m3_m3"])
         for row in sensor_rows
     )
     return {
@@ -209,19 +217,18 @@ def evaluate_flow_calibration(frame: pd.DataFrame, config: dict) -> dict:
                 fold_slope, fold_intercept = _linear_fit(x[train], y[train])
                 cross_validated[test] = fold_slope * x[test] + fold_intercept
         cross_relative = (cross_validated - y) / y
+        corrected_rmse = float(np.sqrt(np.mean(np.square(relative_error))))
+        maximum_error = float(np.max(np.abs(relative_error)))
+        cross_rmse = float(np.sqrt(np.mean(np.square(cross_relative))))
         device_rows.append({
             "calibration_batch_id": str(batch), "device_id": str(device),
             "row_count": int(len(group)), "operating_point_count": int(len(point_counts)),
             "minimum_replicates_per_point": int(point_counts.min()),
             "reference_volume_span_l": float(np.ptp(y)),
-            "slope": slope, "intercept_l": intercept,
-            "corrected_relative_rmse": float(np.sqrt(np.mean(np.square(relative_error))))
-            if np.isfinite(relative_error).all() else float("inf"),
-            "corrected_maximum_absolute_relative_error": float(np.max(np.abs(relative_error)))
-            if np.isfinite(relative_error).all() else float("inf"),
-            "leave_one_point_out_relative_rmse": float(
-                np.sqrt(np.mean(np.square(cross_relative)))
-            ) if np.isfinite(cross_relative).all() else float("inf"),
+            "slope": _finite_or_none(slope), "intercept_l": _finite_or_none(intercept),
+            "corrected_relative_rmse": _finite_or_none(corrected_rmse),
+            "corrected_maximum_absolute_relative_error": _finite_or_none(maximum_error),
+            "leave_one_point_out_relative_rmse": _finite_or_none(cross_rmse),
         })
     checks["minimum_devices_met"] = len(device_rows) >= int(config["minimum_devices"])
     checks["minimum_operating_points_met"] = bool(device_rows) and all(
@@ -237,16 +244,20 @@ def evaluate_flow_calibration(frame: pd.DataFrame, config: dict) -> dict:
         for row in device_rows
     )
     checks["calibration_slope_plausible"] = bool(device_rows) and all(
-        float(config["minimum_calibration_slope"]) <= row["slope"]
+        row["slope"] is not None
+        and float(config["minimum_calibration_slope"]) <= row["slope"]
         <= float(config["maximum_calibration_slope"]) for row in device_rows
     )
     checks["leave_one_point_out_error_within_limit"] = bool(device_rows) and all(
-        row["leave_one_point_out_relative_rmse"]
+        row["leave_one_point_out_relative_rmse"] is not None
+        and row["leave_one_point_out_relative_rmse"]
         <= float(config["maximum_leave_one_point_out_relative_rmse"])
         for row in device_rows
     )
     checks["corrected_relative_error_within_limit"] = bool(device_rows) and all(
-        row["corrected_relative_rmse"] <= float(config["maximum_corrected_relative_rmse"])
+        row["corrected_relative_rmse"] is not None
+        and row["corrected_maximum_absolute_relative_error"] is not None
+        and row["corrected_relative_rmse"] <= float(config["maximum_corrected_relative_rmse"])
         and row["corrected_maximum_absolute_relative_error"]
         <= float(config["maximum_corrected_absolute_relative_error"])
         for row in device_rows
@@ -269,11 +280,15 @@ def run_calibration_assessment(
     )
     flow = evaluate_flow_calibration(pd.read_csv(flow_path), config["flow"])
     passed = moisture["status"] == "passed" and flow["status"] == "passed"
-    residual_sds = [row["corrected_residual_sd_m3_m3"] for row in moisture["sensors"]]
+    residual_sds = [
+        row["corrected_residual_sd_m3_m3"] for row in moisture["sensors"]
+        if row["corrected_residual_sd_m3_m3"] is not None
+    ]
     handoff = {
         "measurement_noise_sd_m3_m3": max(residual_sds) if residual_sds else None,
         "flow_corrected_maximum_absolute_relative_error": max(
-            (row["corrected_maximum_absolute_relative_error"] for row in flow["devices"]),
+            (row["corrected_maximum_absolute_relative_error"] for row in flow["devices"]
+             if row["corrected_maximum_absolute_relative_error"] is not None),
             default=None,
         ),
         "process_noise_sd_m3_m3": None,

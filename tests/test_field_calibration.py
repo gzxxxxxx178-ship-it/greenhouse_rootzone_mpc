@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 from scripts.generate_calibration_examples import flow_example, moisture_example
 from rootzone_mpc.data.calibration_quality import (
@@ -38,6 +39,7 @@ def test_single_moisture_level_returns_failure_without_fit_error():
     result = evaluate_moisture_calibration(frame, config()["moisture"])
     assert result["status"] == "failed"
     assert result["checks"]["minimum_levels_met"] is False
+    json.dumps(result, allow_nan=False)
 
 
 def test_naive_calibration_timestamps_are_rejected():
