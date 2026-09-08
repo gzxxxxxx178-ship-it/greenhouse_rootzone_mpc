@@ -1,0 +1,136 @@
+thesis_evidence_audit:
+  name: thesis_evidence_audit_v1
+  task_list: data/csv/task_list.csv
+  evidence_matrix: data/csv/thesis_evidence_matrix.csv
+  execution_roadmap: data/csv/thesis_execution_roadmap.csv
+  allowed_task_statuses: [completed, in_progress, blocked, stopped]
+  allowed_requirement_statuses: [completed, failed, stopped, ready, missing]
+  expected_missing_requirements: [R003, R009, R010]
+  expected_nonpositive_requirements: [R005, R006, R007, R015]
+  result_expectations:
+    - artifact: data/processed/baseline_confirmation_v1.json
+      selector: classification
+      expected: WATER_SAVING_WITH_DEFICIT_TRADEOFF
+    - artifact: data/processed/supervision_confirmation_v1.json
+      selector: classification
+      expected: PARTIAL_MECHANISM_VALUE_WITH_BOUNDARIES
+    - artifact: data/processed/supervision_v2_confirmation_v1.json
+      selector: classification
+      expected: V2_VALUE_NOT_SUPPORTED
+    - artifact: data/processed/supervision_v3_development_v1.json
+      selector: classification
+      expected: NO_V3_CANDIDATE_ADVANCES
+    - artifact: data/processed/two_layer_identification_smoke_v1.json
+      selector: status
+      expected: passed
+    - artifact: data/processed/excitation_identifiability_v1.json
+      selector: status
+      expected: failed
+    - artifact: data/processed/information_identifiability_v1.json
+      selector: status
+      expected: passed
+    - artifact: data/processed/field_model_admission_example_v1.json
+      selector: model_admission_decision
+      expected: collect_more_excitation
+    - artifact: data/processed/platform_sil_v1.json
+      selector: status
+      expected: passed
+    - artifact: data/processed/platform_resilience_sil_v1.json
+      selector: status
+      expected: passed
+    - artifact: data/processed/mqtt_sil_v1.json
+      selector: status
+      expected: passed
+  config_bindings:
+    - artifact: data/processed/two_layer_identification_smoke_v1.json
+      config: configs/two_layer_identification_v1.yaml
+    - artifact: data/processed/excitation_identifiability_v1.json
+      config: configs/excitation_identifiability_v1.yaml
+    - artifact: data/processed/information_identifiability_v1.json
+      config: configs/information_identifiability_v1.yaml
+    - artifact: data/processed/field_model_admission_example_v1.json
+      config: configs/field_model_admission_v1.yaml
+  key_metrics:
+    - metric_id: baseline_scenario_count
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: scenario_count
+      expected: 120
+      tolerance: 0
+    - metric_id: mpc_irrigation_median_difference_mm
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.paired_median
+      expected: -6.0
+      tolerance: 1.0e-12
+    - metric_id: mpc_deficit_median_difference
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: aggregate.deficit_integral.paired_median
+      expected: 0.0006802876846316586
+      tolerance: 1.0e-15
+    - metric_id: joint_nonworse_ratio
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: diagnostics.joint_nonworse_ratio
+      expected: 0.4083333333333333
+      tolerance: 1.0e-15
+    - metric_id: v2_safety_violation_scenarios
+      artifact: data/processed/supervision_v2_confirmation_v1.json
+      selector: diagnostics.safety_violation_scenarios.v2
+      expected: 3
+      tolerance: 0
+    - metric_id: t026_information_ratio
+      artifact: data/processed/information_identifiability_v1.json
+      selector: rich_to_weak_median_ratios.information_min_singular_snr
+      expected: 2.1529246978240804
+      tolerance: 1.0e-12
+    - metric_id: t026_parameter_error_ratio
+      artifact: data/processed/information_identifiability_v1.json
+      selector: rich_to_weak_median_ratios.normalized_parameter_rmse
+      expected: 0.2516428971717601
+      tolerance: 1.0e-12
+    - metric_id: t027_minimum_information
+      artifact: data/processed/field_model_admission_example_v1.json
+      selector: information_assessment.minimum_information_singular_value_snr
+      expected: 20.011545218321846
+      tolerance: 1.0e-12
+  claims:
+    supported:
+      - claim_id: C001
+        statement: 已实现任务命令反馈联锁与版本追溯的软件在环原型
+        requirements: [R001, R008, R013]
+      - claim_id: C002
+        statement: 基础MPC在冻结仿真中形成少灌水伴轻微亏缺增加的权衡
+        requirements: [R002, R004]
+      - claim_id: C003
+        statement: 幅值敏感信息量可在已知结构合成条件下区分采样设计等级
+        requirements: [R014, R016, R017]
+      - claim_id: C004
+        statement: 可信监督存在恢复死锁和安全预算冲突等可复核失效边界
+        requirements: [R005, R006, R007]
+        accepted_statuses: [failed, stopped]
+    conditional:
+      - claim_id: C101
+        statement: 已获得适用于红壤根区的实测模型参数
+        requirements: [R003]
+      - claim_id: C102
+        statement: MPC已在真实传感器与灌水反馈数据上完成回放验证
+        requirements: [R003, R009]
+      - claim_id: C103
+        statement: 已验证真实节水率或作物产量品质效果
+        requirements: [R003, R009, R010]
+    prohibited:
+      - claim_id: C201
+        statement: MPC在所有条件下全面优于强规则控制
+        reason: R004记录明确的节水与亏缺权衡
+      - claim_id: C202
+        statement: 当前可信监督已经保证根区控制安全并优于基础MPC
+        reason: R005与R006失败且R007停止晋级
+      - claim_id: C203
+        statement: 本机MQTT结果证明现场网络和泵阀满足实时可靠性
+        reason: R013仅覆盖本机代理与客户端软件在环
+      - claim_id: C204
+        statement: 三个湿干循环普遍足以辨识红壤根区模型
+        reason: R015失败且R016与R017只提供合成设计等级证据
+  readiness_rules:
+    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018]
+    red_soil_model_requirements: [R003, R009]
+    entity_effect_requirements: [R003, R009, R010]
+  evidence_boundary: internal_repository_consistency_and_claim_traceability_only

@@ -27,3 +27,4 @@ T025,model,比较弱激励与充分激励下的参数可辨识性,completed,high
 T026,model,验证幅值敏感信息量与参数不确定性指标,completed,high,2026-09-08,2026-09-08,data/processed/information_identifiability_v1.json,11项冻结约束通过且信息量与真实参数恢复误差方向一致
 T027,data,将信息量检查接入现场模型准入闸门,completed,high,2026-09-08,2026-09-08,data/processed/field_model_admission_example_v1.json,质量合格但弱激励样例被正确判定为补采后再辨识
 T028,thesis,生成当前项目总结与后续研究路线,completed,high,2026-09-08,2026-09-08,docs/current_project_summary_and_research_roadmap.md,收束平台主体与MPC适用性主线并形成数据条件触发式执行路线
+T029,thesis,建立一键毕业设计证据审计,in_progress,high,2026-09-08,,,自动核对台账证据路径结果状态配置哈希关键数字与主张边界
