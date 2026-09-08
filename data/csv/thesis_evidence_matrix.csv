@@ -12,3 +12,4 @@ R010,validation,实体对照与作物产量品质测定,missing,none,缺失时�
 R011,thesis,平台主体加MPC适用性与失效边界,ready,docs/thesis_feasibility_decision.md,推荐毕业设计主线
 R012,implementation,Python正式算法流水线,completed,src/rootzone_mpc and scripts,Matlab仅作为可选交叉核验
 R013,platform,真实MQTT QoS持久会话与断连重连,completed,data/processed/mqtt_sil_v1.json,仅支持单机代理和客户端软件在环
+R014,implementation,双层根区灰箱模型辨识与冻结验证入口,completed,data/processed/two_layer_identification_smoke_v1.json,合成数据只证明流程可执行且不改变R003缺失状态
