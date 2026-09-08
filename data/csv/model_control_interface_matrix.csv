@@ -1,0 +1,14 @@
+interface_item,t024_t027_model_path,t010_control_path,compatibility,risk,resolution_gate
+state_dimension,theta_10cm and theta_25cm,single root-zone theta,incompatible,critical,双层MPC必须同时接收并预测两个状态
+sample_interval,15 min field schema,1 h simulation step,incompatible,critical,冻结统一控制步并重新标定所有逐步系数
+irrigation_input,delivered irrigation mm at interval end,command irrigation mm before plant efficiency,incompatible,critical,显式加入命令到实际水量的执行映射和反馈更新
+weather_input,solar radiation and VPD,ET forecast,incompatible,high,定义太阳辐射和VPD预测接口或冻结可追溯ET转换模型
+model_state_update,two-layer linear increment,one-layer water balance,incompatible,critical,控制滚动预测调用通过准入的双层模型版本
+target_definition,separate shallow and deep states,single target interval,incompatible,high,预注册双层目标区间权重与安全边界
+rule_baseline,not defined for two-layer state,threshold on single measured theta,incomplete,high,冻结根区代表状态或双阈值规则并在同一状态信息下比较
+model_admission,current example is collect_more_excitation,no admission dependency,incompatible,critical,新双层闭环不得使用未准入参数且需先取得provisional_ready_for_identification
+plant_independence,synthetic field sequence shares designed greybox law,nonlinear one-layer virtual plant,partly_compatible,critical,建立独立双层非线性虚拟对象并禁止控制器读取真值参数
+forecast_horizon,not defined,12 h prediction horizon,incompatible,high,按统一15 min步长重新定义预测与控制时域
+safety_constraints,prediction physical bounds 0.02 to 0.65,single state safety range 0.14 to 0.32,incomplete,critical,分别冻结浅深层物理与控制安全约束
+version_traceability,result and config hashes,frozen controller and result hashes,compatible,low,每次任务绑定数据模型控制器场景和代码提交哈希
+evaluation_protocol,independent cycles for prediction,paired development and locked scenarios,compatible,medium,沿用开发冻结锁定配对原则并禁止读取锁定集调参

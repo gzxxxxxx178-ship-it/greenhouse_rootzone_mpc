@@ -5,7 +5,7 @@ thesis_evidence_audit:
   execution_roadmap: data/csv/thesis_execution_roadmap.csv
   allowed_task_statuses: [completed, in_progress, blocked, stopped]
   allowed_requirement_statuses: [completed, failed, stopped, ready, missing]
-  expected_missing_requirements: [R003, R009, R010]
+  expected_missing_requirements: [R003, R009, R010, R027]
   expected_nonpositive_requirements: [R005, R006, R007, R015]
   result_expectations:
     - artifact: data/processed/baseline_confirmation_v1.json
@@ -262,6 +262,9 @@ thesis_evidence_audit:
       - claim_id: C103
         statement: 已验证真实节水率或作物产量品质效果
         requirements: [R003, R009, R010]
+      - claim_id: C104
+        statement: 双层辨识模型已经直接驱动MPC闭环并完成锁定评价
+        requirements: [R027]
     prohibited:
       - claim_id: C201
         statement: MPC在所有条件下全面优于强规则控制
@@ -275,8 +278,12 @@ thesis_evidence_audit:
       - claim_id: C204
         statement: 三个湿干循环普遍足以辨识红壤根区模型
         reason: R015失败且R016与R017只提供合成设计等级证据
+      - claim_id: C205
+        statement: T010单层MPC结果验证了T024双层辨识模型的控制效果
+        reason: T024与T010在状态维数时间步和输入语义上不一致且R027缺失
   readiness_rules:
     simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022, R023, R024, R025]
+    integrated_two_layer_mpc_requirements: [R014, R017, R020, R021, R022, R026, R027]
     red_soil_model_requirements: [R003, R009]
     entity_effect_requirements: [R003, R009, R010]
   evidence_boundary: internal_repository_consistency_and_claim_traceability_only
