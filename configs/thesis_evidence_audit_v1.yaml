@@ -136,6 +136,9 @@ thesis_evidence_audit:
         statement: 可信监督存在恢复死锁和安全预算冲突等可复核失效边界
         requirements: [R005, R006, R007]
         accepted_statuses: [failed, stopped]
+      - claim_id: C005
+        statement: 动态误差分解入口可在已知误差地板高于验证残差时拒绝输出伪过程噪声参数
+        requirements: [R014, R020, R021, R022]
     conditional:
       - claim_id: C101
         statement: 已获得适用于红壤根区的实测模型参数
@@ -160,7 +163,7 @@ thesis_evidence_audit:
         statement: 三个湿干循环普遍足以辨识红壤根区模型
         reason: R015失败且R016与R017只提供合成设计等级证据
   readiness_rules:
-    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018]
+    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022]
     red_soil_model_requirements: [R003, R009]
     entity_effect_requirements: [R003, R009, R010]
   evidence_boundary: internal_repository_consistency_and_claim_traceability_only
