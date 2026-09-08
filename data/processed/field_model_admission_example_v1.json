@@ -1,0 +1,53 @@
+{
+  "model_admission_decision": "collect_more_excitation",
+  "quality_status": "passed",
+  "quality_failed_checks": [],
+  "information_assessment": {
+    "identification_cycle_count": 3,
+    "possible_transition_count": 141,
+    "usable_transition_count": 141,
+    "usable_transition_fraction": 1.0,
+    "design_columns": [
+      "theta_shallow_minus_deep",
+      "irrigation_delivered_mm",
+      "solar_kw_m2",
+      "vpd_kpa",
+      "intercept"
+    ],
+    "design_rank": 5,
+    "assumed_delta_observation_noise_sd_m3_m3": 0.000714142842854285,
+    "layer_information": {
+      "shallow_delta": {
+        "minimum_singular_value_snr": 20.285832571153282,
+        "predicted_normalized_se_rms": 0.022909734210401253
+      },
+      "deep_delta": {
+        "minimum_singular_value_snr": 20.011545218321846,
+        "predicted_normalized_se_rms": 0.023898250146793826
+      }
+    },
+    "minimum_information_singular_value_snr": 20.011545218321846,
+    "combined_predicted_normalized_se_rms": 0.023409210598287596,
+    "reference_calibration_status": "provisional_synthetic_reference"
+  },
+  "admission_checks": {
+    "base_data_quality_passed": true,
+    "usable_identification_transitions_sufficient": true,
+    "usable_transition_fraction_sufficient": true,
+    "design_matrix_full_rank": true,
+    "information_strength_sufficient": false,
+    "predicted_uncertainty_sufficient": false
+  },
+  "name": "field_model_admission_v1",
+  "workflow_status": "passed",
+  "workflow_checks": {
+    "expected_quality_status_met": true,
+    "expected_admission_decision_met": true
+  },
+  "input_path": "data/examples/synthetic_field_observations_v1.csv",
+  "input_schema_version": "rootzone_field_observation_v1",
+  "model_structure": "two_layer_greybox_v1",
+  "code_commit": "03f304f62afaf2fc9ffc3495155537b50f69dd8f",
+  "config_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
+  "evidence_boundary": "software_gate_with_provisional_synthetic_information_thresholds"
+}
