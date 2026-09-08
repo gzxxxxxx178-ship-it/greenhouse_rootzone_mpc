@@ -1,0 +1,24 @@
+two_layer_identification:
+  name: two_layer_identification_smoke_v1
+  input: data/examples/synthetic_field_observations_v1.csv
+  quality_config: configs/field_data_quality_v1.yaml
+  identification_role: identification
+  validation_role: validation
+  model:
+    state_columns: [theta_10cm_m3_m3, theta_25cm_m3_m3]
+    feature_names: [theta_shallow_minus_deep, irrigation_delivered_mm, solar_kw_m2, vpd_kpa, intercept]
+    shallow_delta_bounds:
+      lower: [-0.50, 0.00, -0.05, -0.03, -0.01]
+      upper: [0.00, 0.05, 0.00, 0.00, 0.01]
+    deep_delta_bounds:
+      lower: [0.00, 0.00, -0.03, -0.02, -0.01]
+      upper: [0.50, 0.03, 0.00, 0.00, 0.01]
+    coordinate_descent_max_iterations: 20000
+    coordinate_descent_tolerance: 1.0e-12
+  success_criteria:
+    minimum_one_step_skill_vs_persistence_each_depth: 0.10
+    minimum_rollout_skill_vs_constant_initial_each_depth: 0.00
+    maximum_absolute_rollout_bias_m3_m3_each_depth: 0.01
+    prediction_lower_bound_m3_m3: 0.02
+    prediction_upper_bound_m3_m3: 0.65
+  evidence_boundary: synthetic_pipeline_smoke_only

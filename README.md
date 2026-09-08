@@ -49,6 +49,7 @@ source .venv/bin/activate
 python scripts/run_smoke_validation.py
 python scripts/run_mqtt_sil.py
 python scripts/validate_field_data.py data/examples/synthetic_field_observations_v1.csv
+python scripts/run_two_layer_identification.py
 pytest -q
 ```
 
