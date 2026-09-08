@@ -18,3 +18,4 @@ R016,validation,幅值敏感信息量预警合成参数恢复风险,completed,da
 R017,implementation,现场数据质量与模型信息两级准入闸门,completed,data/processed/field_model_admission_example_v1.json,合成弱激励样例被正确要求补采且现场阈值仍待标定
 R018,thesis,当前证据总结与条件触发式毕业设计路线,completed,docs/current_project_summary_and_research_roadmap.md,平台主体和MPC适用性边界已收束且现场数据任务保持条件触发
 R019,thesis,任务结果配置数字与主张边界自动审计,completed,data/processed/thesis_evidence_audit_v1.json,18项仓库一致性检查通过且缺失失败停止证据均被保留
+R020,implementation,水分传感器与流量计标定数据入口,completed,data/processed/field_calibration_example_v1.json,合成样例验证计算流程且真实标定与过程噪声仍未取得

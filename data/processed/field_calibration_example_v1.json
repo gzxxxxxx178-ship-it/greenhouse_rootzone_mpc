@@ -1,0 +1,107 @@
+{
+  "name": "field_calibration_quality_v1",
+  "status": "passed",
+  "code_commit": "4a7b1ba35d6e1345da489e9eb13ce764c288e58d",
+  "config_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
+  "moisture_input_sha256": "f7e5ba7dde91789684b805cb97e27a98cd517f0074e7e80fc1ca8dd861858b6e",
+  "flow_input_sha256": "76632e8ef26148ab62fe2440d30f95f34e3e14fc5ba1126f7f8c4b37c041408e",
+  "moisture_calibration": {
+    "status": "passed",
+    "checks": {
+      "required_columns_present": true,
+      "calibration_keys_unique": true,
+      "timestamps_parse_and_include_timezone": true,
+      "identifiers_nonempty": true,
+      "numeric_values_complete": true,
+      "physical_mass_and_volume_valid": true,
+      "reference_theta_within_configured_range": true,
+      "minimum_sensor_depth_combinations_met": true,
+      "minimum_levels_met": true,
+      "minimum_replicates_met": true,
+      "reference_span_met": true,
+      "calibration_slope_plausible": true,
+      "leave_one_level_out_error_within_limit": true,
+      "corrected_error_within_limit": true
+    },
+    "errors": [],
+    "sensors": [
+      {
+        "calibration_batch_id": "SYNTHETIC_MOISTURE_V1",
+        "sensor_id": "S10",
+        "depth_label": "10cm",
+        "row_count": 15,
+        "moisture_level_count": 5,
+        "minimum_replicates_per_level": 3,
+        "reference_span_m3_m3": 0.24,
+        "slope": 0.9692411317844405,
+        "intercept_m3_m3": 0.004184601877977402,
+        "corrected_rmse_m3_m3": 0.002375076810404324,
+        "corrected_residual_sd_m3_m3": 0.0025512417463750057,
+        "leave_one_level_out_rmse_m3_m3": 0.0023770650376669458
+      },
+      {
+        "calibration_batch_id": "SYNTHETIC_MOISTURE_V1",
+        "sensor_id": "S25",
+        "depth_label": "25cm",
+        "row_count": 15,
+        "moisture_level_count": 5,
+        "minimum_replicates_per_level": 3,
+        "reference_span_m3_m3": 0.24,
+        "slope": 1.039065393553305,
+        "intercept_m3_m3": -0.002781577652225373,
+        "corrected_rmse_m3_m3": 0.002546326814311024,
+        "corrected_residual_sd_m3_m3": 0.002735193758840354,
+        "leave_one_level_out_rmse_m3_m3": 0.002548758912986299
+      }
+    ]
+  },
+  "flow_calibration": {
+    "status": "passed",
+    "checks": {
+      "required_columns_present": true,
+      "calibration_keys_unique": true,
+      "timestamps_parse_and_include_timezone": true,
+      "identifiers_nonempty": true,
+      "numeric_values_complete": true,
+      "physical_mass_duration_and_density_valid": true,
+      "minimum_devices_met": true,
+      "minimum_operating_points_met": true,
+      "minimum_replicates_met": true,
+      "reference_volume_span_met": true,
+      "calibration_slope_plausible": true,
+      "leave_one_point_out_error_within_limit": true,
+      "corrected_relative_error_within_limit": true
+    },
+    "errors": [],
+    "devices": [
+      {
+        "calibration_batch_id": "SYNTHETIC_FLOW_V1",
+        "device_id": "FLOW_01",
+        "row_count": 9,
+        "operating_point_count": 3,
+        "minimum_replicates_per_point": 3,
+        "reference_volume_span_l": 19.999999999999996,
+        "slope": 0.9799059025746694,
+        "intercept_l": 0.05191574137869057,
+        "corrected_relative_rmse": 0.0053895243014968775,
+        "corrected_maximum_absolute_relative_error": 0.009895073473683347,
+        "leave_one_point_out_relative_rmse": 0.005393600103954098
+      }
+    ]
+  },
+  "model_admission_handoff": {
+    "measurement_noise_sd_m3_m3": 0.002735193758840354,
+    "flow_corrected_maximum_absolute_relative_error": 0.009895073473683347,
+    "process_noise_sd_m3_m3": null,
+    "information_gate_status": "measurement_noise_ready_process_noise_pending",
+    "field_information_threshold_ready": false
+  },
+  "workflow_checks": {
+    "component_quality_passed": true,
+    "expected_example_status_met": true,
+    "expected_handoff_status_met": true,
+    "process_noise_not_inferred_from_calibration": true,
+    "field_information_threshold_not_prematurely_ready": true
+  },
+  "evidence_boundary": "synthetic_calibration_pipeline_only_thresholds_require_field_freeze"
+}
