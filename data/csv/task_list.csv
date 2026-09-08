@@ -23,3 +23,4 @@ T021,platform,验证消息乱序重复超时与崩溃恢复,completed,high,2026-
 T022,platform,接入本地MQTT代理并验证QoS与断连重连,completed,high,2026-09-07,2026-09-07,data/processed/mqtt_sil_v1.json,26次接收23条有效反馈且8项MQTT与审计约束全部通过
 T023,data,建立现场最低数据模板与质量闸门,completed,high,2026-09-07,2026-09-07,data/processed/field_data_example_quality_v1.json,240行合成接入样例通过20项数据质量检查且不作为红壤证据
 T024,model,建立双层根区灰箱模型辨识与独立验证入口,completed,high,2026-09-08,2026-09-08,data/processed/two_layer_identification_smoke_v1.json,3个辨识与2个验证合成循环通过8项冻结约束且不改变R003缺失状态
+T025,model,比较弱激励与充分激励下的参数可辨识性,in_progress,high,2026-09-08,,,冻结已知参数对象与配对种子后比较参数恢复和共同探针预测

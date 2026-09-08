@@ -1,0 +1,59 @@
+excitation_identifiability:
+  name: excitation_identifiability_v1
+  repetitions: 30
+  paired_seeds: [25001, 25002, 25003, 25004, 25005, 25006, 25007, 25008, 25009, 25010, 25011, 25012, 25013, 25014, 25015, 25016, 25017, 25018, 25019, 25020, 25021, 25022, 25023, 25024, 25025, 25026, 25027, 25028, 25029, 25030]
+  steps_per_cycle: 48
+  measurement_noise_sd_m3_m3: 0.0005
+  process_noise_sd_m3_m3: 0.0001
+  feature_names: [theta_shallow_minus_deep, irrigation_delivered_mm, solar_kw_m2, vpd_kpa, intercept]
+  true_parameters:
+    shallow_delta: [-0.12, 0.012, -0.0008, -0.00025, 0.00015]
+    deep_delta: [0.08, 0.004, -0.0003, -0.00012, -0.00005]
+  bounds:
+    shallow_delta:
+      lower: [-0.50, 0.00, -0.05, -0.03, -0.01]
+      upper: [0.00, 0.05, 0.00, 0.00, 0.01]
+    deep_delta:
+      lower: [0.00, 0.00, -0.03, -0.02, -0.01]
+      upper: [0.50, 0.03, 0.00, 0.00, 0.01]
+  solver:
+    max_iterations: 20000
+    tolerance: 1.0e-12
+  weak_excitation:
+    initial_states: [[0.215, 0.225], [0.215, 0.225], [0.215, 0.225]]
+    irrigation_pulses:
+      - [[1, 2.0]]
+      - [[1, 2.0]]
+      - [[1, 2.0]]
+    weather:
+      - [500, 0.0, 0.8, 0.35, 0.0]
+      - [500, 0.0, 0.8, 0.35, 0.0]
+      - [500, 0.0, 0.8, 0.35, 0.0]
+  rich_excitation:
+    initial_states: [[0.198, 0.222], [0.232, 0.208], [0.248, 0.235]]
+    irrigation_pulses:
+      - [[1, 1.0], [19, 0.7]]
+      - [[5, 2.8]]
+      - [[12, 1.4], [31, 0.9]]
+    weather:
+      - [350, -0.6, 0.55, 0.20, 0.8]
+      - [700, 0.5, 1.15, 0.45, -0.7]
+      - [520, 1.1, 0.75, 0.55, 1.4]
+  common_probe:
+    initial_states: [[0.205, 0.230], [0.238, 0.215], [0.225, 0.225]]
+    irrigation_pulses:
+      - [[3, 1.5], [27, 0.6]]
+      - [[9, 2.3]]
+      - [[1, 0.8], [20, 1.2], [36, 0.5]]
+    weather:
+      - [430, 0.2, 0.65, 0.30, -0.3]
+      - [620, -1.0, 1.00, 0.40, 0.9]
+      - [540, 0.8, 0.85, 0.50, 1.8]
+  success_criteria:
+    maximum_rich_to_weak_condition_number_ratio: 0.50
+    maximum_rich_to_weak_parameter_error_ratio: 0.65
+    minimum_parameter_error_improvement_ratio: 0.80
+    maximum_rich_to_weak_probe_rmse_ratio: 0.80
+    minimum_probe_rmse_improvement_ratio: 0.75
+    maximum_rich_median_active_bound_count: 0
+  evidence_boundary: known_parameter_synthetic_identifiability_study_only
