@@ -33,3 +33,4 @@ T031,data,统一现场数据输入区间时间对齐,completed,high,2026-09-08,2
 T032,model,建立动态残差与测量输入误差分解入口,completed,high,2026-09-08,2026-09-08,data/processed/dynamic_noise_example_v1.json,已知误差地板高于独立验证残差故拒绝生成过程噪声候选
 T033,thesis,建立毕业论文章节主张证据映射,completed,high,2026-09-08,2026-09-08,docs/thesis_chapter_evidence_plan.md,八章结构围绕数据准入MPC权衡失效机理与平台审计并绑定冻结证据
 T034,thesis,起草第3章数据准入与双层根区模型,completed,high,2026-09-08,2026-09-08,docs/thesis_draft/chapter3_data_admission_and_greybox_model.md,形成数据标定信息准入双层模型独立验证与误差分解正文草稿
+T035,thesis,起草第4章强规则与区间MPC冻结对照,completed,high,2026-09-08,2026-09-08,docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md,形成对象控制器冻结统计结果适用性判定正文且绑定8处核心数字

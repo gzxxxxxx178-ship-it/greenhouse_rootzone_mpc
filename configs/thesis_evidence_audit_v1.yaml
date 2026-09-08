@@ -178,6 +178,62 @@ thesis_evidence_audit:
       selector: layers.deep.known_error_to_residual_variance_ratio
       expected: 360.5300645213902
       tolerance: 1.0e-12
+    - claim_id: M401
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "120个锁定场景共形成240次方法运行"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: scenario_count
+      expected: 120
+      tolerance: 0
+    - claim_id: M402
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "灌水命令配对中位差为−6 mm"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.paired_median
+      expected: -6.0
+      tolerance: 1.0e-12
+    - claim_id: M403
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "95%区间为[−8，−4] mm"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.ci95_upper
+      expected: -4.0
+      tolerance: 1.0e-12
+    - claim_id: M404
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "亏缺积分的配对中位差为+0.000680"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: aggregate.deficit_integral.paired_median
+      expected: 0.0006802876846316586
+      tolerance: 1.0e-15
+    - claim_id: M405
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "59.17%增加"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: aggregate.deficit_integral.adverse_ratio
+      expected: 0.5916666666666667
+      tolerance: 1.0e-15
+    - claim_id: M406
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "同时不劣于规则的场景比例为40.83%"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: diagnostics.joint_nonworse_ratio
+      expected: 0.4083333333333333
+      tolerance: 1.0e-15
+    - claim_id: M407
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "两种控制器的安全违反场景数均为0"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: diagnostics.mpc_safety_violation_scenarios
+      expected: 0
+      tolerance: 0
+    - claim_id: M408
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "其正式分类为`WATER_SAVING_WITH_DEFICIT_TRADEOFF`"
+      artifact: data/processed/baseline_confirmation_v1.json
+      selector: classification
+      expected: WATER_SAVING_WITH_DEFICIT_TRADEOFF
+      tolerance: 0
   claims:
     supported:
       - claim_id: C001
@@ -220,7 +276,7 @@ thesis_evidence_audit:
         statement: 三个湿干循环普遍足以辨识红壤根区模型
         reason: R015失败且R016与R017只提供合成设计等级证据
   readiness_rules:
-    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022, R023, R024]
+    simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022, R023, R024, R025]
     red_soil_model_requirements: [R003, R009]
     entity_effect_requirements: [R003, R009, R010]
   evidence_boundary: internal_repository_consistency_and_claim_traceability_only
