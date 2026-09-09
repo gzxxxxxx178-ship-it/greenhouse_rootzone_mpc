@@ -182,13 +182,18 @@ def audit_repository(project_root: Path, config_path: Path) -> dict:
 
     config_bindings = []
     for binding in config["config_bindings"]:
-        recorded = document(binding["artifact"]).get("config_sha256")
+        recorded_selector = binding.get("recorded_selector", "config_sha256")
+        try:
+            recorded = resolve_selector(document(binding["artifact"]), recorded_selector)
+        except (KeyError, IndexError, TypeError, ValueError):
+            recorded = None
         try:
             current = _sha256(project_root / binding["config"])
         except OSError:
             current = None
         config_bindings.append({
-            **binding, "recorded_sha256": recorded, "current_sha256": current,
+            **binding, "recorded_selector": recorded_selector,
+            "recorded_sha256": recorded, "current_sha256": current,
             "matched": recorded == current,
         })
 

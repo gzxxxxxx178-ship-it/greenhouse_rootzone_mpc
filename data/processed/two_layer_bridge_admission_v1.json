@@ -1,0 +1,54 @@
+{
+  "model_admission_decision": "provisional_ready_for_identification",
+  "quality_status": "passed",
+  "quality_failed_checks": [],
+  "information_assessment": {
+    "identification_cycle_count": 6,
+    "possible_transition_count": 576,
+    "usable_transition_count": 576,
+    "usable_transition_fraction": 1.0,
+    "design_columns": [
+      "theta_shallow_minus_deep",
+      "irrigation_delivered_mm",
+      "solar_kw_m2",
+      "vpd_kpa",
+      "intercept"
+    ],
+    "input_interval_alignment": "row_ending_at_next_state_timestamp",
+    "design_rank": 5,
+    "assumed_delta_observation_noise_sd_m3_m3": 0.000714142842854285,
+    "layer_information": {
+      "shallow_delta": {
+        "minimum_singular_value_snr": 159.3083157925028,
+        "predicted_normalized_se_rms": 0.004113232830064493
+      },
+      "deep_delta": {
+        "minimum_singular_value_snr": 133.71450137135372,
+        "predicted_normalized_se_rms": 0.0053017353464453396
+      }
+    },
+    "minimum_information_singular_value_snr": 133.71450137135372,
+    "combined_predicted_normalized_se_rms": 0.004744843622189685,
+    "reference_calibration_status": "provisional_synthetic_reference"
+  },
+  "admission_checks": {
+    "base_data_quality_passed": true,
+    "usable_identification_transitions_sufficient": true,
+    "usable_transition_fraction_sufficient": true,
+    "design_matrix_full_rank": true,
+    "information_strength_sufficient": true,
+    "predicted_uncertainty_sufficient": true
+  },
+  "name": "field_model_admission_v1",
+  "workflow_status": "passed",
+  "workflow_checks": {
+    "expected_quality_status_met": true,
+    "expected_admission_decision_met": true
+  },
+  "input_path": "data/examples/two_layer_bridge_observations_v1.csv",
+  "input_schema_version": "rootzone_field_observation_v1",
+  "model_structure": "two_layer_greybox_v1",
+  "code_commit": "9794fd17783b8146bea3aabba695c97f5a371b34",
+  "config_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
+  "evidence_boundary": "software_gate_with_provisional_synthetic_information_thresholds"
+}

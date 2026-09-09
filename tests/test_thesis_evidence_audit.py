@@ -77,3 +77,18 @@ def test_missing_manuscript_numeric_text_fails_audit(tmp_path):
     assert result["status"] == "failed"
     assert result["checks"]["manuscript_numbers_match_frozen_sources"] is False
     assert result["manuscript_numeric_bindings"][0]["text_present"] is False
+
+
+def test_config_binding_can_use_explicit_recorded_selector():
+    config = load_audit_config(CONFIG_PATH)
+    target = next(
+        item for item in config["config_bindings"]
+        if item["artifact"] == "data/processed/two_layer_bridge_data_v1.json"
+    )
+    assert target["recorded_selector"] == "protocol_config_sha256"
+    result = audit_repository(ROOT, CONFIG_PATH)
+    matched = next(
+        item for item in result["config_bindings"]
+        if item["artifact"] == target["artifact"]
+    )
+    assert matched["matched"] is True

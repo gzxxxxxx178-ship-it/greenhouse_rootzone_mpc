@@ -1,0 +1,20 @@
+{
+  "name": "two_layer_bridge_data_v1",
+  "status": "generated",
+  "code_commit": "9794fd17783b8146bea3aabba695c97f5a371b34",
+  "protocol_config_sha256": "50615eb24e6307c902b59004020ead93c39ce8437bbbd419fd2314a479c21902",
+  "data_sha256": "fc59c321013da1d9206f82d19a1c9a01cf4fc0df013c569745afbe3be743cdc6",
+  "diagnostics": {
+    "row_count": 873,
+    "cycle_counts": {
+      "identification": 6,
+      "validation": 3
+    },
+    "steps_per_cycle": 96,
+    "maximum_absolute_water_balance_residual_mm": 2.2537527399890678e-14,
+    "plant_parameter_sha256": "1f14cb4847754151f816e864f623bcfa944a02d4b0990416d5f187d7ce6669db",
+    "plant_imports_fitted_model_parameters": false,
+    "output_sha256": "fc59c321013da1d9206f82d19a1c9a01cf4fc0df013c569745afbe3be743cdc6"
+  },
+  "evidence_boundary": "independent_synthetic_two_layer_plant_data_only"
+}
