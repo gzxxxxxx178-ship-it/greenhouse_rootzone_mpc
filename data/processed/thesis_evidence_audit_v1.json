@@ -1,17 +1,17 @@
 {
   "name": "thesis_evidence_audit_v1",
   "status": "passed",
-  "code_commit": "a22e52f9f3744d54eeaeb3298147ba9652fbc3bb",
-  "config_sha256": "c58483351237ca0693068c8f08ebe878f86b09c559381e9d584b8171aab312fd",
+  "code_commit": "1f339a297c62896c2452a534898064d330b5512e",
+  "config_sha256": "38332876c436bae3c830791fd496633212c1dc7e295d7603366d0ffd2005e3b5",
   "counts": {
-    "tasks": 38,
-    "requirements": 29,
+    "tasks": 39,
+    "requirements": 30,
     "roadmap_items": 13,
-    "result_expectations": 16,
-    "config_bindings": 8,
-    "key_metrics": 15,
+    "result_expectations": 17,
+    "config_bindings": 9,
+    "key_metrics": 19,
     "manuscript_numeric_bindings": 16,
-    "supported_claims": 6,
+    "supported_claims": 7,
     "conditional_claims": 4,
     "prohibited_claims": 5
   },
@@ -151,6 +151,13 @@
       "expected": "provisional_ready_for_identification",
       "actual": "provisional_ready_for_identification",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
     }
   ],
   "config_bindings": [
@@ -217,6 +224,14 @@
       "recorded_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "current_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "config": "configs/two_layer_bridge_identification_v1.yaml",
+      "recorded_selector": "config_sha256",
+      "recorded_sha256": "72edeea5f629a4bfcbc6ee2ba81ab9554919f7c673688f8b0794ef8f30162586",
+      "current_sha256": "72edeea5f629a4bfcbc6ee2ba81ab9554919f7c673688f8b0794ef8f30162586",
+      "matched": true
     }
   ],
   "code_commits": [
@@ -237,7 +252,7 @@
     },
     {
       "artifact": "data/processed/field_model_admission_example_v1.json",
-      "code_commit": "f08d0f53c4699aeec4976a7c4147532b05e46a0d",
+      "code_commit": "74bbd01ce0af90f69643567f7d34f860cbfef8ee",
       "commit_exists": true
     },
     {
@@ -257,7 +272,12 @@
     },
     {
       "artifact": "data/processed/two_layer_bridge_admission_v1.json",
-      "code_commit": "9794fd17783b8146bea3aabba695c97f5a371b34",
+      "code_commit": "74bbd01ce0af90f69643567f7d34f860cbfef8ee",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "code_commit": "74bbd01ce0af90f69643567f7d34f860cbfef8ee",
       "commit_exists": true
     }
   ],
@@ -395,6 +415,42 @@
       "expected": 0.004744843622189685,
       "tolerance": 1e-12,
       "actual": 0.004744843622189685,
+      "matched": true
+    },
+    {
+      "metric_id": "t039_one_step_skill_shallow",
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "selector": "one_step_validation.theta_10cm.skill_vs_baseline",
+      "expected": 0.6719293766728403,
+      "tolerance": 1e-12,
+      "actual": 0.6719293766728403,
+      "matched": true
+    },
+    {
+      "metric_id": "t039_one_step_skill_deep",
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "selector": "one_step_validation.theta_25cm.skill_vs_baseline",
+      "expected": 0.27469211149960737,
+      "tolerance": 1e-12,
+      "actual": 0.27469211149960737,
+      "matched": true
+    },
+    {
+      "metric_id": "t039_rollout_skill_shallow",
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "selector": "rollout_validation.theta_10cm.skill_vs_baseline",
+      "expected": 0.9604910033484797,
+      "tolerance": 1e-12,
+      "actual": 0.9604910033484797,
+      "matched": true
+    },
+    {
+      "metric_id": "t039_rollout_skill_deep",
+      "artifact": "data/processed/two_layer_bridge_identification_v1.json",
+      "selector": "rollout_validation.theta_25cm.skill_vs_baseline",
+      "expected": 0.9356948932709166,
+      "tolerance": 1e-12,
+      "actual": 0.9356948932709166,
       "matched": true
     }
   ],
@@ -676,6 +732,16 @@
           "R026",
           "R028",
           "R029"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C007",
+        "statement": "通过准入的双层灰箱模型已在三个独立合成循环上通过冻结预测判据",
+        "requirements": [
+          "R029",
+          "R030"
         ],
         "audit_status": "supported",
         "unavailable_requirements": []
