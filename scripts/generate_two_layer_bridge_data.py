@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from rootzone_mpc.experiments.two_layer_bridge_data import write_bridge_identification_data
+from rootzone_mpc.experiments.two_layer_bridge_data import write_bridge_data_manifest
 
 
 if __name__ == "__main__":
@@ -18,6 +18,12 @@ if __name__ == "__main__":
         "--output", type=Path,
         default=root / "data/examples/two_layer_bridge_observations_v1.csv",
     )
+    parser.add_argument(
+        "--manifest", type=Path,
+        default=root / "data/processed/two_layer_bridge_data_v1.json",
+    )
     args = parser.parse_args()
-    _, diagnostics = write_bridge_identification_data(args.config, args.output)
-    print(json.dumps(diagnostics, ensure_ascii=False, indent=2))
+    _, manifest_path = write_bridge_data_manifest(
+        root, args.config, args.output, args.manifest
+    )
+    print(manifest_path.read_text(encoding="utf-8"))

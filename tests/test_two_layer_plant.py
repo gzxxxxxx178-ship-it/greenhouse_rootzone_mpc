@@ -11,6 +11,7 @@ from rootzone_mpc.data.model_admission import (
 from rootzone_mpc.experiments.two_layer_bridge_data import (
     generate_bridge_identification_data,
     load_protocol,
+    write_bridge_data_manifest,
 )
 from rootzone_mpc.models.two_layer_plant import (
     TwoLayerPlantParameters,
@@ -88,3 +89,19 @@ def test_bridge_identification_data_pass_information_admission_before_fit():
     assert result["information_assessment"]["usable_transition_count"] == 576
     assert result["information_assessment"]["minimum_information_singular_value_snr"] > 28.0
     assert result["information_assessment"]["combined_predicted_normalized_se_rms"] < 0.018
+
+
+def test_bridge_manifest_binds_protocol_data_and_code(tmp_path):
+    data_path, manifest_path = write_bridge_data_manifest(
+        ROOT,
+        ROOT / "configs/two_layer_closed_loop_protocol_v1.yaml",
+        tmp_path / "bridge.csv",
+        tmp_path / "manifest.json",
+    )
+    import json
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest["status"] == "generated"
+    assert manifest["data_sha256"] == manifest["diagnostics"]["output_sha256"]
+    assert len(manifest["protocol_config_sha256"]) == 64
+    assert len(manifest["code_commit"]) == 40
+    assert data_path.exists()

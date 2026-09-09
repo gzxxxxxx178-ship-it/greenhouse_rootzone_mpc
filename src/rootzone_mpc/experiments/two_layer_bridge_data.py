@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import subprocess
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -157,3 +159,29 @@ def write_bridge_identification_data(
     frame.to_csv(output_path, index=False)
     diagnostics["output_sha256"] = hashlib.sha256(output_path.read_bytes()).hexdigest()
     return output_path, diagnostics
+
+
+def write_bridge_data_manifest(
+    project_root: Path,
+    protocol_path: Path,
+    output_path: Path,
+    manifest_path: Path,
+) -> tuple[Path, Path]:
+    data_path, diagnostics = write_bridge_identification_data(protocol_path, output_path)
+    manifest = {
+        "name": "two_layer_bridge_data_v1",
+        "status": "generated",
+        "code_commit": subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=project_root, text=True
+        ).strip(),
+        "protocol_config_sha256": hashlib.sha256(protocol_path.read_bytes()).hexdigest(),
+        "data_sha256": hashlib.sha256(data_path.read_bytes()).hexdigest(),
+        "diagnostics": diagnostics,
+        "evidence_boundary": "independent_synthetic_two_layer_plant_data_only",
+    }
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False),
+        encoding="utf-8",
+    )
+    return data_path, manifest_path
