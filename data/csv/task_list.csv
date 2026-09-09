@@ -38,3 +38,4 @@ T036,model,审计双层辨识模型与MPC控制接口一致性,completed,high,20
 T037,design,冻结双层模型驱动MPC端到端验证协议,completed,high,2026-09-08,2026-09-08,docs/t037_two_layer_closed_loop_contract.md,固定独立对象数据准入命令反馈双层代价开发锁定隔离和结果分类
 T038,model,实现独立双层非线性对象与辨识数据生成器,completed,high,2026-09-08,2026-09-09,data/processed/two_layer_bridge_admission_v1.json,873行6加3循环通过质量与信息准入且最弱信息量为133.715
 T039,model,拟合并独立验证双层桥接灰箱模型,completed,high,2026-09-09,2026-09-09,data/processed/two_layer_bridge_identification_v1.json,6个辨识与3个验证循环通过8项冻结约束且准入报告绑定输入哈希
+T040,control,开发选择双层规则与双层MPC候选,in_progress,high,2026-09-09,,,冻结候选场景和选择门后只使用36个开发场景且保持90个锁定场景未访问
