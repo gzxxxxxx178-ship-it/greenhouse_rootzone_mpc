@@ -28,3 +28,4 @@ R026,implementation,双层辨识模型与MPC控制接口一致性审计,complete
 R027,control,通过准入的双层模型驱动MPC闭环评价,missing,none,完成前不得声称双层辨识模型已经用于控制决策
 R028,implementation,双层模型驱动MPC端到端验证协议,completed,docs/t037_two_layer_closed_loop_contract.md,15分钟双层对象数据准入命令反馈开发锁定隔离与分类已冻结
 R029,model,独立双层对象与充足激励辨识数据入口,completed,data/processed/two_layer_bridge_admission_v1.json,873行6加3循环通过质量和信息准入并保持对象与灰箱模型独立
+R030,model,准入后双层灰箱模型拟合与独立验证,completed,data/processed/two_layer_bridge_identification_v1.json,三循环288转移验证通过单步整循环偏差物理边界与参数约束

@@ -46,9 +46,10 @@
     "expected_admission_decision_met": true
   },
   "input_path": "data/examples/two_layer_bridge_observations_v1.csv",
+  "input_sha256": "fc59c321013da1d9206f82d19a1c9a01cf4fc0df013c569745afbe3be743cdc6",
   "input_schema_version": "rootzone_field_observation_v1",
   "model_structure": "two_layer_greybox_v1",
-  "code_commit": "9794fd17783b8146bea3aabba695c97f5a371b34",
+  "code_commit": "74bbd01ce0af90f69643567f7d34f860cbfef8ee",
   "config_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
   "evidence_boundary": "software_gate_with_provisional_synthetic_information_thresholds"
 }

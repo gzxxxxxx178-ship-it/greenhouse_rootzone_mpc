@@ -56,6 +56,9 @@ thesis_evidence_audit:
     - artifact: data/processed/two_layer_bridge_admission_v1.json
       selector: model_admission_decision
       expected: provisional_ready_for_identification
+    - artifact: data/processed/two_layer_bridge_identification_v1.json
+      selector: status
+      expected: passed
   config_bindings:
     - artifact: data/processed/two_layer_identification_smoke_v1.json
       config: configs/two_layer_identification_v1.yaml
@@ -74,6 +77,8 @@ thesis_evidence_audit:
       recorded_selector: protocol_config_sha256
     - artifact: data/processed/two_layer_bridge_admission_v1.json
       config: configs/field_model_admission_v1.yaml
+    - artifact: data/processed/two_layer_bridge_identification_v1.json
+      config: configs/two_layer_bridge_identification_v1.yaml
   key_metrics:
     - metric_id: baseline_scenario_count
       artifact: data/processed/baseline_confirmation_v1.json
@@ -149,6 +154,26 @@ thesis_evidence_audit:
       artifact: data/processed/two_layer_bridge_admission_v1.json
       selector: information_assessment.combined_predicted_normalized_se_rms
       expected: 0.004744843622189685
+      tolerance: 1.0e-12
+    - metric_id: t039_one_step_skill_shallow
+      artifact: data/processed/two_layer_bridge_identification_v1.json
+      selector: one_step_validation.theta_10cm.skill_vs_baseline
+      expected: 0.6719293766728403
+      tolerance: 1.0e-12
+    - metric_id: t039_one_step_skill_deep
+      artifact: data/processed/two_layer_bridge_identification_v1.json
+      selector: one_step_validation.theta_25cm.skill_vs_baseline
+      expected: 0.27469211149960737
+      tolerance: 1.0e-12
+    - metric_id: t039_rollout_skill_shallow
+      artifact: data/processed/two_layer_bridge_identification_v1.json
+      selector: rollout_validation.theta_10cm.skill_vs_baseline
+      expected: 0.9604910033484797
+      tolerance: 1.0e-12
+    - metric_id: t039_rollout_skill_deep
+      artifact: data/processed/two_layer_bridge_identification_v1.json
+      selector: rollout_validation.theta_25cm.skill_vs_baseline
+      expected: 0.9356948932709166
       tolerance: 1.0e-12
   manuscript_numeric_bindings:
     - claim_id: M301
@@ -284,6 +309,9 @@ thesis_evidence_audit:
       - claim_id: C006
         statement: 独立双层非线性对象生成的数据已通过结构质量和信息准入并可进入模型拟合
         requirements: [R026, R028, R029]
+      - claim_id: C007
+        statement: 通过准入的双层灰箱模型已在三个独立合成循环上通过冻结预测判据
+        requirements: [R029, R030]
     conditional:
       - claim_id: C101
         statement: 已获得适用于红壤根区的实测模型参数
@@ -315,7 +343,7 @@ thesis_evidence_audit:
         reason: T024与T010在状态维数时间步和输入语义上不一致且R027缺失
   readiness_rules:
     simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022, R023, R024, R025]
-    integrated_two_layer_mpc_requirements: [R014, R017, R020, R021, R022, R026, R027, R028, R029]
+    integrated_two_layer_mpc_requirements: [R014, R017, R020, R021, R022, R026, R027, R028, R029, R030]
     red_soil_model_requirements: [R003, R009]
     entity_effect_requirements: [R003, R009, R010]
   evidence_boundary: internal_repository_consistency_and_claim_traceability_only

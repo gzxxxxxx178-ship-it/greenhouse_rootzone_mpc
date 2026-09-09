@@ -1,0 +1,94 @@
+{
+  "name": "two_layer_bridge_identification_v1",
+  "status": "passed",
+  "code_commit": "74bbd01ce0af90f69643567f7d34f860cbfef8ee",
+  "input_sha256": "fc59c321013da1d9206f82d19a1c9a01cf4fc0df013c569745afbe3be743cdc6",
+  "config_sha256": "72edeea5f629a4bfcbc6ee2ba81ab9554919f7c673688f8b0794ef8f30162586",
+  "identification_cycle_count": 6,
+  "validation_cycle_count": 3,
+  "identification_transition_count": 576,
+  "validation_transition_count": 288,
+  "feature_names": [
+    "theta_shallow_minus_deep",
+    "irrigation_delivered_mm",
+    "solar_kw_m2",
+    "vpd_kpa",
+    "intercept"
+  ],
+  "parameters": {
+    "shallow_delta": {
+      "theta_shallow_minus_deep": -0.05772755528787682,
+      "irrigation_delivered_mm": 0.007620312086297372,
+      "solar_kw_m2": -0.0011877959418507135,
+      "vpd_kpa": -0.00011535080184082507,
+      "intercept": -6.358480262476757e-05
+    },
+    "deep_delta": {
+      "theta_shallow_minus_deep": 0.04017915688442464,
+      "irrigation_delivered_mm": 0.00044129001032788346,
+      "solar_kw_m2": -0.00026309578634348254,
+      "vpd_kpa": -6.779953920259744e-05,
+      "intercept": 3.41892379607184e-08
+    }
+  },
+  "solver": {
+    "shallow_iterations": 1,
+    "deep_iterations": 1,
+    "shallow_converged": true,
+    "deep_converged": true
+  },
+  "one_step_validation": {
+    "theta_10cm": {
+      "n": 288,
+      "rmse_m3_m3": 0.0006719057941809739,
+      "mae_m3_m3": 0.000530495897979615,
+      "bias_m3_m3": -9.483306061114765e-06,
+      "baseline_rmse_m3_m3": 0.0020480522985166327,
+      "skill_vs_baseline": 0.6719293766728403
+    },
+    "theta_25cm": {
+      "n": 288,
+      "rmse_m3_m3": 0.0007135409569357122,
+      "mae_m3_m3": 0.0005656618032147885,
+      "bias_m3_m3": 1.7574947782161054e-05,
+      "baseline_rmse_m3_m3": 0.0009837766392021337,
+      "skill_vs_baseline": 0.27469211149960737
+    }
+  },
+  "rollout_validation": {
+    "theta_10cm": {
+      "n": 288,
+      "rmse_m3_m3": 0.001216904530207107,
+      "mae_m3_m3": 0.0010564524916129008,
+      "bias_m3_m3": 0.0003556882021552781,
+      "baseline_rmse_m3_m3": 0.0308006943567948,
+      "skill_vs_baseline": 0.9604910033484797
+    },
+    "theta_25cm": {
+      "n": 288,
+      "rmse_m3_m3": 0.0013526387064357124,
+      "mae_m3_m3": 0.0011634111660523679,
+      "bias_m3_m3": 0.0006110402951139597,
+      "baseline_rmse_m3_m3": 0.02103470121174611,
+      "skill_vs_baseline": 0.9356948932709166
+    }
+  },
+  "invariants": {
+    "quality_gate_passed": true,
+    "validation_cycles_excluded_from_fit": true,
+    "bounded_solver_converged": true,
+    "coefficients_within_physical_sign_bounds": true,
+    "one_step_skill_threshold_met_each_depth": true,
+    "rollout_skill_threshold_met_each_depth": true,
+    "rollout_bias_limit_met_each_depth": true,
+    "rollout_predictions_within_bounds": true
+  },
+  "evidence_boundary": "independent_synthetic_two_layer_plant_model_fit_only",
+  "input_interval_alignment": "row_ending_at_next_state_timestamp",
+  "admission_binding": {
+    "path": "data/processed/two_layer_bridge_admission_v1.json",
+    "sha256": "596af8c1d236015294de6b7f967d2bee595703cb05bf4e4a630234c3fb11a64e",
+    "decision": "provisional_ready_for_identification",
+    "input_sha256_matched": true
+  }
+}
