@@ -1,17 +1,17 @@
 {
   "name": "thesis_evidence_audit_v1",
   "status": "passed",
-  "code_commit": "72e03f9a050d0a3575ac737ede849c8443ff64cd",
-  "config_sha256": "8d059d329df503e7856312744a6dd6e2230d6fe66c7e2a11a3641e6a440bf9f1",
+  "code_commit": "a22e52f9f3744d54eeaeb3298147ba9652fbc3bb",
+  "config_sha256": "c58483351237ca0693068c8f08ebe878f86b09c559381e9d584b8171aab312fd",
   "counts": {
-    "tasks": 37,
-    "requirements": 28,
+    "tasks": 38,
+    "requirements": 29,
     "roadmap_items": 13,
-    "result_expectations": 13,
-    "config_bindings": 6,
-    "key_metrics": 12,
+    "result_expectations": 16,
+    "config_bindings": 8,
+    "key_metrics": 15,
     "manuscript_numeric_bindings": 16,
-    "supported_claims": 5,
+    "supported_claims": 6,
     "conditional_claims": 4,
     "prohibited_claims": 5
   },
@@ -130,12 +130,34 @@
       "expected": "not_estimable_measurement_floor_exceeds_dynamic_residual",
       "actual": "not_estimable_measurement_floor_exceeds_dynamic_residual",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_data_v1.json",
+      "selector": "status",
+      "expected": "generated",
+      "actual": "generated",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_quality_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_admission_v1.json",
+      "selector": "model_admission_decision",
+      "expected": "provisional_ready_for_identification",
+      "actual": "provisional_ready_for_identification",
+      "matched": true
     }
   ],
   "config_bindings": [
     {
       "artifact": "data/processed/two_layer_identification_smoke_v1.json",
       "config": "configs/two_layer_identification_v1.yaml",
+      "recorded_selector": "config_sha256",
       "recorded_sha256": "1bdc1afa1c3b8b4565ccee80d629480514094561e960342f9a7969e73de8b0af",
       "current_sha256": "1bdc1afa1c3b8b4565ccee80d629480514094561e960342f9a7969e73de8b0af",
       "matched": true
@@ -143,6 +165,7 @@
     {
       "artifact": "data/processed/excitation_identifiability_v1.json",
       "config": "configs/excitation_identifiability_v1.yaml",
+      "recorded_selector": "config_sha256",
       "recorded_sha256": "6d6af001d92e23579e53ffd190b600dab5b3da8427b652f0ee9811f4ee55e503",
       "current_sha256": "6d6af001d92e23579e53ffd190b600dab5b3da8427b652f0ee9811f4ee55e503",
       "matched": true
@@ -150,6 +173,7 @@
     {
       "artifact": "data/processed/information_identifiability_v1.json",
       "config": "configs/information_identifiability_v1.yaml",
+      "recorded_selector": "config_sha256",
       "recorded_sha256": "3e534ca50b8debf9edc8b96344c48cb66fca28fc256ff081114759beac88e4d2",
       "current_sha256": "3e534ca50b8debf9edc8b96344c48cb66fca28fc256ff081114759beac88e4d2",
       "matched": true
@@ -157,6 +181,7 @@
     {
       "artifact": "data/processed/field_model_admission_example_v1.json",
       "config": "configs/field_model_admission_v1.yaml",
+      "recorded_selector": "config_sha256",
       "recorded_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "current_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "matched": true
@@ -164,6 +189,7 @@
     {
       "artifact": "data/processed/field_calibration_example_v1.json",
       "config": "configs/field_calibration_quality_v1.yaml",
+      "recorded_selector": "config_sha256",
       "recorded_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
       "current_sha256": "305e3e10d514aa82804820e7c6fced6e3fc79fa3ffa5f1b93292d239118dc8aa",
       "matched": true
@@ -171,8 +197,25 @@
     {
       "artifact": "data/processed/dynamic_noise_example_v1.json",
       "config": "configs/dynamic_noise_decomposition_v1.yaml",
+      "recorded_selector": "config_sha256",
       "recorded_sha256": "5d0ed8cfeb7c94f9e2c27cc75a524f500cbfffe94a65d4e33c18a967cd6288b4",
       "current_sha256": "5d0ed8cfeb7c94f9e2c27cc75a524f500cbfffe94a65d4e33c18a967cd6288b4",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_data_v1.json",
+      "config": "configs/two_layer_closed_loop_protocol_v1.yaml",
+      "recorded_selector": "protocol_config_sha256",
+      "recorded_sha256": "50615eb24e6307c902b59004020ead93c39ce8437bbbd419fd2314a479c21902",
+      "current_sha256": "50615eb24e6307c902b59004020ead93c39ce8437bbbd419fd2314a479c21902",
+      "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_admission_v1.json",
+      "config": "configs/field_model_admission_v1.yaml",
+      "recorded_selector": "config_sha256",
+      "recorded_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
+      "current_sha256": "842a27f71c9856a72ed312f9b6323aad3bdc8564c32017a4f1014beeacd6c05b",
       "matched": true
     }
   ],
@@ -205,6 +248,16 @@
     {
       "artifact": "data/processed/dynamic_noise_example_v1.json",
       "code_commit": "bb1b6af55ad9a6e1fa3f187faf2190139f466dd6",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_data_v1.json",
+      "code_commit": "9794fd17783b8146bea3aabba695c97f5a371b34",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/two_layer_bridge_admission_v1.json",
+      "code_commit": "9794fd17783b8146bea3aabba695c97f5a371b34",
       "commit_exists": true
     }
   ],
@@ -315,6 +368,33 @@
       "expected": 360.5300645213902,
       "tolerance": 1e-12,
       "actual": 360.5300645213902,
+      "matched": true
+    },
+    {
+      "metric_id": "t038_bridge_row_count",
+      "artifact": "data/processed/two_layer_bridge_quality_v1.json",
+      "selector": "row_count",
+      "expected": 873,
+      "tolerance": 0,
+      "actual": 873,
+      "matched": true
+    },
+    {
+      "metric_id": "t038_bridge_minimum_information",
+      "artifact": "data/processed/two_layer_bridge_admission_v1.json",
+      "selector": "information_assessment.minimum_information_singular_value_snr",
+      "expected": 133.71450137135372,
+      "tolerance": 1e-10,
+      "actual": 133.71450137135372,
+      "matched": true
+    },
+    {
+      "metric_id": "t038_bridge_predicted_uncertainty",
+      "artifact": "data/processed/two_layer_bridge_admission_v1.json",
+      "selector": "information_assessment.combined_predicted_normalized_se_rms",
+      "expected": 0.004744843622189685,
+      "tolerance": 1e-12,
+      "actual": 0.004744843622189685,
       "matched": true
     }
   ],
@@ -585,6 +665,17 @@
           "R020",
           "R021",
           "R022"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C006",
+        "statement": "独立双层非线性对象生成的数据已通过结构质量和信息准入并可进入模型拟合",
+        "requirements": [
+          "R026",
+          "R028",
+          "R029"
         ],
         "audit_status": "supported",
         "unavailable_requirements": []
