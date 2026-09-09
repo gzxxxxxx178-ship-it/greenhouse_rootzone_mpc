@@ -188,6 +188,7 @@ def assess_csv(
         "workflow_status": "passed" if all(workflow_checks.values()) else "failed",
         "workflow_checks": workflow_checks,
         "input_path": str(input_path),
+        "input_sha256": _sha256(input_path),
         "input_schema_version": admission_config["input_schema_version"],
         "model_structure": admission_config["model_structure"],
         "code_commit": _git_commit(project_root),

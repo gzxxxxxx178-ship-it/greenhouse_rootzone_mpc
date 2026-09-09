@@ -37,3 +37,4 @@ T035,thesis,起草第4章强规则与区间MPC冻结对照,completed,high,2026-0
 T036,model,审计双层辨识模型与MPC控制接口一致性,completed,high,2026-09-08,2026-09-08,docs/t036_model_control_interface_audit.md,识别状态维数时间步输入语义与准入状态等接口断点并冻结补建顺序
 T037,design,冻结双层模型驱动MPC端到端验证协议,completed,high,2026-09-08,2026-09-08,docs/t037_two_layer_closed_loop_contract.md,固定独立对象数据准入命令反馈双层代价开发锁定隔离和结果分类
 T038,model,实现独立双层非线性对象与辨识数据生成器,completed,high,2026-09-08,2026-09-09,data/processed/two_layer_bridge_admission_v1.json,873行6加3循环通过质量与信息准入且最弱信息量为133.715
+T039,model,拟合并独立验证双层桥接灰箱模型,in_progress,high,2026-09-09,,,强制校验准入决策与数据哈希后才首次读取三个验证循环性能

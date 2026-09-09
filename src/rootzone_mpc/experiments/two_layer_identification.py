@@ -31,6 +31,33 @@ def _git_commit(project_root: Path) -> str:
     ).strip()
 
 
+def validate_admission_precondition(
+    project_root: Path, input_path: Path, cfg: dict
+) -> dict | None:
+    relative = cfg.get("required_admission_result")
+    if not relative:
+        return None
+    admission_path = project_root / relative
+    admission = json.loads(admission_path.read_text(encoding="utf-8"))
+    required_decision = cfg["required_admission_decision"]
+    if admission.get("workflow_status") != "passed":
+        raise ValueError("Required model-admission workflow did not pass")
+    if admission.get("model_admission_decision") != required_decision:
+        raise ValueError(
+            "Required model-admission decision was not met: "
+            f"{admission.get('model_admission_decision')} != {required_decision}"
+        )
+    input_hash = _sha256(input_path)
+    if admission.get("input_sha256") != input_hash:
+        raise ValueError("Admission result is not bound to the identification input")
+    return {
+        "path": str(relative),
+        "sha256": _sha256(admission_path),
+        "decision": admission["model_admission_decision"],
+        "input_sha256_matched": True,
+    }
+
+
 def build_transitions(frame: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for keys, cycle in frame.groupby(CYCLE_KEYS, sort=True):
@@ -117,10 +144,13 @@ def _rollout_predictions(frame: pd.DataFrame, role: str, model: TwoLayerGreyBox)
     return pd.DataFrame(rows)
 
 
-def run_two_layer_identification(project_root: Path) -> tuple[Path, Path]:
-    config_path = project_root / "configs/two_layer_identification_v1.yaml"
+def run_two_layer_identification(
+    project_root: Path, config_path: Path | None = None
+) -> tuple[Path, Path]:
+    config_path = config_path or project_root / "configs/two_layer_identification_v1.yaml"
     cfg = yaml.safe_load(config_path.read_text(encoding="utf-8"))["two_layer_identification"]
     input_path = project_root / cfg["input"]
+    admission_binding = validate_admission_precondition(project_root, input_path, cfg)
     quality_path = project_root / cfg["quality_config"]
     quality = validate_csv(input_path, quality_path)
     if quality["status"] != "passed":
@@ -214,7 +244,9 @@ def run_two_layer_identification(project_root: Path) -> tuple[Path, Path]:
         ),
     }
 
-    prediction_path = project_root / "outputs/tables/two_layer_validation_predictions_v1.csv"
+    prediction_path = project_root / cfg.get(
+        "output_predictions", "outputs/tables/two_layer_validation_predictions_v1.csv"
+    )
     prediction_path.parent.mkdir(parents=True, exist_ok=True)
     rollout.to_csv(prediction_path, index=False)
     result = {
@@ -242,7 +274,12 @@ def run_two_layer_identification(project_root: Path) -> tuple[Path, Path]:
         "rollout_validation": rollout_metrics,
         "invariants": invariants,
         "evidence_boundary": cfg["evidence_boundary"],
+        "input_interval_alignment": "row_ending_at_next_state_timestamp",
+        "admission_binding": admission_binding,
     }
-    result_path = project_root / "data/processed/two_layer_identification_smoke_v1.json"
+    result_path = project_root / cfg.get(
+        "output_result", "data/processed/two_layer_identification_smoke_v1.json"
+    )
+    result_path.parent.mkdir(parents=True, exist_ok=True)
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     return prediction_path, result_path

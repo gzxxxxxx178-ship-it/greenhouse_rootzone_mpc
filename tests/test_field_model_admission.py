@@ -4,6 +4,7 @@ import pandas as pd
 
 from rootzone_mpc.data.field_quality import load_quality_config
 from rootzone_mpc.data.model_admission import (
+    assess_csv,
     assess_model_admission,
     field_identification_design,
     load_admission_config,
@@ -69,3 +70,15 @@ def test_failed_base_quality_blocks_information_assessment():
     result = assess_model_admission(frame, quality, admission)
     assert result["model_admission_decision"] == "blocked_data_quality"
     assert result["information_assessment"] is None
+
+
+def test_written_admission_result_binds_input_hash(tmp_path):
+    input_path = ROOT / "data/examples/synthetic_field_observations_v1.csv"
+    result = assess_csv(
+        input_path,
+        ROOT / "configs/field_model_admission_v1.yaml",
+        ROOT,
+        tmp_path / "admission.json",
+    )
+    import hashlib
+    assert result["input_sha256"] == hashlib.sha256(input_path.read_bytes()).hexdigest()
