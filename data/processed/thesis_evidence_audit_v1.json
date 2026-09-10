@@ -1,18 +1,18 @@
 {
   "name": "thesis_evidence_audit_v1",
   "status": "passed",
-  "code_commit": "91f0ca711be83a080ea5c03ba2427bf977c34a4a",
-  "config_sha256": "d3df823e11afe9693396356616464319764891d7283b1446a539d5fa05b16064",
+  "code_commit": "ef824921fdc4e3c2956f90a8e322c3d124045ad1",
+  "config_sha256": "5c37f9f0c20a6a22bb0cc8ccc595e0e8a7640d94d3de4e1bd5477d89290aacdc",
   "counts": {
-    "tasks": 40,
+    "tasks": 41,
     "requirements": 31,
     "roadmap_items": 13,
-    "result_expectations": 18,
-    "config_bindings": 10,
-    "key_metrics": 22,
+    "result_expectations": 19,
+    "config_bindings": 11,
+    "key_metrics": 27,
     "manuscript_numeric_bindings": 16,
-    "supported_claims": 8,
-    "conditional_claims": 4,
+    "supported_claims": 9,
+    "conditional_claims": 3,
     "prohibited_claims": 5
   },
   "checks": {
@@ -165,6 +165,13 @@
       "expected": "passed",
       "actual": "passed",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "selector": "classification",
+      "expected": "JOINT_VALUE_SUPPORTED",
+      "actual": "JOINT_VALUE_SUPPORTED",
+      "matched": true
     }
   ],
   "config_bindings": [
@@ -247,6 +254,14 @@
       "recorded_sha256": "a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2",
       "current_sha256": "a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "config": "configs/two_layer_confirmation_v1.yaml",
+      "recorded_selector": "hashes.confirmation_config",
+      "recorded_sha256": "f723e5e64674bfee9f9d76a2f90d0b360108ce0372464d7a89c2306a311ca7ef",
+      "current_sha256": "f723e5e64674bfee9f9d76a2f90d0b360108ce0372464d7a89c2306a311ca7ef",
+      "matched": true
     }
   ],
   "code_commits": [
@@ -298,6 +313,11 @@
     {
       "artifact": "data/processed/two_layer_control_development_v1.json",
       "code_commit": "91f0ca711be83a080ea5c03ba2427bf977c34a4a",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "code_commit": "ef824921fdc4e3c2956f90a8e322c3d124045ad1",
       "commit_exists": true
     }
   ],
@@ -498,6 +518,51 @@
       "expected": 38.25,
       "tolerance": 1e-12,
       "actual": 38.25,
+      "matched": true
+    },
+    {
+      "metric_id": "t041_weighted_deficit_median_delta",
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "selector": "aggregate.weighted_deficit_integral.paired_median",
+      "expected": -0.0003140310287940537,
+      "tolerance": 1e-15,
+      "actual": -0.0003140310287940537,
+      "matched": true
+    },
+    {
+      "metric_id": "t041_irrigation_median_delta_mm",
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "selector": "aggregate.irrigation_command_total_mm.paired_median",
+      "expected": -6.5,
+      "tolerance": 1e-12,
+      "actual": -6.5,
+      "matched": true
+    },
+    {
+      "metric_id": "t041_joint_nonworse_ratio",
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "selector": "diagnostics.joint_nonworse_ratio",
+      "expected": 0.7555555555555555,
+      "tolerance": 1e-15,
+      "actual": 0.7555555555555555,
+      "matched": true
+    },
+    {
+      "metric_id": "t041_any_primary_adverse_ratio",
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "selector": "diagnostics.any_primary_adverse_ratio",
+      "expected": 0.24444444444444444,
+      "tolerance": 1e-15,
+      "actual": 0.24444444444444444,
+      "matched": true
+    },
+    {
+      "metric_id": "t041_action_change_median_delta",
+      "artifact": "data/processed/two_layer_confirmation_v1.json",
+      "selector": "aggregate.action_change_count.paired_median",
+      "expected": 130.0,
+      "tolerance": 1e-12,
+      "actual": 130.0,
       "matched": true
     }
   ],
@@ -804,6 +869,19 @@
         ],
         "audit_status": "supported",
         "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C009",
+        "statement": "通过准入的双层模型已直接驱动MPC并在独立合成锁定场景中完成配对确认评价",
+        "requirements": [
+          "R027",
+          "R028",
+          "R029",
+          "R030",
+          "R031"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
       }
     ],
     "conditional": [
@@ -845,17 +923,6 @@
           "R009",
           "R010"
         ]
-      },
-      {
-        "claim_id": "C104",
-        "statement": "双层辨识模型已经直接驱动MPC闭环并完成锁定评价",
-        "requirements": [
-          "R027"
-        ],
-        "audit_status": "conditional",
-        "unavailable_requirements": [
-          "R027"
-        ]
       }
     ],
     "prohibited": [
@@ -886,7 +953,7 @@
       {
         "claim_id": "C205",
         "statement": "T010单层MPC结果验证了T024双层辨识模型的控制效果",
-        "reason": "T024与T010在状态维数时间步和输入语义上不一致且R027缺失",
+        "reason": "T024与T010在状态维数时间步和输入语义上不一致；双层集成证据来自后续T038至T041独立链路",
         "audit_status": "prohibited"
       }
     ]
@@ -897,10 +964,8 @@
       "unavailable_requirements": []
     },
     "integrated_two_layer_mpc_requirements": {
-      "status": "blocked",
-      "unavailable_requirements": [
-        "R027"
-      ]
+      "status": "ready",
+      "unavailable_requirements": []
     },
     "red_soil_model_requirements": {
       "status": "blocked",

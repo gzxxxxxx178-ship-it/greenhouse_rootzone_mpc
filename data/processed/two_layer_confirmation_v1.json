@@ -1,0 +1,130 @@
+{
+  "name": "two_layer_confirmation_v1",
+  "status": "completed",
+  "classification": "JOINT_VALUE_SUPPORTED",
+  "code_commit": "ef824921fdc4e3c2956f90a8e322c3d124045ad1",
+  "scenario_count": 90,
+  "method_runs": 180,
+  "development_scenarios_used": 0,
+  "locked_evaluation_scenarios_used": 90,
+  "frozen_candidates": {
+    "rule": "TLR001",
+    "mpc": "TLM004"
+  },
+  "aggregate": {
+    "shallow_deficit_integral": {
+      "paired_median": 0.0,
+      "paired_p10": 0.0,
+      "paired_p90": 0.0,
+      "improved_ratio": 0.05555555555555555,
+      "equivalent_ratio": 0.9444444444444444,
+      "adverse_ratio": 0.0
+    },
+    "deep_deficit_integral": {
+      "paired_median": -0.0005515340509599093,
+      "paired_p10": -0.006989065961671556,
+      "paired_p90": 0.0005363474948665833,
+      "improved_ratio": 0.6888888888888889,
+      "equivalent_ratio": 0.06666666666666667,
+      "adverse_ratio": 0.24444444444444444
+    },
+    "weighted_deficit_integral": {
+      "paired_median": -0.0003140310287940537,
+      "paired_p10": -0.0027956263846686227,
+      "paired_p90": 0.00015981443111602259,
+      "improved_ratio": 0.7111111111111111,
+      "equivalent_ratio": 0.05555555555555555,
+      "adverse_ratio": 0.23333333333333334,
+      "ci95_lower": -0.0005753046155455129,
+      "ci95_upper": -8.482690847391169e-05
+    },
+    "weighted_excess_integral": {
+      "paired_median": -0.013142484284391798,
+      "paired_p10": -0.10751490496977488,
+      "paired_p90": -9.460282618768322e-05,
+      "improved_ratio": 0.9,
+      "equivalent_ratio": 0.1,
+      "adverse_ratio": 0.0
+    },
+    "irrigation_command_total_mm": {
+      "paired_median": -6.5,
+      "paired_p10": -12.0,
+      "paired_p90": -0.5,
+      "improved_ratio": 0.9555555555555556,
+      "equivalent_ratio": 0.03333333333333333,
+      "adverse_ratio": 0.011111111111111112,
+      "ci95_lower": -7.75,
+      "ci95_upper": -6.0
+    },
+    "irrigation_delivered_total_mm": {
+      "paired_median": -5.444545846277933,
+      "paired_p10": -10.529241134588418,
+      "paired_p90": -0.5504958570577101,
+      "improved_ratio": 0.9777777777777777,
+      "equivalent_ratio": 0.0,
+      "adverse_ratio": 0.022222222222222223
+    },
+    "deep_drainage_total_mm": {
+      "paired_median": 0.0,
+      "paired_p10": 0.0,
+      "paired_p90": 0.0,
+      "improved_ratio": 0.0,
+      "equivalent_ratio": 1.0,
+      "adverse_ratio": 0.0
+    },
+    "action_change_count": {
+      "paired_median": 130.0,
+      "paired_p10": 109.6,
+      "paired_p90": 146.20000000000002,
+      "improved_ratio": 0.0,
+      "equivalent_ratio": 0.0,
+      "adverse_ratio": 1.0
+    },
+    "shallow_safety_violation_steps": {
+      "paired_median": 0.0,
+      "paired_p10": 0.0,
+      "paired_p90": 0.0,
+      "improved_ratio": 0.0,
+      "equivalent_ratio": 1.0,
+      "adverse_ratio": 0.0
+    },
+    "deep_safety_violation_steps": {
+      "paired_median": 0.0,
+      "paired_p10": 0.0,
+      "paired_p90": 0.0,
+      "improved_ratio": 0.0,
+      "equivalent_ratio": 1.0,
+      "adverse_ratio": 0.0
+    },
+    "safety_violation_steps": {
+      "paired_median": 0.0,
+      "paired_p10": 0.0,
+      "paired_p90": 0.0,
+      "improved_ratio": 0.0,
+      "equivalent_ratio": 1.0,
+      "adverse_ratio": 0.0
+    }
+  },
+  "diagnostics": {
+    "joint_nonworse_ratio": 0.7555555555555555,
+    "any_primary_adverse_ratio": 0.24444444444444444,
+    "rule_safety_violation_scenarios": 0,
+    "mpc_safety_violation_scenarios": 0,
+    "no_extra_safety_violation": true,
+    "rule_shallow_safety_violation_scenarios": 0,
+    "mpc_shallow_safety_violation_scenarios": 0,
+    "rule_deep_safety_violation_scenarios": 0,
+    "mpc_deep_safety_violation_scenarios": 0
+  },
+  "maximum_absolute_water_balance_residual_mm": 2.708944180085382e-14,
+  "bootstrap_resamples": 10000,
+  "hashes": {
+    "confirmation_config": "f723e5e64674bfee9f9d76a2f90d0b360108ce0372464d7a89c2306a311ca7ef",
+    "control_development_config": "a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2",
+    "frozen_controller": "e056a006f96bc1e63bb9833e919d03039e660328578ba67e2b94ce083dc08004",
+    "model_result": "a6040a1df9e3760c364c67a2397e8868063bca5a6c074fe4bf5da71eaaaa282f",
+    "scenario_manifest": "a126ea4df4a36afcef0792bc8032af8ff06161da629a741123236865c97a0004",
+    "paired_results": "89f1a4dbff9c6986593fc7c75f93ab6472f18c240deae0f6bee5273e47b02232"
+  },
+  "evidence_boundary": "independent_synthetic_two_layer_locked_evaluation_only"
+}

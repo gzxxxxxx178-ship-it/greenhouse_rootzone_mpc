@@ -5,7 +5,7 @@ thesis_evidence_audit:
   execution_roadmap: data/csv/thesis_execution_roadmap.csv
   allowed_task_statuses: [completed, in_progress, blocked, stopped]
   allowed_requirement_statuses: [completed, failed, stopped, ready, missing]
-  expected_missing_requirements: [R003, R009, R010, R027]
+  expected_missing_requirements: [R003, R009, R010]
   expected_nonpositive_requirements: [R005, R006, R007, R015]
   result_expectations:
     - artifact: data/processed/baseline_confirmation_v1.json
@@ -62,6 +62,9 @@ thesis_evidence_audit:
     - artifact: data/processed/two_layer_control_development_v1.json
       selector: status
       expected: passed
+    - artifact: data/processed/two_layer_confirmation_v1.json
+      selector: classification
+      expected: JOINT_VALUE_SUPPORTED
   config_bindings:
     - artifact: data/processed/two_layer_identification_smoke_v1.json
       config: configs/two_layer_identification_v1.yaml
@@ -85,6 +88,9 @@ thesis_evidence_audit:
     - artifact: data/processed/two_layer_control_development_v1.json
       config: configs/two_layer_control_development_v1.yaml
       recorded_selector: protocol_config_sha256
+    - artifact: data/processed/two_layer_confirmation_v1.json
+      config: configs/two_layer_confirmation_v1.yaml
+      recorded_selector: hashes.confirmation_config
   key_metrics:
     - metric_id: baseline_scenario_count
       artifact: data/processed/baseline_confirmation_v1.json
@@ -195,6 +201,31 @@ thesis_evidence_audit:
       artifact: data/processed/two_layer_control_development_v1.json
       selector: selected.mpc.median_irrigation_command_total_mm
       expected: 38.25
+      tolerance: 1.0e-12
+    - metric_id: t041_weighted_deficit_median_delta
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.weighted_deficit_integral.paired_median
+      expected: -0.0003140310287940537
+      tolerance: 1.0e-15
+    - metric_id: t041_irrigation_median_delta_mm
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.paired_median
+      expected: -6.5
+      tolerance: 1.0e-12
+    - metric_id: t041_joint_nonworse_ratio
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: diagnostics.joint_nonworse_ratio
+      expected: 0.7555555555555555
+      tolerance: 1.0e-15
+    - metric_id: t041_any_primary_adverse_ratio
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: diagnostics.any_primary_adverse_ratio
+      expected: 0.24444444444444444
+      tolerance: 1.0e-15
+    - metric_id: t041_action_change_median_delta
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.action_change_count.paired_median
+      expected: 130.0
       tolerance: 1.0e-12
   manuscript_numeric_bindings:
     - claim_id: M301
@@ -336,6 +367,9 @@ thesis_evidence_audit:
       - claim_id: C008
         statement: 双层规则与MPC已在隔离锁定场景的条件下完成开发选择和版本冻结
         requirements: [R028, R029, R030, R031]
+      - claim_id: C009
+        statement: 通过准入的双层模型已直接驱动MPC并在独立合成锁定场景中完成配对确认评价
+        requirements: [R027, R028, R029, R030, R031]
     conditional:
       - claim_id: C101
         statement: 已获得适用于红壤根区的实测模型参数
@@ -346,9 +380,6 @@ thesis_evidence_audit:
       - claim_id: C103
         statement: 已验证真实节水率或作物产量品质效果
         requirements: [R003, R009, R010]
-      - claim_id: C104
-        statement: 双层辨识模型已经直接驱动MPC闭环并完成锁定评价
-        requirements: [R027]
     prohibited:
       - claim_id: C201
         statement: MPC在所有条件下全面优于强规则控制
@@ -364,7 +395,7 @@ thesis_evidence_audit:
         reason: R015失败且R016与R017只提供合成设计等级证据
       - claim_id: C205
         statement: T010单层MPC结果验证了T024双层辨识模型的控制效果
-        reason: T024与T010在状态维数时间步和输入语义上不一致且R027缺失
+        reason: T024与T010在状态维数时间步和输入语义上不一致；双层集成证据来自后续T038至T041独立链路
   readiness_rules:
     simulation_software_thesis_requirements: [R001, R002, R004, R008, R011, R012, R013, R014, R016, R017, R018, R019, R020, R021, R022, R023, R024, R025]
     integrated_two_layer_mpc_requirements: [R014, R017, R020, R021, R022, R026, R027, R028, R029, R030]
