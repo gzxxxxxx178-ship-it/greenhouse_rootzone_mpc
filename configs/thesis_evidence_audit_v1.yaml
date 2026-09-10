@@ -59,6 +59,9 @@ thesis_evidence_audit:
     - artifact: data/processed/two_layer_bridge_identification_v1.json
       selector: status
       expected: passed
+    - artifact: data/processed/two_layer_control_development_v1.json
+      selector: status
+      expected: passed
   config_bindings:
     - artifact: data/processed/two_layer_identification_smoke_v1.json
       config: configs/two_layer_identification_v1.yaml
@@ -79,6 +82,9 @@ thesis_evidence_audit:
       config: configs/field_model_admission_v1.yaml
     - artifact: data/processed/two_layer_bridge_identification_v1.json
       config: configs/two_layer_bridge_identification_v1.yaml
+    - artifact: data/processed/two_layer_control_development_v1.json
+      config: configs/two_layer_control_development_v1.yaml
+      recorded_selector: protocol_config_sha256
   key_metrics:
     - metric_id: baseline_scenario_count
       artifact: data/processed/baseline_confirmation_v1.json
@@ -174,6 +180,21 @@ thesis_evidence_audit:
       artifact: data/processed/two_layer_bridge_identification_v1.json
       selector: rollout_validation.theta_25cm.skill_vs_baseline
       expected: 0.9356948932709166
+      tolerance: 1.0e-12
+    - metric_id: t040_locked_scenarios_used
+      artifact: data/processed/two_layer_control_development_v1.json
+      selector: locked_evaluation_scenarios_used
+      expected: 0
+      tolerance: 0
+    - metric_id: t040_selected_rule_water_mm
+      artifact: data/processed/two_layer_control_development_v1.json
+      selector: selected.rule.median_irrigation_command_total_mm
+      expected: 47.0
+      tolerance: 1.0e-12
+    - metric_id: t040_selected_mpc_water_mm
+      artifact: data/processed/two_layer_control_development_v1.json
+      selector: selected.mpc.median_irrigation_command_total_mm
+      expected: 38.25
       tolerance: 1.0e-12
   manuscript_numeric_bindings:
     - claim_id: M301
@@ -312,6 +333,9 @@ thesis_evidence_audit:
       - claim_id: C007
         statement: 通过准入的双层灰箱模型已在三个独立合成循环上通过冻结预测判据
         requirements: [R029, R030]
+      - claim_id: C008
+        statement: 双层规则与MPC已在隔离锁定场景的条件下完成开发选择和版本冻结
+        requirements: [R028, R029, R030, R031]
     conditional:
       - claim_id: C101
         statement: 已获得适用于红壤根区的实测模型参数

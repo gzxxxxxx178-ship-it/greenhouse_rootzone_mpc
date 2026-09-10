@@ -1,0 +1,27 @@
+two_layer_frozen_controller:
+  status: frozen
+  selected_on_split: development
+  locked_evaluation_accessed: false
+  protocol_config_sha256: a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2
+  model_result: data/processed/two_layer_bridge_identification_v1.json
+  model_result_sha256: a6040a1df9e3760c364c67a2397e8868063bca5a6c074fe4bf5da71eaaaa282f
+  scenario_manifest: data/processed/two_layer_control_scenarios_v1.csv
+  scenario_manifest_sha256: a126ea4df4a36afcef0792bc8032af8ff06161da629a741123236865c97a0004
+  rule:
+    candidate_id: TLR001
+    start:
+    - 0.2
+    - 0.21
+    stop:
+    - 0.225
+    - 0.235
+    pulse_mm: 0.5
+    minimum_on_steps: 2
+    minimum_off_steps: 2
+  mpc:
+    candidate_id: TLM004
+    dry_weight: 20000.0
+    wet_weight: 4000.0
+    water_weight: 0.05
+    movement_weight: 0.05
+    terminal_weight: 2.0

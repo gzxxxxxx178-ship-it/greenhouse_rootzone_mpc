@@ -1,0 +1,51 @@
+{
+  "name": "two_layer_control_development_v1",
+  "status": "passed",
+  "code_commit": "91f0ca711be83a080ea5c03ba2427bf977c34a4a",
+  "protocol_config_sha256": "a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2",
+  "model_result_sha256": "a6040a1df9e3760c364c67a2397e8868063bca5a6c074fe4bf5da71eaaaa282f",
+  "scenario_manifest_sha256": "a126ea4df4a36afcef0792bc8032af8ff06161da629a741123236865c97a0004",
+  "development_scenarios_used": 36,
+  "locked_evaluation_scenarios_used": 0,
+  "candidate_counts": {
+    "rule": 8,
+    "mpc": 8
+  },
+  "feasible_candidate_counts": {
+    "rule": 8,
+    "mpc": 8
+  },
+  "selected": {
+    "rule": {
+      "controller": "rule",
+      "candidate_id": "TLR001",
+      "scenario_count": 36,
+      "safety_violation_scenarios": 0,
+      "median_weighted_deficit_integral": 0.00048685725047392105,
+      "p90_weighted_deficit_integral": 0.007542495305227232,
+      "median_irrigation_command_total_mm": 47.0,
+      "median_action_change_count": 6.0,
+      "feasible": true
+    },
+    "mpc": {
+      "controller": "mpc",
+      "candidate_id": "TLM004",
+      "scenario_count": 36,
+      "safety_violation_scenarios": 0,
+      "median_weighted_deficit_integral": 0.00017481050061475268,
+      "p90_weighted_deficit_integral": 0.005590159288044183,
+      "median_irrigation_command_total_mm": 38.25,
+      "median_action_change_count": 134.5,
+      "feasible": true
+    }
+  },
+  "scenario_checks": {
+    "split_counts_match": true,
+    "scenario_ids_unique": true,
+    "scenario_seeds_unique": true,
+    "initial_states_inside_control_safety_bounds": true,
+    "physical_fractions_valid": true
+  },
+  "maximum_absolute_water_balance_residual_mm": 3.302913498259841e-14,
+  "evidence_boundary": "independent_synthetic_two_layer_development_selection_only"
+}

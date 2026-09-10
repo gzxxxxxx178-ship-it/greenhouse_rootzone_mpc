@@ -1,17 +1,17 @@
 {
   "name": "thesis_evidence_audit_v1",
   "status": "passed",
-  "code_commit": "1f339a297c62896c2452a534898064d330b5512e",
-  "config_sha256": "38332876c436bae3c830791fd496633212c1dc7e295d7603366d0ffd2005e3b5",
+  "code_commit": "91f0ca711be83a080ea5c03ba2427bf977c34a4a",
+  "config_sha256": "d3df823e11afe9693396356616464319764891d7283b1446a539d5fa05b16064",
   "counts": {
-    "tasks": 39,
-    "requirements": 30,
+    "tasks": 40,
+    "requirements": 31,
     "roadmap_items": 13,
-    "result_expectations": 17,
-    "config_bindings": 9,
-    "key_metrics": 19,
+    "result_expectations": 18,
+    "config_bindings": 10,
+    "key_metrics": 22,
     "manuscript_numeric_bindings": 16,
-    "supported_claims": 7,
+    "supported_claims": 8,
     "conditional_claims": 4,
     "prohibited_claims": 5
   },
@@ -158,6 +158,13 @@
       "expected": "passed",
       "actual": "passed",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_control_development_v1.json",
+      "selector": "status",
+      "expected": "passed",
+      "actual": "passed",
+      "matched": true
     }
   ],
   "config_bindings": [
@@ -232,6 +239,14 @@
       "recorded_sha256": "72edeea5f629a4bfcbc6ee2ba81ab9554919f7c673688f8b0794ef8f30162586",
       "current_sha256": "72edeea5f629a4bfcbc6ee2ba81ab9554919f7c673688f8b0794ef8f30162586",
       "matched": true
+    },
+    {
+      "artifact": "data/processed/two_layer_control_development_v1.json",
+      "config": "configs/two_layer_control_development_v1.yaml",
+      "recorded_selector": "protocol_config_sha256",
+      "recorded_sha256": "a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2",
+      "current_sha256": "a38911e17c98d5c0548606cd078e5dc9f4888b773d074d46baace314a6a812c2",
+      "matched": true
     }
   ],
   "code_commits": [
@@ -278,6 +293,11 @@
     {
       "artifact": "data/processed/two_layer_bridge_identification_v1.json",
       "code_commit": "74bbd01ce0af90f69643567f7d34f860cbfef8ee",
+      "commit_exists": true
+    },
+    {
+      "artifact": "data/processed/two_layer_control_development_v1.json",
+      "code_commit": "91f0ca711be83a080ea5c03ba2427bf977c34a4a",
       "commit_exists": true
     }
   ],
@@ -451,6 +471,33 @@
       "expected": 0.9356948932709166,
       "tolerance": 1e-12,
       "actual": 0.9356948932709166,
+      "matched": true
+    },
+    {
+      "metric_id": "t040_locked_scenarios_used",
+      "artifact": "data/processed/two_layer_control_development_v1.json",
+      "selector": "locked_evaluation_scenarios_used",
+      "expected": 0,
+      "tolerance": 0,
+      "actual": 0,
+      "matched": true
+    },
+    {
+      "metric_id": "t040_selected_rule_water_mm",
+      "artifact": "data/processed/two_layer_control_development_v1.json",
+      "selector": "selected.rule.median_irrigation_command_total_mm",
+      "expected": 47.0,
+      "tolerance": 1e-12,
+      "actual": 47.0,
+      "matched": true
+    },
+    {
+      "metric_id": "t040_selected_mpc_water_mm",
+      "artifact": "data/processed/two_layer_control_development_v1.json",
+      "selector": "selected.mpc.median_irrigation_command_total_mm",
+      "expected": 38.25,
+      "tolerance": 1e-12,
+      "actual": 38.25,
       "matched": true
     }
   ],
@@ -742,6 +789,18 @@
         "requirements": [
           "R029",
           "R030"
+        ],
+        "audit_status": "supported",
+        "unavailable_requirements": []
+      },
+      {
+        "claim_id": "C008",
+        "statement": "双层规则与MPC已在隔离锁定场景的条件下完成开发选择和版本冻结",
+        "requirements": [
+          "R028",
+          "R029",
+          "R030",
+          "R031"
         ],
         "audit_status": "supported",
         "unavailable_requirements": []
