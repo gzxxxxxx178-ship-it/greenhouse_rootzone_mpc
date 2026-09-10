@@ -65,6 +65,34 @@ two_layer_closed_loop:
     rule_candidate_limit: 12
     mpc_candidate_limit: 8
     locked_scenarios_accessed: false
+    feasibility:
+      maximum_safety_violation_scenarios: 0
+      maximum_median_weighted_deficit_integral: 0.01
+      maximum_p90_weighted_deficit_integral: 0.05
+    selection_order:
+      - feasible_descending
+      - median_irrigation_command_total_mm_ascending
+      - median_weighted_deficit_integral_ascending
+      - median_action_change_count_ascending
+  development_candidates:
+    rule:
+      - {candidate_id: TLR001, start: [0.200, 0.210], stop: [0.225, 0.235], pulse_mm: 0.5, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR002, start: [0.200, 0.210], stop: [0.225, 0.235], pulse_mm: 1.0, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR003, start: [0.205, 0.215], stop: [0.225, 0.235], pulse_mm: 0.5, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR004, start: [0.205, 0.215], stop: [0.225, 0.235], pulse_mm: 1.0, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR005, start: [0.205, 0.215], stop: [0.230, 0.240], pulse_mm: 0.5, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR006, start: [0.205, 0.215], stop: [0.230, 0.240], pulse_mm: 1.0, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR007, start: [0.210, 0.220], stop: [0.230, 0.240], pulse_mm: 0.5, minimum_on_steps: 2, minimum_off_steps: 2}
+      - {candidate_id: TLR008, start: [0.210, 0.220], stop: [0.230, 0.240], pulse_mm: 1.0, minimum_on_steps: 2, minimum_off_steps: 2}
+    mpc:
+      - {candidate_id: TLM001, dry_weight: 8000.0, wet_weight: 4000.0, water_weight: 0.01, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM002, dry_weight: 8000.0, wet_weight: 4000.0, water_weight: 0.05, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM003, dry_weight: 20000.0, wet_weight: 4000.0, water_weight: 0.01, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM004, dry_weight: 20000.0, wet_weight: 4000.0, water_weight: 0.05, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM005, dry_weight: 50000.0, wet_weight: 5000.0, water_weight: 0.01, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM006, dry_weight: 50000.0, wet_weight: 5000.0, water_weight: 0.05, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM007, dry_weight: 100000.0, wet_weight: 6000.0, water_weight: 0.01, movement_weight: 0.05, terminal_weight: 2.0}
+      - {candidate_id: TLM008, dry_weight: 100000.0, wet_weight: 6000.0, water_weight: 0.05, movement_weight: 0.05, terminal_weight: 2.0}
   locked_design:
     scenario_count: 90
     master_seed: 37901

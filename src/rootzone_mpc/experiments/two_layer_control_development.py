@@ -277,7 +277,7 @@ def _select(summary: pd.DataFrame, kind: str) -> dict | None:
 
 
 def run_two_layer_control_development(project_root: Path) -> tuple[Path, ...]:
-    protocol_path = project_root / "configs/two_layer_closed_loop_protocol_v1.yaml"
+    protocol_path = project_root / "configs/two_layer_control_development_v1.yaml"
     model_path = project_root / "data/processed/two_layer_bridge_identification_v1.json"
     protocol = load_protocol(protocol_path)
     model_result = json.loads(model_path.read_text(encoding="utf-8"))

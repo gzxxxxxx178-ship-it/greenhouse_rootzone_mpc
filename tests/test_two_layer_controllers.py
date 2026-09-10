@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def protocol():
-    return load_protocol(ROOT / "configs/two_layer_closed_loop_protocol_v1.yaml")
+    return load_protocol(ROOT / "configs/two_layer_control_development_v1.yaml")
 
 
 def fitted_model():
