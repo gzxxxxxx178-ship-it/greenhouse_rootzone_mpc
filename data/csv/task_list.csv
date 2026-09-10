@@ -46,3 +46,4 @@ T044,thesis,起草第2章系统需求与总体架构,completed,high,2026-09-10,2
 T045,thesis,起草第6章平台软件在环验证,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter6_platform_software_in_the_loop.md,组织任务账目可靠消息MQTT证据审计与部署边界并新增10处数字绑定
 T046,thesis,起草第7章综合讨论与条件触发路线,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter7_integrated_discussion_and_roadmap.md,统一数据准入双层控制监督平台价值与三层成果并新增8处数字绑定
 T047,thesis,起草第8章结论与展望,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter8_conclusions_and_outlook.md,回收数据准入双层控制监督平台四项贡献并新增8处数字绑定
+T048,documentation,更新仓库首页与论文草稿索引,completed,medium,2026-09-10,2026-09-10,docs/thesis_draft/README.md,同步双层T041主结果第2至8章状态运行入口和默认不绘图规则
