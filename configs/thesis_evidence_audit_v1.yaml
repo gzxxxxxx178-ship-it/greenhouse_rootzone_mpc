@@ -592,6 +592,62 @@ thesis_evidence_audit:
       selector: total_steps
       expected: 1008
       tolerance: 0
+    - claim_id: M801
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "幅值敏感最小奇异值中位数比为2.153"
+      artifact: data/processed/information_identifiability_v1.json
+      selector: rich_to_weak_median_ratios.information_min_singular_snr
+      expected: 2.1529246978240804
+      tolerance: 1.0e-12
+    - claim_id: M802
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "浅层和深层整循环技能值分别为0.960和0.936"
+      artifact: data/processed/two_layer_bridge_identification_v1.json
+      selector: rollout_validation.theta_10cm.skill_vs_baseline
+      expected: 0.9604910033484797
+      tolerance: 1.0e-12
+    - claim_id: M803
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "命令灌水配对中位差为−6.5 mm"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.paired_median
+      expected: -6.5
+      tolerance: 1.0e-12
+    - claim_id: M804
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "加权亏缺配对中位差为−0.000314"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.weighted_deficit_integral.paired_median
+      expected: -0.0003140310287940537
+      tolerance: 1.0e-15
+    - claim_id: M805
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "联合不劣比例为75.56%"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: diagnostics.joint_nonworse_ratio
+      expected: 0.7555555555555555
+      tolerance: 1.0e-15
+    - claim_id: M806
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "动作变化次数配对中位增加130次"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.action_change_count.paired_median
+      expected: 130.0
+      tolerance: 1.0e-12
+    - claim_id: M807
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "产生3个过湿安全违反场景"
+      artifact: data/processed/supervision_v2_confirmation_v1.json
+      selector: diagnostics.safety_violation_scenarios.v2
+      expected: 3
+      tolerance: 0
+    - claim_id: M808
+      document: docs/thesis_draft/chapter8_conclusions_and_outlook.md
+      required_text: "3个任务的1008个控制步"
+      artifact: data/processed/platform_sil_v1.json
+      selector: total_steps
+      expected: 1008
+      tolerance: 0
   claims:
     supported:
       - claim_id: C001
