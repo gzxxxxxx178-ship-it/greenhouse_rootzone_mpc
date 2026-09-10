@@ -466,6 +466,76 @@ thesis_evidence_audit:
       selector: classification
       expected: NO_V3_CANDIDATE_ADVANCES
       tolerance: 0
+    - claim_id: M601
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "3个任务共包含1008个控制步"
+      artifact: data/processed/platform_sil_v1.json
+      selector: total_steps
+      expected: 1008
+      tolerance: 0
+    - claim_id: M602
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "写入1008条命令和1008条反馈"
+      artifact: data/processed/platform_sil_v1.json
+      selector: feedback_count
+      expected: 1008
+      tolerance: 0
+    - claim_id: M603
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "记录154条非MPC联锁和35次模式切换"
+      artifact: data/processed/platform_sil_v1.json
+      selector: interlock_count
+      expected: 154
+      tolerance: 0
+    - claim_id: M604
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "运行4个任务和14条命令"
+      artifact: data/processed/platform_resilience_sil_v1.json
+      selector: command_count
+      expected: 14
+      tolerance: 0
+    - claim_id: M605
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "应用13条有效反馈"
+      artifact: data/processed/platform_resilience_sil_v1.json
+      selector: applied_feedback_count
+      expected: 13
+      tolerance: 0
+    - claim_id: M606
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "结果记录1条命令超时"
+      artifact: data/processed/platform_resilience_sil_v1.json
+      selector: timed_out_command_count
+      expected: 1
+      tolerance: 0
+    - claim_id: M607
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "一次完整运行共接收26条MQTT消息"
+      artifact: data/processed/mqtt_sil_v1.json
+      selector: total_received_message_count
+      expected: 26
+      tolerance: 0
+    - claim_id: M608
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "最终23条有效反馈进入SQLite应用状态"
+      artifact: data/processed/mqtt_sil_v1.json
+      selector: applied_feedback_count
+      expected: 23
+      tolerance: 0
+    - claim_id: M609
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "在线回环时延中位数为0.2505 ms"
+      artifact: data/processed/mqtt_sil_v1.json
+      selector: online_latency_ms.median
+      expected: 0.2505
+      tolerance: 1.0e-12
+    - claim_id: M610
+      document: docs/thesis_draft/chapter6_platform_software_in_the_loop.md
+      required_text: "最大值为0.538 ms"
+      artifact: data/processed/mqtt_sil_v1.json
+      selector: online_latency_ms.maximum
+      expected: 0.538
+      tolerance: 1.0e-12
   claims:
     supported:
       - claim_id: C001

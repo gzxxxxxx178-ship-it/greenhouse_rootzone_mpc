@@ -43,3 +43,4 @@ T041,control,完成双层模型驱动MPC锁定确认评价,completed,high,2026-0
 T042,thesis,重构第4章为双层模型驱动MPC主结果,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md,以T041为主要确认结果并保留T010前期对照且新增8处正文数字绑定
 T043,thesis,起草第5章可信监督与失效机理,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter5_trustworthy_supervision_failure_mechanisms.md,围绕检测动作恢复与预算冲突组织V1至V3机制证据并新增10处数字绑定
 T044,thesis,起草第2章系统需求与总体架构,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter2_system_requirements_and_architecture.md,统一双层对象离线模型生命周期在线控制反馈和平台证据边界
+T045,thesis,起草第6章平台软件在环验证,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter6_platform_software_in_the_loop.md,组织任务账目可靠消息MQTT证据审计与部署边界并新增10处数字绑定
