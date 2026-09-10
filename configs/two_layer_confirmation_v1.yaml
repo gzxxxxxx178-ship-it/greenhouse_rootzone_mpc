@@ -1,0 +1,21 @@
+two_layer_confirmation:
+  name: two_layer_confirmation_v1
+  split: locked_evaluation
+  expected_scenario_count: 90
+  bootstrap_resamples: 10000
+  bootstrap_seed: 37991
+  required_rule_candidate_id: TLR001
+  required_mpc_candidate_id: TLM004
+  primary_endpoints: [weighted_deficit_integral, irrigation_command_total_mm]
+  mandatory_layer_endpoints: [shallow_deficit_integral, deep_deficit_integral]
+  tie_tolerance:
+    weighted_deficit_integral: 1.0e-12
+    irrigation_command_total_mm: 1.0e-12
+  joint_nonworse_ratio_min: 0.60
+  any_primary_adverse_ratio_max: 0.25
+  classification_labels:
+    - JOINT_VALUE_SUPPORTED
+    - WATER_SAVING_WITH_DEFICIT_TRADEOFF
+    - DEFICIT_REDUCTION_WITH_WATER_COST
+    - OVERALL_VALUE_NOT_SUPPORTED
+  evidence_boundary: independent_synthetic_two_layer_locked_evaluation_only
