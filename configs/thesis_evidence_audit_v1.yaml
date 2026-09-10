@@ -340,6 +340,62 @@ thesis_evidence_audit:
       selector: classification
       expected: WATER_SAVING_WITH_DEFICIT_TRADEOFF
       tolerance: 0
+    - claim_id: M409
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "90个锁定场景共形成180次方法运行"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: method_runs
+      expected: 180
+      tolerance: 0
+    - claim_id: M410
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "命令灌水配对中位差为−6.5 mm"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.paired_median
+      expected: -6.5
+      tolerance: 1.0e-12
+    - claim_id: M411
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "95% bootstrap区间为[−7.75，−6.0] mm"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.irrigation_command_total_mm.ci95_upper
+      expected: -6.0
+      tolerance: 1.0e-12
+    - claim_id: M412
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "加权亏缺积分配对中位差为−0.000314"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.weighted_deficit_integral.paired_median
+      expected: -0.0003140310287940537
+      tolerance: 1.0e-15
+    - claim_id: M413
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "联合不劣比例为75.56%"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: diagnostics.joint_nonworse_ratio
+      expected: 0.7555555555555555
+      tolerance: 1.0e-15
+    - claim_id: M414
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "任一主要终点恶化比例为24.44%"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: diagnostics.any_primary_adverse_ratio
+      expected: 0.24444444444444444
+      tolerance: 1.0e-15
+    - claim_id: M415
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "动作变化次数配对中位增加130次"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: aggregate.action_change_count.paired_median
+      expected: 130.0
+      tolerance: 1.0e-12
+    - claim_id: M416
+      document: docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md
+      required_text: "本次结果为`JOINT_VALUE_SUPPORTED`"
+      artifact: data/processed/two_layer_confirmation_v1.json
+      selector: classification
+      expected: JOINT_VALUE_SUPPORTED
+      tolerance: 0
   claims:
     supported:
       - claim_id: C001

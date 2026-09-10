@@ -30,3 +30,4 @@ R028,implementation,双层模型驱动MPC端到端验证协议,completed,docs/t0
 R029,model,独立双层对象与充足激励辨识数据入口,completed,data/processed/two_layer_bridge_admission_v1.json,873行6加3循环通过质量和信息准入并保持对象与灰箱模型独立
 R030,model,准入后双层灰箱模型拟合与独立验证,completed,data/processed/two_layer_bridge_identification_v1.json,三循环288转移验证通过单步整循环偏差物理边界与参数约束
 R031,control,双层规则与MPC开发选择及冻结,completed,data/processed/two_layer_control_development_v1.json,36个开发场景完成有限候选选择并证明90个锁定场景未用于调参
+R032,thesis,第4章双层模型驱动MPC正文,completed,docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md,以T041为主结果并保留T010方法演进证据且新增8处冻结数字绑定

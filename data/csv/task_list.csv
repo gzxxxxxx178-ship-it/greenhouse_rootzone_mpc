@@ -40,3 +40,4 @@ T038,model,实现独立双层非线性对象与辨识数据生成器,completed,h
 T039,model,拟合并独立验证双层桥接灰箱模型,completed,high,2026-09-09,2026-09-09,data/processed/two_layer_bridge_identification_v1.json,6个辨识与3个验证循环通过8项冻结约束且准入报告绑定输入哈希
 T040,control,开发选择双层规则与双层MPC候选,completed,high,2026-09-09,2026-09-10,data/processed/two_layer_control_development_v1.json,36个开发场景选出TLR001与TLM004且90个锁定场景未访问
 T041,control,完成双层模型驱动MPC锁定确认评价,completed,high,2026-09-10,2026-09-10,data/processed/two_layer_confirmation_v1.json,90个锁定场景得到JOINT_VALUE_SUPPORTED且动作变化中位增加130次
+T042,thesis,重构第4章为双层模型驱动MPC主结果,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter4_rule_mpc_confirmatory_comparison.md,以T041为主要确认结果并保留T010前期对照且新增8处正文数字绑定
