@@ -1,0 +1,13 @@
+reference_number,identifier,audit_status,verified_source,note
+1,MOA-2024,verified_2026-09-11,https://www.moa.gov.cn/ztzl/zhnyzxd/gdlj/202411/P020241120580056183041.pdf,官方政策文件
+2,GB/T 43908-2024,verified_2026-09-11,https://std.samr.gov.cn/gb/search/gbDetailed?id=173829859CFB1AA5E06397BE0A0AA311,国家标准官方页面
+3,GB/T 50485-2020,verified_2026-09-11,https://www.mohurd.gov.cn/gongkai/zhengce/zhengcefilelib/202004/20200424_245045.html,住建部发布信息
+4,GB/T 44985.2-2025,verified_2026-09-11,https://std.samr.gov.cn/,国家标准官方检索已核验
+5-22,source_document_entries,retained_pending_full_audit,,来自用户定版底稿且本任务未宣称完成逐条复核
+23,10.1016/S0967-0661(02)00186-7,verified_2026-09-11,https://doi.org/10.1016/S0967-0661(02)00186-7,Qin and Badgwell 2003
+24,10.1016/j.atech.2022.100074,verified_2026-09-11,https://doi.org/10.1016/j.atech.2022.100074,Bwambale et al. 2023
+25,10.1016/j.envsoft.2015.12.012,verified_2026-09-11,https://doi.org/10.1016/j.envsoft.2015.12.012,Delgoda et al. 2016
+26,10.1016/j.compag.2018.09.011,verified_2026-09-11,https://doi.org/10.1016/j.compag.2018.09.011,Mao et al. 2018
+27,10.3390/agronomy11091810,verified_2026-09-11,https://doi.org/10.3390/agronomy11091810,Cáceres et al. 2021
+28-35,source_document_entries,retained_pending_full_audit,,来自用户定版底稿且本任务未宣称完成逐条复核
+36,MQTT-3.1.1,verified_2026-09-11,https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html,OASIS官方规范

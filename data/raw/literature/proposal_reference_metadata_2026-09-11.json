@@ -1,0 +1,295 @@
+[
+  {
+    "doi": "10.1016/s0967-0661(02)00186-7",
+    "title": "A survey of industrial model predictive control technology",
+    "year": 2003,
+    "authors": [
+      "S. Joe Qin",
+      "Thomas A. Badgwell"
+    ],
+    "source": "Control Engineering Practice",
+    "volume": "11",
+    "issue": "7",
+    "first_page": "733",
+    "last_page": "764",
+    "openalex_id": "https://openalex.org/W2134673975",
+    "landing_page": "https://doi.org/10.1016/s0967-0661(02)00186-7"
+  },
+  {
+    "doi": "10.1016/j.compag.2006.12.001",
+    "title": "Model-based predictive control of greenhouse climate for reducing energy and water consumption",
+    "year": 2007,
+    "authors": [
+      "Xavier Blasco",
+      "M. Martínez",
+      "J.M. Herrero",
+      "C. Ramos",
+      "Javier Sanchis"
+    ],
+    "source": "Computers and Electronics in Agriculture",
+    "volume": "55",
+    "issue": "1",
+    "first_page": "49",
+    "last_page": "70",
+    "openalex_id": "https://openalex.org/W2045239941",
+    "landing_page": "https://doi.org/10.1016/j.compag.2006.12.001"
+  },
+  {
+    "doi": "10.3182/20140824-6-za-1003.02067",
+    "title": "Model Predictive Control for Closed-Loop Irrigation",
+    "year": 2014,
+    "authors": [
+      "Camilo Lozoya",
+      "Carlos Mendoza",
+      "Leonardo Mejia",
+      "Jesus Quintana",
+      "Gilberto Mendoza",
+      "Manuel Bustillos",
+      "Octavio Arras",
+      "Luis Asencios Solis"
+    ],
+    "source": "IFAC Proceedings Volumes",
+    "volume": "47",
+    "issue": "3",
+    "first_page": "4429",
+    "last_page": "4434",
+    "openalex_id": "https://openalex.org/W2050457150",
+    "landing_page": "https://doi.org/10.3182/20140824-6-za-1003.02067"
+  },
+  {
+    "doi": "10.1016/j.envsoft.2015.12.012",
+    "title": "Irrigation control based on model predictive control (MPC): Formulation of theory and validation using weather forecast data and AQUACROP model",
+    "year": 2015,
+    "authors": [
+      "Dilini Delgoda",
+      "Hector Malano",
+      "Syed K. Saleem",
+      "Malka N. Halgamuge"
+    ],
+    "source": "Environmental Modelling & Software",
+    "volume": "78",
+    "issue": null,
+    "first_page": "40",
+    "last_page": "53",
+    "openalex_id": "https://openalex.org/W2218314461",
+    "landing_page": "https://doi.org/10.1016/j.envsoft.2015.12.012"
+  },
+  {
+    "doi": "10.1016/j.compag.2018.09.011",
+    "title": "Soil moisture regulation of agro-hydrological systems using zone model predictive control",
+    "year": 2018,
+    "authors": [
+      "Yawen Mao",
+      "Liu Su",
+      "Jannatun Nahar",
+      "Jinfeng Liu",
+      "Feng Ding"
+    ],
+    "source": "Computers and Electronics in Agriculture",
+    "volume": "154",
+    "issue": null,
+    "first_page": "239",
+    "last_page": "247",
+    "openalex_id": "https://openalex.org/W2890555244",
+    "landing_page": "https://doi.org/10.1016/j.compag.2018.09.011"
+  },
+  {
+    "doi": "10.3390/agronomy11091810",
+    "title": "Smart Farm Irrigation: Model Predictive Control for Economic Optimal Irrigation in Agriculture",
+    "year": 2021,
+    "authors": [
+      "G.B. Cáceres",
+      "Pablo Millán",
+      "M. Pereira",
+      "David Lozano"
+    ],
+    "source": "Agronomy",
+    "volume": "11",
+    "issue": "9",
+    "first_page": "1810",
+    "last_page": "1810",
+    "openalex_id": "https://openalex.org/W3197305267",
+    "landing_page": "https://doi.org/10.3390/agronomy11091810"
+  },
+  {
+    "doi": "10.1016/j.atech.2022.100074",
+    "title": "Data-driven model predictive control for precision irrigation management",
+    "year": 2022,
+    "authors": [
+      "Erion Bwambale",
+      "Felix K. Abagale",
+      "Geophrey K. Anornu"
+    ],
+    "source": "Smart Agricultural Technology",
+    "volume": "3",
+    "issue": null,
+    "first_page": "100074",
+    "last_page": "100074",
+    "openalex_id": "https://openalex.org/W4281775660",
+    "landing_page": "https://doi.org/10.1016/j.atech.2022.100074"
+  },
+  {
+    "doi": "10.1002/acs.3586",
+    "title": "Model predictive control of agro‐hydrological systems based on a two‐layer neural network modeling framework",
+    "year": 2023,
+    "authors": [
+      "Zhiyinan Huang",
+      "Jinfeng Liu",
+      "Biao Huang"
+    ],
+    "source": "International Journal of Adaptive Control and Signal Processing",
+    "volume": "37",
+    "issue": "6",
+    "first_page": "1536",
+    "last_page": "1558",
+    "openalex_id": "https://openalex.org/W4361211740",
+    "landing_page": "https://doi.org/10.1002/acs.3586"
+  },
+  {
+    "doi": "10.1016/j.agwat.2022.108098",
+    "title": "Field evaluation of automated site-specific irrigation for cotton and perennial ryegrass using soil-water sensors and Model Predictive Control",
+    "year": 2022,
+    "authors": [
+      "Alison McCarthy",
+      "Joseph M. Foley",
+      "Pieter Raedts",
+      "James Hills"
+    ],
+    "source": "Agricultural Water Management",
+    "volume": "277",
+    "issue": null,
+    "first_page": "108098",
+    "last_page": "108098",
+    "openalex_id": "https://openalex.org/W4312085477",
+    "landing_page": "https://doi.org/10.1016/j.agwat.2022.108098"
+  },
+  {
+    "doi": "10.1016/j.atech.2023.100179",
+    "title": "Model based predictive control strategy for water saving drip irrigation",
+    "year": 2023,
+    "authors": [
+      "Abiodun Emmanuel Abioye",
+      "Mohamad Shukri Zainal Abidin",
+      "Mohd Saiful Azimi Mahmud",
+      "Salinda Buyamin",
+      "Olatunji Obalowu Mohammed",
+      "Abdulrahaman Okino Otuoze",
+      "Ibrahim Oleolo",
+      "Abioye Mayowa"
+    ],
+    "source": "Smart Agricultural Technology",
+    "volume": "4",
+    "issue": null,
+    "first_page": "100179",
+    "last_page": "100179",
+    "openalex_id": "https://openalex.org/W4315864574",
+    "landing_page": "https://doi.org/10.1016/j.atech.2023.100179"
+  },
+  {
+    "doi": "10.1016/j.agwat.2023.108148",
+    "title": "Soil water sensors for irrigation scheduling in the United States: A systematic review of literature",
+    "year": 2023,
+    "authors": [
+      "Sumon Datta",
+      "Saleh Taghvaeian"
+    ],
+    "source": "Agricultural Water Management",
+    "volume": "278",
+    "issue": null,
+    "first_page": "108148",
+    "last_page": "108148",
+    "openalex_id": "https://openalex.org/W4317566440",
+    "landing_page": "https://doi.org/10.1016/j.agwat.2023.108148"
+  },
+  {
+    "doi": "10.1016/j.compag.2021.106352",
+    "title": "Review of the internet of things communication technologies in smart agriculture and challenges",
+    "year": 2021,
+    "authors": [
+      "Wen Tao",
+      "Liang Zhao",
+      "Guangwen Wang",
+      "Ruobing Liang"
+    ],
+    "source": "Computers and Electronics in Agriculture",
+    "volume": "189",
+    "issue": null,
+    "first_page": "106352",
+    "last_page": "106352",
+    "openalex_id": "https://openalex.org/W3196031017",
+    "landing_page": "https://doi.org/10.1016/j.compag.2021.106352"
+  },
+  {
+    "doi": "10.1016/j.arcontrol.2009.12.001",
+    "title": "Perspectives on system identification",
+    "year": 2010,
+    "authors": [
+      "Lennart Ljung"
+    ],
+    "source": "Annual Reviews in Control",
+    "volume": "34",
+    "issue": "1",
+    "first_page": "1",
+    "last_page": "12",
+    "openalex_id": "https://openalex.org/W4246840991",
+    "landing_page": "https://doi.org/10.1016/j.arcontrol.2009.12.001"
+  },
+  {
+    "doi": "10.1016/j.arcontrol.2008.03.008",
+    "title": "Bibliographical review on reconfigurable fault-tolerant control systems",
+    "year": 2008,
+    "authors": [
+      "Youmin Zhang",
+      "Jin Jiang"
+    ],
+    "source": "Annual Reviews in Control",
+    "volume": "32",
+    "issue": "2",
+    "first_page": "229",
+    "last_page": "252",
+    "openalex_id": "https://openalex.org/W2139494503",
+    "landing_page": "https://doi.org/10.1016/j.arcontrol.2008.03.008"
+  },
+  {
+    "doi": "10.1016/j.sna.2020.111990",
+    "title": "Recent advances in sensor fault diagnosis: A review",
+    "year": 2020,
+    "authors": [
+      "Daoliang Li",
+      "Ying Wang",
+      "Jinxing Wang",
+      "Cong Wang",
+      "Yanqing Duan"
+    ],
+    "source": "Sensors and Actuators A Physical",
+    "volume": "309",
+    "issue": null,
+    "first_page": "111990",
+    "last_page": "111990",
+    "openalex_id": "https://openalex.org/W3022757405",
+    "landing_page": "https://doi.org/10.1016/j.sna.2020.111990"
+  },
+  {
+    "doi": "10.1016/j.geoderma.2014.01.029",
+    "title": "Origin of the high sensitivity of Chinese red clay soils to drought: Significance of the clay characteristics",
+    "year": 2014,
+    "authors": [
+      "Benoît D’angelo",
+      "Ary Bruand",
+      "Jiangtao Qin",
+      "Xinhua Peng",
+      "Christian Hartmann",
+      "Bo Sun",
+      "Hongtao Hao",
+      "Olivier Rozenbaum",
+      "Fabrice Muller"
+    ],
+    "source": "Geoderma",
+    "volume": "223-225",
+    "issue": null,
+    "first_page": "46",
+    "last_page": "53",
+    "openalex_id": "https://openalex.org/W1986892425",
+    "landing_page": "https://doi.org/10.1016/j.geoderma.2014.01.029"
+  }
+]

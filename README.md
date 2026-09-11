@@ -23,7 +23,7 @@
 
 `data/csv/task_list.csv` 是任务状态的唯一事实来源，`context.md` 记录当前结论、边界和下一步。
 
-当前项目结论与毕业设计实施路线见`docs/current_project_summary_and_research_roadmap.md`，论文草稿索引见`docs/thesis_draft/README.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。
+当前项目结论与开题后的实施路线见`docs/current_project_summary_and_research_roadmap.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。基于学校定版底稿修订的开题报告位于`output/proposal_revision/开题报告_红壤设施大棚_智能管控平台与根区MPC版_研究路线修订稿.docx`。论文草稿仅作为后续研究结构储备，索引见`docs/thesis_draft/README.md`，当前工作阶段仍是开题报告修订与论证。
 
 ## 目录
 

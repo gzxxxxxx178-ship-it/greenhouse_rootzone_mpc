@@ -47,3 +47,4 @@ T045,thesis,起草第6章平台软件在环验证,completed,high,2026-09-10,2026
 T046,thesis,起草第7章综合讨论与条件触发路线,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter7_integrated_discussion_and_roadmap.md,统一数据准入双层控制监督平台价值与三层成果并新增8处数字绑定
 T047,thesis,起草第8章结论与展望,completed,high,2026-09-10,2026-09-10,docs/thesis_draft/chapter8_conclusions_and_outlook.md,回收数据准入双层控制监督平台四项贡献并新增8处数字绑定
 T048,documentation,更新仓库首页与论文草稿索引,completed,medium,2026-09-10,2026-09-10,docs/thesis_draft/README.md,同步双层T041主结果第2至8章状态运行入口和默认不绘图规则
+T049,proposal,基于定版文档修订开题报告并更新项目总结,completed,high,2026-09-11,2026-09-11,output/proposal_revision/开题报告_红壤设施大棚_智能管控平台与根区MPC版_研究路线修订稿.docx,保留智慧管控平台主体并将算法内容调整为有限数据下根区MPC适用性证据链且完成Word版式检查
