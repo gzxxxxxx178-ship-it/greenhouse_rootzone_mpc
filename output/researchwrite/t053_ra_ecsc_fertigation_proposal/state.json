@@ -1,0 +1,13 @@
+{
+  "mode": "hybrid",
+  "task_id": "T053",
+  "status": "qa_passed",
+  "round": 2,
+  "target": "proposal",
+  "title": "基于风险感知边云协同控制的智能水肥一体化系统设计与实现",
+  "technical_debts": [
+    "实体EC探头与注肥执行器台架验证待条件确认",
+    "共同漂移需要独立参考观测设计",
+    "正式提交前复核学校格式与导师题名意见"
+  ]
+}
