@@ -1,0 +1,11 @@
+{
+  "mode": "hybrid",
+  "task_id": "T051",
+  "status": "qa_passed",
+  "round": 2,
+  "target": "proposal",
+  "technical_debts": [
+    "项目启动后补充传感器部署和数据权限",
+    "正式提交前逐条复核保留参考文献"
+  ]
+}

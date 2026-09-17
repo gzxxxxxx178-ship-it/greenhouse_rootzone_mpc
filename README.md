@@ -23,7 +23,7 @@
 
 `data/csv/task_list.csv` 是任务状态的唯一事实来源，`context.md` 记录当前结论、边界和下一步。
 
-当前项目结论与开题后的实施路线见`docs/current_project_summary_and_research_roadmap.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。当前优先提交的开题报告为`output/proposal_revision/开题报告_基于根区MPC的红壤大棚管控平台_润色稿.docx`；T049研究路线修订稿保留为上一版本。论文草稿仅作为后续研究结构储备，索引见`docs/thesis_draft/README.md`，当前工作阶段仍是开题报告修订与论证。
+当前项目结论与开题后的实施路线见`docs/current_project_summary_and_research_roadmap.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。当前优先讨论的开题报告为`output/proposal_revision/开题报告_基于MPC的智能水肥一体化系统设计研究_讨论稿.docx`；T049、T050保留为历史版本。新稿以智能水肥一体化系统为研究对象，以根区水分MPC为当前算法主线，通过现场数据辨识模型并在独立虚拟对象中完成闭环仿真，不预设固定传感器埋深，也不把现场闭环作为毕业成立的前置条件。论文草稿仅作为后续研究结构储备，索引见`docs/thesis_draft/README.md`，当前工作阶段仍是开题报告修订与论证。
 
 ## 目录
 
