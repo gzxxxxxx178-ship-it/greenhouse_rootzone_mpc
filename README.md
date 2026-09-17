@@ -23,7 +23,7 @@
 
 `data/csv/task_list.csv` 是任务状态的唯一事实来源，`context.md` 记录当前结论、边界和下一步。
 
-当前项目结论与开题后的实施路线见`docs/current_project_summary_and_research_roadmap.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。当前优先讨论的开题报告为`output/proposal_revision/开题报告_基于风险感知边云协同控制的智能水肥一体化系统设计与实现.docx`；T049—T052保留为题名与技术路线演变记录。新稿以小论文的混肥EC闭环为前期基础，扩展为感知执行、边缘控制、MQTT通信、云端预测、风险监督和管理审计组成的系统方案，不叙述外部合作、建设进度或数据权限。论文草稿仅作为后续研究结构储备，索引见`docs/thesis_draft/README.md`，当前工作阶段仍是开题报告修订与论证。
+当前项目结论与开题后的实施路线见`docs/current_project_summary_and_research_roadmap.md`，条件触发式任务表见`data/csv/thesis_execution_roadmap.csv`。当前优先讨论的开题报告为`output/proposal_revision/开题报告_基于物联网与边云协同控制的智能水肥一体化管控系统设计与实现_无参考文献版.docx`；T049—T053保留为题名与技术路线演变记录。新稿以小论文的混肥EC闭环为前期基础，扩展为感知执行、边缘控制、MQTT通信、云端预测、风险监督和管理审计组成的系统方案；根据当前写作安排，正文引用标记与参考文献条目暂时全部清空。论文草稿仅作为后续研究结构储备，索引见`docs/thesis_draft/README.md`，当前工作阶段仍是开题报告修订与论证。
 
 ## 目录
 
