@@ -50,3 +50,4 @@ T048,documentation,更新仓库首页与论文草稿索引,completed,medium,2026
 T049,proposal,基于定版文档修订开题报告并更新项目总结,completed,high,2026-09-11,2026-09-11,output/proposal_revision/开题报告_红壤设施大棚_智能管控平台与根区MPC版_研究路线修订稿.docx,保留智慧管控平台主体并将算法内容调整为有限数据下根区MPC适用性证据链且完成Word版式检查
 T050,proposal,重构开题报告题目与全文学术表达,completed,high,2026-09-11,2026-09-11,output/proposal_revision/开题报告_基于根区MPC的红壤大棚管控平台_润色稿.docx,题名收束为基于根区MPC的红壤大棚管控平台研究并按平台到控制证据链重排全文且完成Word版式检查
 T051,proposal,按现场数据驱动仿真路线重构智能水肥一体化开题报告,completed,high,2026-09-17,2026-09-17,output/proposal_revision/开题报告_基于MPC的智能水肥一体化系统设计研究_讨论稿.docx,以项目现场数据辨识根区模型并在独立虚拟对象中完成阈值PID与MPC闭环仿真且完成文档结构和版式核验
+T052,proposal,删除开题报告中的外部项目进展叙述并聚焦系统设计,completed,high,2026-09-17,2026-09-17,output/proposal_revision/开题报告_基于MPC的智能水肥一体化系统设计研究_设计稿.docx,将参与项目未启动权限未知等表述改写为数据规范模型准入控制验证和系统扩展设计并完成禁用表述扫描与文档渲染检查
