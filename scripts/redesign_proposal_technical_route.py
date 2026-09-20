@@ -56,7 +56,10 @@ def phase_label(draw: ImageDraw.ImageDraw, y: int, number: str, label: str, colo
         draw.text((140 - (bounds[2] - bounds[0]) / 2, y + offset), text, font=selected, fill="#1F2933")
 
 
-def make_technical_route(path: Path) -> None:
+def make_technical_route(
+    path: Path,
+    problem_text: str = "通信与传感异常并发条件下的水肥一体机EC连续控制",
+) -> None:
     image = Image.new("RGB", (2200, 1680), "white")
     draw = ImageDraw.Draw(image)
 
@@ -64,7 +67,7 @@ def make_technical_route(path: Path) -> None:
     centered_box(
         draw,
         (300, 40, 2150, 175),
-        "通信与传感异常并发条件下的水肥一体机EC连续控制",
+        problem_text,
         fill="#DDEAF4",
         title=True,
     )
