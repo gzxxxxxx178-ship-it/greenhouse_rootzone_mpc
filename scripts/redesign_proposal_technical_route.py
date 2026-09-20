@@ -88,7 +88,7 @@ def make_technical_route(
     centered_box(
         draw,
         (900, 635, 1550, 855),
-        "RA-ECSC监督状态机\nM0云端预测  M1边缘控制  M2模型锚定降级\n滞回  驻留时间  恢复确认  状态同步",
+        "风险感知协同控制\nM0云端预测  M1边缘控制  M2模型锚定降级\n滞回  驻留时间  恢复确认  状态同步",
         fill="#DCD5ED",
         title=True,
     )
