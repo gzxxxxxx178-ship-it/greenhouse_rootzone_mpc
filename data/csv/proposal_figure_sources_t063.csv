@@ -1,0 +1,5 @@
+figure,type,file,source,location,usage,verified_date
+1,literature_photo,mobile_machine_reference.png,https://doi.org/10.13427/j.cnki.njyi.2023.04.008,印刷页98原图5,研究现状中的牵引式移动装备示例并非本课题样机,2026-10-15
+2,original_design,system_architecture.png,本课题拟设计方案,总体目标之后,系统分层与数据及命令关系,2026-10-15
+3,existing_design,technical_route_portable.png,T062保留技术路线图,总体技术路线,研究阶段与验证任务,2026-10-15
+4,original_design,task_control_flow.png,本课题拟设计方案,风险监督与控制权分配之后,转场初始化及连续作业监督,2026-10-15
